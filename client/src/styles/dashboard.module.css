@@ -1,0 +1,223 @@
+.dashboard {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 84px 230px minmax(0, 1fr);
+    color: #d8e4f0;
+    background: #1b2635;
+}
+
+.childRail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 10px;
+    background: #15202d;
+    border-right: 1px solid #29394b;
+}
+
+.railBrand {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    color: #ffffff;
+    background: #2b73c6;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+}
+
+.childButton {
+    width: 54px;
+    min-height: 48px;
+    padding: 6px 3px !important;
+    border: 1px solid transparent !important;
+    border-radius: 13px !important;
+    color: #9db0c3 !important;
+    background: #223244 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    text-transform: none !important;
+}
+
+.childButton:hover {
+    color: #ffffff !important;
+    background: #2b73c6 !important;
+}
+
+.selectedChild {
+    color: #ffffff !important;
+    background: #2b73c6 !important;
+    box-shadow: 0 8px 18px rgba(43, 115, 198, 0.28);
+}
+
+.pageRail {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 22px 14px;
+    background: #202f40;
+    border-right: 1px solid #2e4258;
+}
+
+.workspaceTitle {
+    padding: 0 12px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.pageLabel {
+    padding: 0 12px 9px;
+    color: #7f96ad;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.pageList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pageButton {
+    justify-content: flex-start !important;
+    min-height: 42px;
+    padding: 0 12px !important;
+    border-radius: 8px !important;
+    color: #9db0c3 !important;
+    font-size: 14px !important;
+    text-transform: none !important;
+}
+
+.pageButton:hover {
+    color: #ffffff !important;
+    background: #2a3d52 !important;
+}
+
+.selectedPage {
+    color: #ffffff !important;
+    background: #2b73c6 !important;
+}
+
+.dashboardMain {
+    display: flex;
+    min-width: 0;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #f4f7fb;
+}
+
+.chatHeader {
+    display: flex;
+    min-height: 74px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 26px;
+    color: #20364c;
+    background: #ffffff;
+    border-bottom: 1px solid #dce6ef;
+}
+
+.chatHeaderContent {
+    min-width: 0;
+}
+
+.chatTitle {
+    overflow: hidden;
+    color: #20364c;
+    font-size: 18px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chatSubtitle {
+    color: #75889b;
+    font-size: 12px;
+}
+
+.logoutButton {
+    color: #c44f5c !important;
+    border-radius: 9px !important;
+}
+
+.logoutButton:hover {
+    background: #fff0f1 !important;
+}
+
+.chatBody {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px;
+}
+
+.emptyChat {
+    width: min(100%, 620px);
+    margin: 0 auto;
+    padding: 42px 30px;
+    border: 1px dashed #b9c9d8;
+    border-radius: 18px;
+    color: #657b8f;
+    background: #ffffff;
+    text-align: center;
+}
+
+.emptyChatTitle {
+    margin-bottom: 10px;
+    color: #20364c;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.emptyChatText {
+    color: #71869a;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+@media (max-width: 850px) {
+    .dashboard {
+        grid-template-columns: 72px 190px minmax(0, 1fr);
+    }
+
+    .pageRail {
+        padding: 18px 10px;
+    }
+
+    .chatHeader {
+        padding: 0 18px;
+    }
+
+    .chatBody {
+        padding: 24px 18px;
+    }
+}
+
+@media (max-width: 620px) {
+    .dashboard {
+        grid-template-columns: 64px minmax(0, 1fr);
+    }
+
+    .pageRail {
+        display: none;
+    }
+
+    .childRail {
+        padding: 16px 6px;
+    }
+
+    .childButton {
+        width: 48px;
+    }
+}
