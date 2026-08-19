@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-import styles from "../App.module.css";
+import styles from "../styles/auth.module.css";
 
 function AuthSwitcher({ activeView }) {
     return (

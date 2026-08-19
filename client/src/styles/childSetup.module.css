@@ -1,0 +1,8 @@
+.form { display: flex; flex-direction: column; gap: 18px; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.childrenList { display: flex; flex-direction: column; gap: 12px; }
+.childCard { padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: #fbfcfd; }
+.childCardHeader { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; margin-bottom: 14px; }
+@media (max-width: 520px) {
+    .childCardHeader { grid-template-columns: 1fr; }
+}

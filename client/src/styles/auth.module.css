@@ -1,0 +1,46 @@
+.page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 520px);
+    gap: 72px;
+    align-items: center;
+    padding: 56px 8vw;
+    background:
+        radial-gradient(circle at 14% 20%, rgba(143, 201, 227, .24), transparent 28%),
+        #f7f9fa;
+}
+
+.introduction { max-width: 620px; }
+.brandLink { display: inline-block; text-decoration: none; }
+.brandMark {
+    width: 54px; height: 54px; display: grid; place-items: center; margin-bottom: 26px;
+    border-radius: 16px; color: white; background: var(--navy); font-size: 17px;
+    font-weight: 800; letter-spacing: .05em;
+}
+.eyebrow { margin-bottom: 14px !important; color: var(--cyan); font-weight: 750 !important; }
+.title {
+    margin-bottom: 22px !important; color: var(--navy); font-size: clamp(42px, 5vw, 66px) !important;
+    font-weight: 760 !important; line-height: 1.07 !important; letter-spacing: -.045em !important;
+}
+.description { max-width: 520px; color: #5f707a; font-size: 18px !important; line-height: 1.65 !important; }
+.authCard {
+    width: 100%; border: 1px solid var(--line); border-radius: 24px !important;
+    background: rgba(255,255,255,.98) !important; box-shadow: 0 18px 50px rgba(20,42,54,.08) !important;
+}
+.cardContent { display: flex; flex-direction: column; gap: 22px; padding: 32px !important; }
+.switcher { display: grid; grid-template-columns: 1fr 1fr; padding: 4px; border-radius: 12px; background: #f0f3f5; }
+.switchButton, .activeButton { min-height: 42px; border-radius: 9px !important; text-transform: none !important; font-weight: 700 !important; }
+.switchButton { color: #65737b !important; }
+.activeButton { background: white !important; color: var(--navy) !important; box-shadow: 0 2px 8px rgba(20,42,54,.08) !important; }
+.formTitle { margin-bottom: 6px !important; color: var(--navy); font-size: 27px !important; font-weight: 760 !important; }
+.formDescription { color: var(--muted); font-size: 14px !important; line-height: 1.5 !important; }
+
+@media (max-width: 900px) {
+    .page { grid-template-columns: 1fr; gap: 36px; padding: 40px 24px; }
+    .authCard { max-width: 560px; justify-self: center; }
+}
+@media (max-width: 560px) {
+    .page { padding: 28px 16px; }
+    .cardContent { padding: 22px !important; }
+    .title { font-size: 42px !important; }
+}

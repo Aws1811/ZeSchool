@@ -1,0 +1,79 @@
+:root {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #10202a;
+    background: #f5f7f9;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    --sky: #8fc9e3;
+    --cyan: #2aa0bd;
+    --navy: #0b3b52;
+    --yellow: #ffb916;
+    --orange: #ff7f00;
+    --bg: #f5f7f9;
+    --card: #ffffff;
+    --text: #10202a;
+    --muted: #71808a;
+    --line: #e4e9ed;
+    --soft: #eef7fb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    background: var(--bg);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+}
+
+::selection {
+    background: #dff2fa;
+    color: var(--navy);
+}
+
+.MuiButton-containedPrimary {
+    background-color: var(--navy) !important;
+    box-shadow: none !important;
+    text-transform: none !important;
+    border-radius: 10px !important;
+}
+
+.MuiButton-containedPrimary:hover {
+    background-color: #082f42 !important;
+}
+
+.MuiButton-outlinedPrimary,
+.MuiButton-textPrimary {
+    color: var(--navy) !important;
+    border-color: #b9cbd4 !important;
+    text-transform: none !important;
+}
+
+.MuiRadio-root.Mui-checked,
+.MuiFormLabel-root.Mui-focused,
+.MuiInputLabel-root.Mui-focused {
+    color: var(--cyan) !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: var(--cyan) !important;
+}

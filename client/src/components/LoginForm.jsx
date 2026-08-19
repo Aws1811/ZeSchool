@@ -1,19 +1,13 @@
 import { useState } from "react";
-import { Alert, Button, TextField } from "@mui/material";
-import styles from "../App.module.css";
+import { Button, TextField } from "@mui/material";
+import styles from "../styles/form.module.css";
 
-function LoginForm({ onSubmit, message }) {
+function LoginForm({ onSubmit }) {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
         <form className={styles.form} onSubmit={onSubmit}>
-            <TextField
-                fullWidth
-                label="Email or phone number"
-                name="loginIdentifier"
-                placeholder="you@example.com"
-                required
-            />
+            <TextField fullWidth label="Email or phone number" name="loginIdentifier" required />
             <div className={styles.passwordField}>
                 <TextField
                     fullWidth
@@ -22,18 +16,11 @@ function LoginForm({ onSubmit, message }) {
                     type={showPassword ? "text" : "password"}
                     required
                 />
-                <Button
-                    type="button"
-                    className={styles.passwordButton}
-                    onClick={() => setShowPassword(!showPassword)}
-                >
+                <Button type="button" className={styles.passwordButton} onClick={() => setShowPassword(!showPassword)}>
                     {showPassword ? "Hide" : "Show"}
                 </Button>
             </div>
-            <Button fullWidth type="submit" variant="contained" size="large">
-                Login
-            </Button>
-            {message && <Alert severity="info">{message}</Alert>}
+            <Button fullWidth type="submit" variant="contained" size="large">Login</Button>
         </form>
     );
 }
