@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import AuthSwitcher from "../AuthSwitcher/AuthSwitcher";
-import styles from "../../App.module.css";
+import AuthSwitcher from "./AuthSwitcher";
+import styles from "../App.module.css";
 
 function AuthLayout({ title, description, children, activeView, message }) {
     return (

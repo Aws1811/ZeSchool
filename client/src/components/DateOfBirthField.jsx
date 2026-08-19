@@ -11,7 +11,7 @@ function DateOfBirthField({ value, onChange }) {
             onChange={onChange}
             InputLabelProps={{ shrink: true }}
             inputProps={{ max: new Date().toISOString().split("T")[0] }}
-            helperText="Choose a date. It will be shown as DD/MM/YYYY."
+            helperText="Displayed as DD/MM/YYYY"
             required
         />
     );

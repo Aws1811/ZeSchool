@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import AuthLayout from "../../components/AuthLayout/AuthLayout";
-import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import AuthLayout from "../components/AuthLayout";
+import RegisterForm from "../components/RegisterForm";
 
 function RegisterPage() {
     const navigate = useNavigate();
@@ -13,6 +13,10 @@ function RegisterPage() {
             setMessage("Passwords do not match.");
             return;
         }
+        if (formData.role === "teacher") {
+            setMessage("Teacher registration details are ready for backend connection.");
+            return;
+        }
         setMessage("");
         navigate("/register/children", { state: { registrationData: formData } });
     };
@@ -20,8 +24,8 @@ function RegisterPage() {
     return (
         <AuthLayout
             activeView="register"
-            title="Create your parent account"
-            description="Add your information to get started."
+            title="Create your account"
+            description="Choose your role and add your information to get started."
             message={message && <Alert severity="error">{message}</Alert>}
         >
             <RegisterForm onSubmit={handleRegisterDetails} />

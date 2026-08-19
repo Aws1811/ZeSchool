@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Alert, Button } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
-import AuthLayout from "../../components/AuthLayout/AuthLayout";
-import ChildSetupForm from "../../components/ChildSetupForm/ChildSetupForm";
-import styles from "../../App.module.css";
+import AuthLayout from "../components/AuthLayout";
+import ChildSetupForm from "../components/ChildSetupForm";
+import styles from "../App.module.css";
 
 function ChildSetupPage() {
     const location = useLocation();

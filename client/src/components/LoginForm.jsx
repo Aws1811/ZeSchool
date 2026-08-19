@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Alert, Button, TextField } from "@mui/material";
-import styles from "../../App.module.css";
+import styles from "../App.module.css";
 
 function LoginForm({ onSubmit, message }) {
     const [showPassword, setShowPassword] = useState(false);

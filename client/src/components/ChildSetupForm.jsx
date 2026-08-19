@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Typography } from "@mui/material";
-import ChildCard from "../ChildCard/ChildCard";
-import styles from "../../App.module.css";
+import ChildCard from "./ChildCard";
+import styles from "../App.module.css";
 
 function ChildSetupForm({ onSubmit }) {
     const [children, setChildren] = useState([{ usesBus: "no" }]);
@@ -11,6 +11,15 @@ function ChildSetupForm({ onSubmit }) {
             ...currentChildren,
             { usesBus: "no" },
         ]);
+    };
+
+    const removeChild = (index) => {
+        setChildren((currentChildren) => {
+            if (currentChildren.length === 1) {
+                return currentChildren;
+            }
+            return currentChildren.filter((_, childIndex) => childIndex !== index);
+        });
     };
 
     const updateChildBusChoice = (index, value) => {
@@ -43,6 +52,7 @@ function ChildSetupForm({ onSubmit }) {
                         childNumber={index + 1}
                         usesBus={child.usesBus}
                         onBusChange={(value) => updateChildBusChoice(index, value)}
+                        onRemove={() => removeChild(index)}
                     />
                 ))}
             </div>
