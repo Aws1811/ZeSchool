@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthLayout from "../components/AuthLayout";
 import LoginForm from "../components/LoginForm";
 
 function LoginPage() {
-    const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleLogin = (event) => {
         event.preventDefault();
-        setMessage("Login is ready for backend connection.");
+        navigate("/dashboard");
     };
 
     return (
@@ -16,7 +16,7 @@ function LoginPage() {
             title="Welcome back"
             description="Enter your email or phone number to continue."
         >
-            <LoginForm onSubmit={handleLogin} message={message} />
+            <LoginForm onSubmit={handleLogin} />
         </AuthLayout>
     );
 }

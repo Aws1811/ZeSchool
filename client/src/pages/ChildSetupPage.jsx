@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Alert, Button } from "@mui/material";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthLayout from "../components/AuthLayout";
 import ChildSetupForm from "../components/ChildSetupForm";
 import styles from "../App.module.css";
 
 function ChildSetupPage() {
     const location = useLocation();
+    const navigate = useNavigate();
     const [message, setMessage] = useState("");
     const registrationData = location.state?.registrationData;
 
@@ -15,7 +16,7 @@ function ChildSetupPage() {
             setMessage("Please start registration from the registration page.");
             return;
         }
-        setMessage(`Registration is ready with ${children.length} child record(s).`);
+        navigate("/dashboard", { state: { children } });
     };
 
     if (!registrationData) {
