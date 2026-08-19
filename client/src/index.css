@@ -4,8 +4,8 @@
 
 :root {
     font-family: "Segoe UI", Roboto, Arial, sans-serif;
-    color: #102a43;
-    background: #f8fbff;
+    color: #213547;
+    background: rgba(253, 255, 84, 0.10);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -23,4 +23,37 @@ input,
 textarea,
 select {
     font: inherit;
+}
+
+
+.MuiButton-containedPrimary {
+    background-color: #4790f7 !important;
+}
+
+.MuiButton-containedPrimary:hover {
+    background-color: #4790f7 !important;
+}
+
+.MuiButton-outlinedPrimary,
+.MuiButton-textPrimary {
+    color: #4790f7 !important;
+    border-color: #4790f7 !important;
+}
+
+.MuiRadio-root.Mui-checked {
+    color: #73e263 !important;
+}
+
+.MuiFormLabel-root.Mui-focused,
+.MuiInputLabel-root.Mui-focused {
+    color: #4790f7 !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #4790f7 !important;
+}
+
+::selection {
+    background: #fdff54;
+    color: #213547;
 }
