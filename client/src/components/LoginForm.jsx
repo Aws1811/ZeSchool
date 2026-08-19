@@ -33,9 +33,6 @@ function LoginForm({ onSubmit, message }) {
             <Button fullWidth type="submit" variant="contained" size="large">
                 Login
             </Button>
-            <Button type="button" className={styles.forgotButton}>
-                Forgot password?
-            </Button>
             {message && <Alert severity="info">{message}</Alert>}
         </form>
     );

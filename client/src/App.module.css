@@ -374,3 +374,40 @@
         gap: 10px;
     }
 }
+
+
+.childNameField {
+    flex: 1;
+    max-width: 230px;
+}
+
+.childNameField .MuiInputBase-input {
+    padding: 2px 0;
+    color: #102a43;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.childCardHeader .MuiButton-root:disabled {
+    color: #aeb9c4;
+}
+
+
+.dateOfBirthField {
+    min-width: 0;
+}
+
+.dateOfBirthField .MuiInputBase-input {
+    min-width: 0;
+    padding-right: 8px;
+    font-size: 14px;
+}
+
+.dateOfBirthField input[type="date"]::-webkit-datetime-edit {
+    padding: 0;
+}
+
+.dateOfBirthField input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+    display: inline-flex;
+    gap: 2px;
+}

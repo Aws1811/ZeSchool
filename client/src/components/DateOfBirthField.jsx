@@ -1,17 +1,17 @@
 import { TextField } from "@mui/material";
+import styles from "../App.module.css";
 
 function DateOfBirthField({ value, onChange }) {
     return (
         <TextField
             fullWidth
-            label="Date of birth"
+            className={styles.dateOfBirthField}
             name="dateOfBirth"
+            aria-label="Date of birth"
             type="date"
             value={value}
             onChange={onChange}
-            InputLabelProps={{ shrink: true }}
             inputProps={{ max: new Date().toISOString().split("T")[0] }}
-            helperText="Displayed as DD/MM/YYYY"
             required
         />
     );

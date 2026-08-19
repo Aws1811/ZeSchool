@@ -4,12 +4,12 @@ import ChildCard from "./ChildCard";
 import styles from "../App.module.css";
 
 function ChildSetupForm({ onSubmit }) {
-    const [children, setChildren] = useState([{ usesBus: "no" }]);
+    const [children, setChildren] = useState([{ name: "Child 1", usesBus: "no" }]);
 
     const addChild = () => {
         setChildren((currentChildren) => [
             ...currentChildren,
-            { usesBus: "no" },
+            { name: `Child ${currentChildren.length + 1}`, usesBus: "no" },
         ]);
     };
 
@@ -20,6 +20,14 @@ function ChildSetupForm({ onSubmit }) {
             }
             return currentChildren.filter((_, childIndex) => childIndex !== index);
         });
+    };
+
+    const updateChildName = (index, value) => {
+        setChildren((currentChildren) =>
+            currentChildren.map((child, childIndex) =>
+                childIndex === index ? { ...child, name: value } : child,
+            ),
+        );
     };
 
     const updateChildBusChoice = (index, value) => {
@@ -49,10 +57,12 @@ function ChildSetupForm({ onSubmit }) {
                 {children.map((child, index) => (
                     <ChildCard
                         key={index}
-                        childNumber={index + 1}
+                        childName={child.name}
                         usesBus={child.usesBus}
+                        onNameChange={(value) => updateChildName(index, value)}
                         onBusChange={(value) => updateChildBusChoice(index, value)}
                         onRemove={() => removeChild(index)}
+                        removeDisabled={children.length === 1}
                     />
                 ))}
             </div>

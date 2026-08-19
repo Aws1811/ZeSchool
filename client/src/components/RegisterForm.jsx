@@ -59,6 +59,7 @@ function RegisterForm({ onSubmit }) {
             <TextField
                 fullWidth
                 label={formData.role === "teacher" ? "Teacher name" : "Parent name"}
+                InputLabelProps={{ shrink: true }}
                 name={formData.role === "teacher" ? "teacherName" : "parentName"}
                 value={formData.role === "teacher" ? formData.teacherName : formData.parentName}
                 onChange={updateFormData}
@@ -68,6 +69,7 @@ function RegisterForm({ onSubmit }) {
                 <TextField
                     select
                     label="Contact method"
+                    InputLabelProps={{ shrink: true }}
                     name="contactType"
                     value={formData.contactType}
                     onChange={updateFormData}
@@ -78,6 +80,7 @@ function RegisterForm({ onSubmit }) {
                 <TextField
                     fullWidth
                     label={formData.contactType === "email" ? "Email" : "Phone number"}
+                    InputLabelProps={{ shrink: true }}
                     name="contactValue"
                     type={formData.contactType === "email" ? "email" : "tel"}
                     value={formData.contactValue}
@@ -103,13 +106,13 @@ function RegisterForm({ onSubmit }) {
                     required
                 />
             </div>
-            {formData.role === "parent" && (
-                <div className={styles.formRow}>
+            <div className={styles.formRow}>
                     <TextField
                         fullWidth
                         select
                         label="Gender"
-                    name="gender"
+                        InputLabelProps={{ shrink: true }}
+                        name="gender"
                     value={formData.gender}
                     onChange={updateFormData}
                     required
@@ -122,12 +125,12 @@ function RegisterForm({ onSubmit }) {
                         value={formData.dateOfBirth}
                         onChange={updateFormData}
                     />
-                </div>
-            )}
+            </div>
             <div className={styles.passwordField}>
                 <TextField
                     fullWidth
                     label="Password"
+                    InputLabelProps={{ shrink: true }}
                     name="password"
                     type={showPassword ? "text" : "password"}
                     value={formData.password}
@@ -146,6 +149,7 @@ function RegisterForm({ onSubmit }) {
                 <TextField
                     fullWidth
                     label="Confirm password"
+                    InputLabelProps={{ shrink: true }}
                     name="confirmPassword"
                     type={showConfirmPassword ? "text" : "password"}
                     value={formData.confirmPassword}

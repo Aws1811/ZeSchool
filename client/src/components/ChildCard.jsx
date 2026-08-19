@@ -5,22 +5,28 @@ import {
     FormLabel,
     Radio,
     RadioGroup,
-    Typography,
+    TextField,
 } from "@mui/material";
 import styles from "../App.module.css";
 
-function ChildCard({ childNumber, usesBus, onBusChange, onRemove }) {
+function ChildCard({ childName, usesBus, onNameChange, onBusChange, onRemove, removeDisabled }) {
     return (
         <div className={styles.childCard}>
             <div className={styles.childCardHeader}>
-                <Typography className={styles.childTitle}>
-                    Child {childNumber}
-                </Typography>
+                <TextField
+                    className={styles.childNameField}
+                    variant="standard"
+                    value={childName}
+                    onChange={(event) => onNameChange(event.target.value)}
+                    aria-label="Child name"
+                    inputProps={{ maxLength: 40 }}
+                />
                 <Button
                     type="button"
                     color="error"
                     size="small"
                     onClick={onRemove}
+                    disabled={removeDisabled}
                 >
                     Remove
                 </Button>
