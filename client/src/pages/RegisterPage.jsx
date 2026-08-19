@@ -13,11 +13,12 @@ function RegisterPage() {
             setMessage("Passwords do not match.");
             return;
         }
+
         if (formData.role === "teacher") {
-            setMessage("Teacher registration details are ready for backend connection.");
+            navigate("/teacher/chat");
             return;
         }
-        setMessage("");
+
         navigate("/register/children", { state: { registrationData: formData } });
     };
 

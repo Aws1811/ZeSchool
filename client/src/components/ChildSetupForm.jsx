@@ -1,41 +1,22 @@
 import { useState } from "react";
 import { Button, Typography } from "@mui/material";
 import ChildCard from "./ChildCard";
-import styles from "../styles/app.module.css";
+import styles from "../styles/childSetup.module.css";
 
 function ChildSetupForm({ onSubmit }) {
     const [children, setChildren] = useState([{ name: "Child 1", usesBus: "no" }]);
 
-    const addChild = () => {
-        setChildren((currentChildren) => [
-            ...currentChildren,
-            { name: `Child ${currentChildren.length + 1}`, usesBus: "no" },
-        ]);
-    };
+    const addChild = () => setChildren((current) => [
+        ...current,
+        { name: `Child ${current.length + 1}`, usesBus: "no" },
+    ]);
 
     const removeChild = (index) => {
-        setChildren((currentChildren) => {
-            if (currentChildren.length === 1) {
-                return currentChildren;
-            }
-            return currentChildren.filter((_, childIndex) => childIndex !== index);
-        });
+        setChildren((current) => current.length === 1 ? current : current.filter((_, i) => i !== index));
     };
 
-    const updateChildName = (index, value) => {
-        setChildren((currentChildren) =>
-            currentChildren.map((child, childIndex) =>
-                childIndex === index ? { ...child, name: value } : child,
-            ),
-        );
-    };
-
-    const updateChildBusChoice = (index, value) => {
-        setChildren((currentChildren) =>
-            currentChildren.map((child, childIndex) =>
-                childIndex === index ? { ...child, usesBus: value } : child,
-            ),
-        );
+    const updateChild = (index, field, value) => {
+        setChildren((current) => current.map((child, i) => i === index ? { ...child, [field]: value } : child));
     };
 
     const handleSubmit = (event) => {
@@ -45,13 +26,9 @@ function ChildSetupForm({ onSubmit }) {
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
-            <div className={styles.childSetupHeader}>
-                <Typography className={styles.childSetupLabel}>
-                    Children added: {children.length}
-                </Typography>
-                <Button type="button" variant="outlined" onClick={addChild}>
-                    Add child
-                </Button>
+            <div className={styles.header}>
+                <Typography>Children added: {children.length}</Typography>
+                <Button type="button" variant="outlined" onClick={addChild}>Add child</Button>
             </div>
             <div className={styles.childrenList}>
                 {children.map((child, index) => (
@@ -59,19 +36,14 @@ function ChildSetupForm({ onSubmit }) {
                         key={index}
                         childName={child.name}
                         usesBus={child.usesBus}
-                        onNameChange={(value) => updateChildName(index, value)}
-                        onBusChange={(value) => updateChildBusChoice(index, value)}
+                        onNameChange={(value) => updateChild(index, "name", value)}
+                        onBusChange={(value) => updateChild(index, "usesBus", value)}
                         onRemove={() => removeChild(index)}
                         removeDisabled={children.length === 1}
                     />
                 ))}
             </div>
-            <Button fullWidth type="submit" variant="contained" size="large">
-                Create account
-            </Button>
-            <Typography className={styles.futureNote}>
-                Child names and school details can be designed later when the child records are finalized.
-            </Typography>
+            <Button fullWidth type="submit" variant="contained" size="large">Create account</Button>
         </form>
     );
 }
