@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, IconButton } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
+import ChatPage from "./ChatPage";
 import styles from "../styles/dashboard.module.css";
 
 const pageItems = [
@@ -96,14 +97,18 @@ function ParentDashboardPage() {
                 </header>
 
                 <div className={styles.chatBody}>
-                    <div className={styles.emptyChat}>
-                        <div className={styles.emptyChatTitle}>
-                            {selectedPage} placeholder
+                    {selectedPage === "Chat" ? (
+                        <ChatPage selectedChild={selectedChild} />
+                    ) : (
+                        <div className={styles.emptyChat}>
+                            <div className={styles.emptyChatTitle}>
+                                {selectedPage} placeholder
+                            </div>
+                            <div className={styles.emptyChatText}>
+                                This area is ready for the {selectedPage.toLowerCase()} experience for {selectedChild.name}.
+                            </div>
                         </div>
-                        <div className={styles.emptyChatText}>
-                            This area is ready for the {selectedPage.toLowerCase()} experience for {selectedChild.name}.
-                        </div>
-                    </div>
+                    )}
                 </div>
             </section>
         </main>

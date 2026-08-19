@@ -221,3 +221,167 @@
         width: 48px;
     }
 }
+
+
+.chatWorkspace {
+    display: grid;
+    min-width: 0;
+    min-height: 0;
+    flex: 1;
+    grid-template-columns: 220px minmax(0, 1fr);
+    background: #f4f7fb;
+}
+
+.teacherSidebar {
+    min-width: 0;
+    padding: 22px 12px;
+    background: #eaf0f6;
+    border-right: 1px solid #d5e0ea;
+}
+
+.teacherSidebarTitle {
+    padding: 0 10px 14px;
+    color: #526a80;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.teacherList {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.teacherButton {
+    display: flex !important;
+    min-height: 58px;
+    align-items: flex-start !important;
+    flex-direction: column;
+    padding: 9px 10px !important;
+    border-radius: 9px !important;
+    color: #526a80 !important;
+    text-align: left !important;
+    text-transform: none !important;
+}
+
+.teacherButton:hover {
+    background: #dce8f3 !important;
+}
+
+.selectedTeacher {
+    color: #ffffff !important;
+    background: #2b73c6 !important;
+}
+
+.selectedTeacher:hover {
+    background: #2b73c6 !important;
+}
+
+.teacherButtonName {
+    width: 100%;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.teacherButtonSubject {
+    width: 100%;
+    margin-top: 3px;
+    overflow: hidden;
+    font-size: 11px;
+    opacity: 0.78;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.conversation {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+.conversationHeader {
+    min-height: 70px;
+    padding: 16px 24px;
+    border-bottom: 1px solid #dce6ef;
+}
+
+.conversationTitle {
+    color: #20364c;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.conversationSubtitle {
+    margin-top: 3px;
+    color: #75889b;
+    font-size: 12px;
+}
+
+.messageList {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.message {
+    max-width: 720px;
+    padding: 12px 15px;
+    border: 1px solid #e0e8f0;
+    border-radius: 10px;
+    background: #f7fafd;
+}
+
+.messageSender {
+    margin-bottom: 5px;
+    color: #2b73c6;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.messageText {
+    color: #526a80;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.messageComposer {
+    display: flex;
+    gap: 10px;
+    padding: 16px 24px 20px;
+    border-top: 1px solid #dce6ef;
+    background: #ffffff;
+}
+
+.messageComposer .MuiButton-root {
+    min-width: 78px;
+}
+
+@media (max-width: 850px) {
+    .chatWorkspace {
+        grid-template-columns: 190px minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 620px) {
+    .chatWorkspace {
+        grid-template-columns: 160px minmax(0, 1fr);
+    }
+
+    .conversationHeader,
+    .messageList,
+    .messageComposer {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+}
