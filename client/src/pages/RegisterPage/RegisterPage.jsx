@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import AuthLayout from "../components/AuthLayout";
-import RegisterForm from "../components/RegisterForm";
+import AuthLayout from "../../components/AuthLayout/AuthLayout";
+import RegisterForm from "../../components/RegisterForm/RegisterForm";
 
 function RegisterPage() {
     const navigate = useNavigate();

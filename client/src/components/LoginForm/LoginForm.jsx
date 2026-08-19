@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Alert, Button, Checkbox, FormControlLabel, TextField, Typography } from "@mui/material";
-import styles from "../App.module.css";
+import { Alert, Button, TextField } from "@mui/material";
+import styles from "../../App.module.css";
 
 function LoginForm({ onSubmit, message }) {
     const [showPassword, setShowPassword] = useState(false);
@@ -30,20 +30,12 @@ function LoginForm({ onSubmit, message }) {
                     {showPassword ? "Hide" : "Show"}
                 </Button>
             </div>
-            <FormControlLabel
-                control={<Checkbox size="small" />}
-                label="Remember me"
-                className={styles.remember}
-            />
             <Button fullWidth type="submit" variant="contained" size="large">
                 Login
             </Button>
             <Button type="button" className={styles.forgotButton}>
                 Forgot password?
             </Button>
-            <Typography className={styles.futureNote}>
-                Passkey login can be added in a future authentication update.
-            </Typography>
             {message && <Alert severity="info">{message}</Alert>}
         </form>
     );

@@ -274,3 +274,57 @@
         width: 100%;
     }
 }
+
+
+.authCard {
+    animation: authCardIn 360ms ease-out;
+}
+
+.childSetupHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.childSetupLabel {
+    color: #526779;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+.childrenList {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+    gap: 12px;
+    max-height: 330px;
+    overflow-y: auto;
+    padding: 2px;
+}
+
+.childCard {
+    min-width: 0;
+}
+
+.childCard .MuiFormControlLabel-root {
+    margin-right: 4px;
+}
+
+.childCard .MuiFormControlLabel-label {
+    font-size: 13px;
+}
+
+.phonePrefix {
+    width: 72px;
+}
+
+@keyframes authCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

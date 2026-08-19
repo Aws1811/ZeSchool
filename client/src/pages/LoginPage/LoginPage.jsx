@@ -1,6 +1,6 @@
 import { useState } from "react";
-import AuthLayout from "../components/AuthLayout";
-import LoginForm from "../components/LoginForm";
+import AuthLayout from "../../components/AuthLayout/AuthLayout";
+import LoginForm from "../../components/LoginForm/LoginForm";
 
 function LoginPage() {
     const [message, setMessage] = useState("");

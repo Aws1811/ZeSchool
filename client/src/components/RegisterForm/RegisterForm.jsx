@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Button, MenuItem, TextField } from "@mui/material";
-import styles from "../App.module.css";
+import { Button, InputAdornment, MenuItem, TextField } from "@mui/material";
+import DateOfBirthField from "./DateOfBirthField";
+import styles from "../../App.module.css";
 
 function RegisterForm({ onSubmit }) {
     const [showPassword, setShowPassword] = useState(false);
@@ -8,6 +9,8 @@ function RegisterForm({ onSubmit }) {
     const [formData, setFormData] = useState({
         parentName: "",
         email: "",
+        phonePrefix: "+970",
+        phoneNumber: "",
         gender: "",
         dateOfBirth: "",
         password: "",
@@ -46,6 +49,32 @@ function RegisterForm({ onSubmit }) {
                 onChange={updateFormData}
                 required
             />
+            <TextField
+                fullWidth
+                label="Phone number"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={updateFormData}
+                placeholder="059 000 0000"
+                InputProps={{
+                    startAdornment: (
+                        <InputAdornment position="start">
+                            <TextField
+                                select
+                                variant="standard"
+                                name="phonePrefix"
+                                value={formData.phonePrefix}
+                                onChange={updateFormData}
+                                className={styles.phonePrefix}
+                            >
+                                <MenuItem value="+970">+970</MenuItem>
+                                <MenuItem value="+972">+972</MenuItem>
+                            </TextField>
+                        </InputAdornment>
+                    ),
+                }}
+                required
+            />
             <div className={styles.formRow}>
                 <TextField
                     fullWidth
@@ -60,16 +89,9 @@ function RegisterForm({ onSubmit }) {
                     <MenuItem value="male">Male</MenuItem>
                     <MenuItem value="prefer-not-to-say">Prefer not to say</MenuItem>
                 </TextField>
-                <TextField
-                    fullWidth
-                    label="Date of birth"
-                    name="dateOfBirth"
-                    type="text"
-                    placeholder="1900/02/20"
+                <DateOfBirthField
                     value={formData.dateOfBirth}
                     onChange={updateFormData}
-                    helperText="Use YYYY/MM/DD"
-                    required
                 />
             </div>
             <div className={styles.passwordField}>

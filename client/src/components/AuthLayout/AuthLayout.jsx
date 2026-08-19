@@ -1,6 +1,7 @@
-import { Button, Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import styles from "../App.module.css";
+import AuthSwitcher from "../AuthSwitcher/AuthSwitcher";
+import styles from "../../App.module.css";
 
 function AuthLayout({ title, description, children, activeView, message }) {
     return (
@@ -21,24 +22,7 @@ function AuthLayout({ title, description, children, activeView, message }) {
 
             <Card className={styles.authCard} elevation={0}>
                 <CardContent className={styles.cardContent}>
-                    <div className={styles.switcher}>
-                        <Button
-                            component={Link}
-                            to="/login"
-                            className={activeView === "login" ? styles.activeButton : styles.switchButton}
-                            variant={activeView === "login" ? "contained" : "text"}
-                        >
-                            Login
-                        </Button>
-                        <Button
-                            component={Link}
-                            to="/register"
-                            className={activeView === "register" ? styles.activeButton : styles.switchButton}
-                            variant={activeView === "register" ? "contained" : "text"}
-                        >
-                            Register
-                        </Button>
-                    </div>
+                    <AuthSwitcher activeView={activeView} />
                     <div>
                         <Typography component="h2" className={styles.formTitle}>
                             {title}

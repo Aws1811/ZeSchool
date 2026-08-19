@@ -1,13 +1,12 @@
 import { useState } from "react";
 import { Alert, Button } from "@mui/material";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import AuthLayout from "../components/AuthLayout";
-import ChildSetupForm from "../components/ChildSetupForm";
-import styles from "../App.module.css";
+import { Link, useLocation } from "react-router-dom";
+import AuthLayout from "../../components/AuthLayout/AuthLayout";
+import ChildSetupForm from "../../components/ChildSetupForm/ChildSetupForm";
+import styles from "../../App.module.css";
 
 function ChildSetupPage() {
     const location = useLocation();
-    const navigate = useNavigate();
     const [message, setMessage] = useState("");
     const registrationData = location.state?.registrationData;
 
@@ -42,17 +41,10 @@ function ChildSetupPage() {
         <AuthLayout
             activeView="register"
             title="Set up child records"
-            description="Choose how many children to add and select the bus preference for each one."
+            description="Add each child and select the bus preference for each one."
             message={message && <Alert severity="info">{message}</Alert>}
         >
             <ChildSetupForm onSubmit={handleChildSetup} />
-            <Button
-                type="button"
-                className={styles.forgotButton}
-                onClick={() => navigate("/register", { replace: true })}
-            >
-                Back to parent information
-            </Button>
         </AuthLayout>
     );
 }
