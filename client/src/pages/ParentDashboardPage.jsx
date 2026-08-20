@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, IconButton } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import CalendarPage from "./CalendarPage";
+import GradesPage from "./GradesPage";
 import ChatPage, { TeacherConversationList, TeacherSearch } from "./ChatPage";
 import styles from "../styles/dashboard-shell.module.css";
 
@@ -119,6 +120,8 @@ function ParentDashboardPage() {
                         />
                     ) : selectedPage === "Calendar" ? (
                         <CalendarPage />
+                    ) : selectedPage === "Grades" ? (
+                        <GradesPage child={selectedChild} />
                     ) : (
                         <div className={styles.emptyChat}>
                             <div className={styles.emptyChatTitle}>
