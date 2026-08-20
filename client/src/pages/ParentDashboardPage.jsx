@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, IconButton } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
+import CalendarPage from "./CalendarPage";
 import ChatPage, { TeacherConversationList, TeacherSearch } from "./ChatPage";
 import styles from "../styles/dashboard-shell.module.css";
 
@@ -81,32 +82,34 @@ function ParentDashboardPage() {
             </aside>
 
             <section className={styles.dashboardMain}>
-                <header className={styles.chatHeader}>
-                    <div className={styles.chatHeaderContent}>
-                        <div className={styles.childSwitcher} aria-label="Children">
-                            {children.map((child, index) => (
-                                <Button
-                                    key={`${child.name}-${index}`}
-                                    className={`${styles.childButton} ${selectedChildIndex === index ? styles.selectedChild : ""}`}
-                                    onClick={() => setSelectedChildIndex(index)}
-                                    title={child.name}
-                                    aria-label={child.name}
-                                >
-                                    {getChildInitials(child.name)}
-                                </Button>
-                            ))}
+                {selectedPage === "Chat" && (
+                    <header className={styles.chatHeader}>
+                        <div className={styles.chatHeaderContent}>
+                            <div className={styles.childSwitcher} aria-label="Children">
+                                {children.map((child, index) => (
+                                    <Button
+                                        key={`${child.name}-${index}`}
+                                        className={`${styles.childButton} ${selectedChildIndex === index ? styles.selectedChild : ""}`}
+                                        onClick={() => setSelectedChildIndex(index)}
+                                        title={child.name}
+                                        aria-label={child.name}
+                                    >
+                                        {getChildInitials(child.name)}
+                                    </Button>
+                                ))}
+                            </div>
+                            <div className={styles.chatSubtitle}>{selectedChild.name}</div>
                         </div>
-                        <div className={styles.chatSubtitle}>{selectedChild.name}</div>
-                    </div>
-                    <IconButton
-                        className={styles.logoutButton}
-                        onClick={handleLogout}
-                        aria-label="Log out"
-                        title="Log out"
-                    >
-                        <LogoutIcon />
-                    </IconButton>
-                </header>
+                        <IconButton
+                            className={styles.logoutButton}
+                            onClick={handleLogout}
+                            aria-label="Log out"
+                            title="Log out"
+                        >
+                            <LogoutIcon />
+                        </IconButton>
+                    </header>
+                )}
 
                 <div className={styles.chatBody}>
                     {selectedPage === "Chat" ? (
@@ -114,6 +117,8 @@ function ParentDashboardPage() {
                             selectedTeacherId={selectedTeacherId}
                             onSelectTeacher={setSelectedTeacherId}
                         />
+                    ) : selectedPage === "Calendar" ? (
+                        <CalendarPage />
                     ) : (
                         <div className={styles.emptyChat}>
                             <div className={styles.emptyChatTitle}>

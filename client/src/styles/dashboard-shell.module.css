@@ -530,3 +530,27 @@
     padding-bottom: 0;
     border-bottom: 0;
 }
+
+
+.dashboard {
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.pageRail {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    align-self: start;
+}
+
+.dashboardMain {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.chatBody {
+    min-height: 0;
+    overflow: hidden;
+}
