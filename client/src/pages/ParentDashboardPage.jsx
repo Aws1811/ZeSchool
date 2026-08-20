@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { Button, IconButton } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
+import AIAnalysisPage from "./AIAnalysisPage";
+import BusPage from "./BusPage";
+import CalendarPage from "./CalendarPage";
+import ReportsPage from "./ReportsPage";
+import SmartwatchPage from "./SmartwatchPage";
+import GradesPage from "./GradesPage";
 import ChatPage, { TeacherConversationList, TeacherSearch } from "./ChatPage";
 import styles from "../styles/dashboard-shell.module.css";
 
@@ -10,6 +16,7 @@ const pageItems = [
     "Grades",
     "Reports",
     "Bus",
+    "Smart watch",
     "AI analysis",
 ];
 
@@ -58,7 +65,6 @@ function ParentDashboardPage() {
     return (
         <main className={styles.dashboard}>
             <aside className={styles.pageRail} aria-label="Parent pages and teacher conversations">
-                <TeacherSearch searchText={searchText} onSearchChange={setSearchText} />
                 <div className={styles.pageLabel}>Pages</div>
                 <nav className={styles.pageList}>
                     {pageItems.map((page) => (
@@ -71,19 +77,22 @@ function ParentDashboardPage() {
                         </Button>
                     ))}
                 </nav>
-                <div className={styles.teacherHistory}>
-                    <TeacherConversationList
-                        selectedTeacherId={selectedTeacherId}
-                        onSelectTeacher={setSelectedTeacherId}
-                        searchText={searchText}
-                    />
-                </div>
+                {selectedPage === "Chat" && <TeacherSearch searchText={searchText} onSearchChange={setSearchText} />}
+                {selectedPage === "Chat" && (
+                    <div className={styles.teacherHistory}>
+                        <TeacherConversationList
+                            selectedTeacherId={selectedTeacherId}
+                            onSelectTeacher={setSelectedTeacherId}
+                            searchText={searchText}
+                        />
+                    </div>
+                )}
             </aside>
 
             <section className={styles.dashboardMain}>
                 <header className={styles.chatHeader}>
                     <div className={styles.chatHeaderContent}>
-                        <div className={styles.childSwitcher} aria-label="Children">
+                        <div className={styles.childSwitcher} aria-label="Choose child">
                             {children.map((child, index) => (
                                 <Button
                                     key={`${child.name}-${index}`}
@@ -114,6 +123,18 @@ function ParentDashboardPage() {
                             selectedTeacherId={selectedTeacherId}
                             onSelectTeacher={setSelectedTeacherId}
                         />
+                    ) : selectedPage === "Calendar" ? (
+                        <CalendarPage />
+                    ) : selectedPage === "Grades" ? (
+                        <GradesPage child={selectedChild} />
+                    ) : selectedPage === "AI analysis" ? (
+                        <AIAnalysisPage child={selectedChild} />
+                    ) : selectedPage === "Bus" ? (
+                        <BusPage child={selectedChild} />
+                    ) : selectedPage === "Reports" ? (
+                        <ReportsPage child={selectedChild} />
+                    ) : selectedPage === "Smart watch" ? (
+                        <SmartwatchPage child={selectedChild} />
                     ) : (
                         <div className={styles.emptyChat}>
                             <div className={styles.emptyChatTitle}>

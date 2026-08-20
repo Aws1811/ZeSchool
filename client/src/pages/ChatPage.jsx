@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, TextField } from "@mui/material";
+import { Button } from "@mui/material";
 import { initialMessages, presenceClasses, presenceLabels, teachers } from "../data/chatData";
 import styles from "../styles/chat.module.css";
 
@@ -123,9 +123,9 @@ function ChatPage({ selectedTeacherId }) {
             </div>
 
             <form className={styles.messageComposer} onSubmit={handleSendMessage}>
-                <TextField
-                    fullWidth
-                    size="small"
+                <input
+                    className={styles.messageInput}
+                    type="text"
                     value={messageText}
                     onChange={(event) => setMessageText(event.target.value)}
                     placeholder="Write a message..."

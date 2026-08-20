@@ -1,0 +1,146 @@
+.gradesPage {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    overflow: auto;
+    padding: 48px 7vw 64px;
+    color: #f2f3f5;
+    background: #1e1f22;
+}
+
+.gradesHeader {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.gradesHeader h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(30px, 4vw, 52px);
+    line-height: 1.1;
+}
+
+.gradesDate {
+    margin-top: 12px;
+    color: #b5bac1;
+    font-size: 16px;
+}
+
+.studentSummary {
+    width: min(100%, 980px);
+    margin: 56px auto 24px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #3f4147;
+}
+
+.studentName {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.studentClass {
+    margin-top: 6px;
+    color: #b5c2ff;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.examSection {
+    width: min(100%, 980px);
+    margin: 0 auto;
+}
+
+.examSectionHeader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.examSectionHeader h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.examSectionHeader span {
+    color: #949ba4;
+    font-size: 14px;
+}
+
+.examTable {
+    overflow: hidden;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #313338;
+}
+
+.examRow {
+    display: grid;
+    grid-template-columns: minmax(220px, 2fr) minmax(130px, 1fr) minmax(150px, 1fr) minmax(110px, 0.8fr) minmax(70px, 0.4fr);
+    min-height: 76px;
+    align-items: center;
+    gap: 18px;
+    padding: 12px 18px;
+    border-bottom: 1px solid #3f4147;
+    color: #dbdee1;
+    font-size: 15px;
+}
+
+.examRow:last-child {
+    border-bottom: 0;
+}
+
+.examHeader {
+    min-height: 48px;
+    color: #b5bac1;
+    background: #2b2d31;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.examRow:not(.examHeader) {
+    cursor: pointer;
+    transition: background 160ms ease, transform 160ms ease;
+}
+
+.examRow:not(.examHeader):hover,
+.hoveredExam {
+    background: #404249;
+    transform: translateX(3px);
+}
+
+.examTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.examTitle strong {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.examTitle small {
+    color: #949ba4;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+    .gradesPage {
+        padding: 34px 20px 48px;
+    }
+
+    .examTable {
+        overflow-x: auto;
+    }
+
+    .examRow {
+        min-width: 760px;
+    }
+}
