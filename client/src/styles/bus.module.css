@@ -1,0 +1,347 @@
+.busPage {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    flex: 1;
+    flex-direction: column;
+    gap: 20px;
+    overflow: auto;
+    padding: 28px 32px 36px;
+    color: #f2f3f5;
+    background: #1e1f22;
+}
+
+.busHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.eyebrow,
+.noticeLabel {
+    color: #8ea1f2;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.busHeader h1 {
+    margin: 7px 0 0;
+    color: #ffffff;
+    font-size: clamp(28px, 4vw, 44px);
+}
+
+.busHeader p {
+    margin: 10px 0 0;
+    color: #b5bac1;
+    font-size: 15px;
+}
+
+.childContext {
+    display: flex;
+    min-width: 170px;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 16px;
+    border-left: 3px solid #5865f2;
+    background: #2b2d31;
+}
+
+.childContext span {
+    color: #949ba4;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.childContext strong {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.childContext small {
+    color: #b5c2ff;
+    font-size: 13px;
+}
+
+.subscriptionNotice {
+    padding: 18px 20px;
+    border-left: 3px solid #faa61a;
+    background: #2b2d31;
+}
+
+.subscriptionNotice h2 {
+    margin: 7px 0 0;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.subscriptionNotice p {
+    margin: 6px 0 0;
+    color: #b5bac1;
+    font-size: 14px;
+}
+
+.busWorkspace {
+    display: grid;
+    min-width: 0;
+    min-height: 0;
+    flex: 1;
+    grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.65fr);
+    gap: 18px;
+}
+
+.mapPanel,
+.infoPanel {
+    min-width: 0;
+    min-height: 0;
+    border: 1px solid #3f4147;
+    border-radius: 6px;
+    background: #2b2d31;
+}
+
+.mapPanel {
+    display: flex;
+    min-height: 560px;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.mapToolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 13px 16px;
+    border-bottom: 1px solid #3f4147;
+    color: #949ba4;
+    font-size: 12px;
+}
+
+.mapToolbar div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #f2f3f5;
+}
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #5865f2;
+    box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.18);
+}
+
+.map {
+    min-height: 0;
+    flex: 1;
+    width: 100%;
+}
+
+.mapDisclaimer {
+    padding: 9px 14px;
+    border-top: 1px solid #3f4147;
+    color: #949ba4;
+    background: #313338;
+    font-size: 11px;
+}
+
+.busMarker,
+.stopMarker {
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+}
+
+.busMarker {
+    border: 3px solid #ffffff;
+    background: #5865f2;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+}
+
+.busMarker span {
+    color: #ffffff;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.stopMarker {
+    border: 2px solid #ffffff;
+    background: #faa61a;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
+}
+
+.stopMarker span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #1e1f22;
+}
+
+.infoPanel {
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+    overflow-y: auto;
+}
+
+.panelHeading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #3f4147;
+}
+
+.panelHeading h2 {
+    margin: 8px 0 0;
+    color: #ffffff;
+    font-size: 26px;
+}
+
+.routeBadge {
+    max-width: 130px;
+    padding: 7px 9px;
+    color: #b5c2ff;
+    background: #404249;
+    font-size: 11px;
+    line-height: 1.3;
+    text-align: right;
+}
+
+.infoRows {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoRows > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 14px 0;
+    border-bottom: 1px solid #3f4147;
+}
+
+.infoRows span,
+.routeStops h3 {
+    color: #949ba4;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.infoRows strong {
+    color: #f2f3f5;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.routeStops {
+    margin-top: 22px;
+}
+
+.routeStops h3 {
+    margin: 0 0 12px;
+    text-transform: uppercase;
+}
+
+.stopRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    color: #dbdee1;
+    font-size: 14px;
+}
+
+.stopRow span {
+    display: grid;
+    width: 22px;
+    height: 22px;
+    place-items: center;
+    border-radius: 50%;
+    color: #1e1f22;
+    background: #faa61a;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+@media (max-width: 900px) {
+    .busPage {
+        height: auto;
+        min-height: 100%;
+        padding: 24px 20px 36px;
+    }
+
+    .busHeader {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .busWorkspace {
+        grid-template-columns: 1fr;
+    }
+
+    .mapPanel {
+        min-height: 480px;
+    }
+}
+
+@media (max-width: 560px) {
+    .busPage {
+        padding: 20px 14px 30px;
+    }
+
+    .mapToolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+.busPage {
+    gap: 18px;
+    padding: 24px 30px 30px;
+}
+
+.busWorkspace {
+    flex-basis: 0;
+}
+
+.mapPanel {
+    min-height: 0;
+}
+
+.mapToolbar {
+    padding: 16px 18px;
+    font-size: 13px;
+}
+
+.mapDisclaimer {
+    padding: 11px 16px;
+    font-size: 12px;
+}
+
+.infoPanel {
+    padding: 26px;
+}
+
+.panelHeading h2 {
+    font-size: 30px;
+}
+
+.infoRows > div {
+    padding: 17px 0;
+}
+
+.infoRows span,
+.routeStops h3 {
+    font-size: 13px;
+}
+
+.infoRows strong,
+.stopRow {
+    font-size: 16px;
+}
