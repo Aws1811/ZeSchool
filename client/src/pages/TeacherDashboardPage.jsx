@@ -1,165 +1,107 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-    teacherAttendance,
-    teacherCalendarEvents,
-    teacherClasses,
-    teacherConversations,
-    teacherGradeEntries,
-    teacherMessages,
-    teacherProfile,
-    teacherReports,
-} from "../data/teacherData";
-import styles from "../styles/teacher-dashboard.module.css";
+import { teacherClasses, teacherConversations, teacherMessages, teacherProfile } from "../data/teacherData";
+import shellStyles from "../styles/dashboard-shell.module.css";
+import chatStyles from "../styles/chat.module.css";
+import styles from "../styles/teacher-pages.module.css";
 
-const pageItems = ["Dashboard", "Classes", "Calendar", "Messages", "Reports", "AI Analysis"];
-const attendanceOptions = ["Present", "Absent", "Late", "Excused"];
-const calendarTypes = ["Assignment", "Exam", "Event"];
+const pageItems = ["Chat", "Classes", "Calendar", "Reports", "AI analysis"];
+const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const eventColors = ["red", "yellow", "blue", "green"];
+const initialEvents = [
+    { id: "teacher-event-1", date: "2026-08-04", title: "Math review", color: "blue", target: "Grade 5A" },
+    { id: "teacher-event-2", date: "2026-08-12", title: "Parent meeting", color: "yellow", target: "Grade 5A" },
+];
 
 function getInitials(name) {
     return name.split(" ").map((part) => part[0]).join("").slice(0, 2).toUpperCase();
 }
 
+function formatDateKey(date) {
+    return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
+
+function getCalendarDays(monthDate) {
+    const firstDay = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1);
+    const firstCalendarDay = new Date(monthDate.getFullYear(), monthDate.getMonth(), 1 - firstDay.getDay());
+    return Array.from({ length: 42 }, (_, index) => new Date(firstCalendarDay.getFullYear(), firstCalendarDay.getMonth(), firstCalendarDay.getDate() + index));
+}
+
+function LogoutIcon() {
+    return <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 5H6.8C5.806 5 5 5.806 5 6.8v10.4c0 .994.806 1.8 1.8 1.8H10M14 8l4 4-4 4M18 12H9" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+}
+
 function TeacherDashboardPage() {
     const navigate = useNavigate();
-    const [selectedPage, setSelectedPage] = useState("Dashboard");
+    const [selectedPage, setSelectedPage] = useState("Chat");
     const [selectedClassId, setSelectedClassId] = useState(teacherClasses[0].id);
     const [selectedStudentId, setSelectedStudentId] = useState(teacherClasses[0].students[0].id);
-    const [studentSearch, setStudentSearch] = useState("");
-    const [parentSearch, setParentSearch] = useState("");
     const [selectedConversationId, setSelectedConversationId] = useState(teacherConversations[0].id);
+    const [parentSearch, setParentSearch] = useState("");
+    const [studentSearch, setStudentSearch] = useState("");
     const [messageText, setMessageText] = useState("");
-    const [selectedAnalysisScope, setSelectedAnalysisScope] = useState("student");
-    const [gradeForm, setGradeForm] = useState({ subject: "Mathematics", assessment: "Quiz 1", score: "", date: "August 20, 2026" });
-    const [attendanceForm, setAttendanceForm] = useState("Present");
-    const [calendarForm, setCalendarForm] = useState({ type: "Assignment", title: "", description: "", date: "", target: "class" });
+    const [messages, setMessages] = useState(teacherMessages);
+    const [monthDate, setMonthDate] = useState(new Date(2026, 7, 1));
+    const [selectedDate, setSelectedDate] = useState("2026-08-20");
+    const [events, setEvents] = useState(initialEvents);
+    const [isAddingEvent, setIsAddingEvent] = useState(false);
+    const [eventForm, setEventForm] = useState({ title: "", color: "blue", target: "class" });
     const [reportForm, setReportForm] = useState({ type: "Academic progress", period: "August 2026", content: "" });
+    const [analysisScope, setAnalysisScope] = useState("student");
     const [notice, setNotice] = useState("");
 
     const selectedClass = teacherClasses.find((item) => item.id === selectedClassId) || teacherClasses[0];
-    const allAssignedStudents = useMemo(() => teacherClasses.flatMap((item) => item.students), []);
-    const selectedStudent = allAssignedStudents.find((student) => student.id === selectedStudentId) || selectedClass.students[0];
-    const selectedConversation = teacherConversations.find((conversation) => conversation.id === selectedConversationId) || teacherConversations[0];
-    const currentMessages = teacherMessages[selectedConversation.id] || [{ id: "empty-message", sender: "teacher", text: "Start a new conversation with this parent.", time: "Now" }];
-    const filteredStudents = allAssignedStudents.filter((student) => student.name.toLowerCase().includes(studentSearch.toLowerCase()) || student.parent.toLowerCase().includes(studentSearch.toLowerCase()));
-    const filteredConversations = teacherConversations.filter((conversation) => conversation.parent.toLowerCase().includes(parentSearch.toLowerCase()));
-
-    const chooseStudent = (student) => {
-        setSelectedStudentId(student.id);
-        const belongingClass = teacherClasses.find((item) => item.students.some((entry) => entry.id === student.id));
-        if (belongingClass) setSelectedClassId(belongingClass.id);
-    };
+    const allStudents = useMemo(() => teacherClasses.flatMap((item) => item.students), []);
+    const selectedStudent = allStudents.find((item) => item.id === selectedStudentId) || selectedClass.students[0];
+    const selectedConversation = teacherConversations.find((item) => item.id === selectedConversationId) || teacherConversations[0];
+    const visibleParents = teacherConversations.filter((item) => item.parent.toLowerCase().includes(parentSearch.toLowerCase()));
+    const visibleStudents = allStudents.filter((item) => `${item.name} ${item.parent}`.toLowerCase().includes(studentSearch.toLowerCase()));
+    const monthLabel = monthDate.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+    const calendarDays = getCalendarDays(monthDate);
 
     const showNotice = (text) => {
         setNotice(text);
-        window.setTimeout(() => setNotice(""), 2400);
+        window.setTimeout(() => setNotice(""), 2200);
+    };
+
+    const chooseStudent = (student) => {
+        setSelectedStudentId(student.id);
+        const studentClass = teacherClasses.find((item) => item.students.some((entry) => entry.id === student.id));
+        if (studentClass) setSelectedClassId(studentClass.id);
     };
 
     const handleSendMessage = (event) => {
         event.preventDefault();
-        if (!messageText.trim()) return;
+        const text = messageText.trim();
+        if (!text) return;
+        setMessages((current) => ({ ...current, [selectedConversationId]: [...(current[selectedConversationId] || []), { id: Date.now(), sender: teacherProfile.name, mine: true, text, time: "Now" }] }));
         setMessageText("");
-        showNotice("Message ready to send in the connected parent conversation.");
     };
 
-    const handleSaveGrade = (event) => {
+    const handleAddEvent = (event) => {
         event.preventDefault();
-        showNotice(`Grade saved for ${selectedStudent.name}.`);
+        if (!eventForm.title.trim()) return;
+        setEvents((current) => [...current, { id: Date.now(), date: selectedDate, title: eventForm.title.trim(), color: eventForm.color, target: eventForm.target === "class" ? selectedClass.name : selectedStudent.name }]);
+        setEventForm({ title: "", color: "blue", target: "class" });
+        setIsAddingEvent(false);
     };
 
-    const handleSaveAttendance = (event) => {
-        event.preventDefault();
-        showNotice(`Attendance saved as ${attendanceForm} for ${selectedStudent.name}.`);
+    const renderChat = () => {
+        const selectedMessages = messages[selectedConversationId] || [];
+        return <section className={chatStyles.conversation} aria-label="Parent conversation"><header className={chatStyles.conversationHeader}><span className={chatStyles.teacherAvatarWrap}><span className={chatStyles.teacherAvatar}>{getInitials(selectedConversation.parent)}</span><span className={`${chatStyles.presenceDot} ${chatStyles[selectedConversation.status === "online" ? "presenceActive" : selectedConversation.status === "busy" ? "presenceBusy" : "presenceOffline"]}`} /></span><div className={chatStyles.conversationHeading}><div className={chatStyles.conversationTitle}>{selectedConversation.parent}</div><div className={chatStyles.conversationSubtitle}>Parent of {selectedConversation.student}</div></div></header><div className={chatStyles.messageList}><div className={chatStyles.dateDivider}>Today</div>{selectedMessages.map((message) => <div className={`${chatStyles.messageRow} ${message.mine ? chatStyles.messageMineRow : ""}`} key={message.id}><article className={`${chatStyles.message} ${message.mine ? chatStyles.messageMine : ""}`}>{!message.mine && <div className={chatStyles.messageSender}>{selectedConversation.parent}</div>}<div className={chatStyles.messageText}>{message.text}</div><div className={chatStyles.messageTime}>{message.time}</div></article></div>)}</div><form className={chatStyles.messageComposer} onSubmit={handleSendMessage}><input className={chatStyles.messageInput} value={messageText} onChange={(event) => setMessageText(event.target.value)} placeholder="Write a message..." aria-label={`Message ${selectedConversation.parent}`} /><button type="submit">Send</button></form></section>;
     };
 
-    const handleCreateCalendarEvent = (event) => {
-        event.preventDefault();
-        showNotice(`${calendarForm.type} created for ${calendarForm.target === "class" ? selectedClass.name : selectedStudent.name}.`);
-    };
+    const renderClasses = () => <section className={styles.page} aria-label="Classes"><div className={styles.inlineTools}><input value={studentSearch} onChange={(event) => setStudentSearch(event.target.value)} placeholder="Search assigned students" aria-label="Search assigned students" /></div><div className={styles.classGrid}>{teacherClasses.map((item) => <article className={`${styles.classCard} ${item.id === selectedClassId ? styles.activeClass : ""}`} key={item.id}><button type="button" className={styles.classHeader} onClick={() => setSelectedClassId(item.id)}><span>{getInitials(item.name)}</span><strong>{item.name}</strong><small>{item.students.length} students</small></button><div className={styles.studentList}>{item.students.filter((student) => visibleStudents.some((visible) => visible.id === student.id)).map((student) => <button type="button" className={`${styles.studentRow} ${student.id === selectedStudentId ? styles.selectedStudent : ""}`} key={student.id} onClick={() => chooseStudent(student)}><span className={styles.studentAvatar}>{getInitials(student.name)}</span><span><strong>{student.name}</strong><small>{student.parent}</small></span><b>›</b></button>)}</div></article>)}</div></section>;
 
-    const handlePublishReport = (event) => {
-        event.preventDefault();
-        showNotice(`Report published for ${selectedStudent.name}.`);
-    };
+    const renderCalendar = () => <section className={`${styles.page} ${styles.calendarPage}`} aria-label="Teacher calendar"><div className={styles.calendarToolbar}><div className={styles.monthControls}><button type="button" onClick={() => setMonthDate((current) => new Date(current.getFullYear(), current.getMonth() - 1, 1))}>‹</button><strong>{monthLabel}</strong><button type="button" onClick={() => setMonthDate((current) => new Date(current.getFullYear(), current.getMonth() + 1, 1))}>›</button></div><button type="button" className={styles.primaryButton} onClick={() => setIsAddingEvent((current) => !current)}>{isAddingEvent ? "Close" : "Add event"}</button></div>{isAddingEvent && <form className={styles.eventForm} onSubmit={handleAddEvent}><input value={eventForm.title} onChange={(event) => setEventForm({ ...eventForm, title: event.target.value })} placeholder="Event title" aria-label="Event title" /><select value={eventForm.target} onChange={(event) => setEventForm({ ...eventForm, target: event.target.value })}><option value="class">All students in {selectedClass.name}</option><option value="student">Only {selectedStudent.name}</option></select><div className={styles.colorPicker}>{eventColors.map((color) => <button type="button" key={color} className={`${styles.colorButton} ${styles[color]} ${eventForm.color === color ? styles.activeColor : ""}`} onClick={() => setEventForm({ ...eventForm, color })} aria-label={`${color} event`} />)}</div><span>Selected date: {selectedDate}</span><button className={styles.primaryButton}>Save event</button></form>}<div className={styles.calendarGrid}>{weekdays.map((day) => <div className={styles.weekday} key={day}>{day}</div>)}{calendarDays.map((date) => { const dateKey = formatDateKey(date); const dayEvents = events.filter((item) => item.date === dateKey); return <button type="button" key={dateKey} className={`${styles.dayCell} ${date.getMonth() !== monthDate.getMonth() ? styles.outsideMonth : ""} ${dateKey === selectedDate ? styles.selectedDay : ""}`} onClick={() => { setSelectedDate(dateKey); setIsAddingEvent(true); }}><span>{date.getDate()}</span>{dayEvents.map((item) => <small className={`${styles.event} ${styles[item.color]}`} key={item.id}>{item.title}</small>)}</button>; })}</div></section>;
 
-    const renderDashboard = () => (
-        <div className={styles.pageContent}>
-            <div className={styles.pageIntro}>
-                <span className={styles.eyebrow}>TEACHER WORKSPACE</span>
-                <h1>Welcome back, {teacherProfile.name}</h1>
-                <p>Manage your assigned classes, student updates, and parent communication.</p>
-            </div>
-            <div className={styles.statGrid}>
-                <div className={styles.statCard}><span>CLASSES</span><strong>{teacherClasses.length}</strong><small>Assigned to you</small></div>
-                <div className={styles.statCard}><span>STUDENTS</span><strong>{allAssignedStudents.length}</strong><small>Across your classes</small></div>
-                <div className={styles.statCard}><span>REVIEW</span><strong>3</strong><small>Assignments waiting</small></div>
-                <div className={styles.statCard}><span>MESSAGES</span><strong>4</strong><small>Unread parent messages</small></div>
-            </div>
-            <section className={styles.sectionBlock}>
-                <div className={styles.sectionHeading}><div><span className={styles.eyebrow}>YOUR CLASSES</span><h2>Class overview</h2></div><button className={styles.secondaryButton} onClick={() => setSelectedPage("Classes")}>Open student list</button></div>
-                <div className={styles.classGrid}>
-                    {teacherClasses.map((item) => <button key={item.id} className={styles.classCard} onClick={() => { setSelectedClassId(item.id); setSelectedPage("Classes"); }}><span>{getInitials(item.name)}</span><strong>{item.name}</strong><small>{item.students.length} students · {item.academicYear}</small></button>)}
-                </div>
-            </section>
-        </div>
-    );
+    const renderReports = () => <section className={styles.page} aria-label="Write reports"><div className={styles.reportWorkspace}><form className={styles.reportForm} onSubmit={(event) => { event.preventDefault(); showNotice(`Report published for ${selectedStudent.name}.`); }}><label>Student<input readOnly value={`${selectedStudent.name} · ${selectedClass.name}`} /></label><label>Report type<select value={reportForm.type} onChange={(event) => setReportForm({ ...reportForm, type: event.target.value })}><option>Academic progress</option><option>Behavior / participation</option><option>Attendance</option></select></label><label>Academic period<input value={reportForm.period} onChange={(event) => setReportForm({ ...reportForm, period: event.target.value })} /></label><label>Report content<textarea required value={reportForm.content} onChange={(event) => setReportForm({ ...reportForm, content: event.target.value })} placeholder="Write the report content" /></label><button className={styles.primaryButton}>Publish report</button></form><aside className={styles.reportPreview}><span className={styles.eyebrow}>PARENT PREVIEW</span><h2>{reportForm.type}</h2><strong>{selectedStudent.name}</strong><small>{reportForm.period}</small><p>{reportForm.content || "The parent will see the published report here."}</p></aside></div></section>;
 
-    const renderClasses = () => (
-        <div className={styles.pageContent}>
-            <div className={styles.pageIntro}><span className={styles.eyebrow}>CLASS AND STUDENT LIST</span><h1>Choose a student</h1><p>Search all students assigned to your classes or browse by class.</p></div>
-            <div className={styles.contextBar}><label>Active class<select value={selectedClassId} onChange={(event) => setSelectedClassId(event.target.value)}>{teacherClasses.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label><label className={styles.growField}>Search assigned students<input value={studentSearch} onChange={(event) => setStudentSearch(event.target.value)} placeholder="Search by student or parent" /></label></div>
-            <div className={styles.studentList}>{filteredStudents.map((student) => <button key={student.id} className={`${styles.studentRow} ${student.id === selectedStudentId ? styles.selectedRow : ""}`} onClick={() => chooseStudent(student)}><span className={styles.avatar}>{getInitials(student.name)}</span><span><strong>{student.name}</strong><small>{student.parent} · {student.subject}</small></span><em>{student.status}</em><b>›</b></button>)}</div>
-        </div>
-    );
+    const renderAI = () => <section className={styles.page} aria-label="AI analysis"><div className={styles.aiWorkspace}><aside className={styles.aiPrompt}><div className={styles.scopeButtons}><button className={analysisScope === "student" ? styles.activeSegment : ""} onClick={() => setAnalysisScope("student")}>One student</button><button className={analysisScope === "class" ? styles.activeSegment : ""} onClick={() => setAnalysisScope("class")}>Whole class</button></div><textarea defaultValue={`Summarize the performance of ${analysisScope === "student" ? selectedStudent.name : selectedClass.name}.`} /><button className={styles.primaryButton} onClick={() => showNotice("Analysis prepared.")}>Analyze</button></aside><article className={styles.aiResult}><span className={styles.eyebrow}>AI SUMMARY</span><h2>{analysisScope === "student" ? selectedStudent.name : selectedClass.name}</h2><p>{analysisScope === "student" ? `${selectedStudent.name} is showing positive progress in Mathematics. Grades, attendance, and teacher reports indicate a strong foundation for continued improvement.` : `${selectedClass.name} is progressing steadily. Most students are participating positively, while a small group may benefit from additional revision and targeted support.`}</p><div className={styles.sourceChips}><span>Grades</span><span>Attendance</span><span>Reports</span></div></article></div></section>;
 
-    const renderChat = () => (
-        <div className={styles.pageContent}>
-            <div className={styles.pageIntro}><span className={styles.eyebrow}>PARENT COMMUNICATION</span><h1>Messages</h1><p>Conversations are connected to the assigned student.</p></div>
-            <div className={styles.chatWorkspace}>
-                <aside className={styles.conversationPanel}><input value={parentSearch} onChange={(event) => setParentSearch(event.target.value)} placeholder="Search parents" />{filteredConversations.map((conversation) => <button key={conversation.id} className={`${styles.conversationRow} ${conversation.id === selectedConversation.id ? styles.selectedRow : ""}`} onClick={() => setSelectedConversationId(conversation.id)}><span className={`${styles.presence} ${styles[conversation.status]}`} /><span className={styles.avatar}>{getInitials(conversation.parent)}</span><span><strong>{conversation.parent}</strong><small>{conversation.student}</small><em>{conversation.lastMessage}</em></span><time>{conversation.time}</time></button>)}</aside>
-                <section className={styles.messagePanel}><header><div><span className={styles.avatar}>{getInitials(selectedConversation.parent)}</span><span><strong>{selectedConversation.parent}</strong><small>Parent of {selectedConversation.student}</small></span></div><span className={styles.statusText}>{selectedConversation.status}</span></header><div className={styles.messageList}>{currentMessages.map((message) => <div key={message.id} className={`${styles.messageBubble} ${message.sender === "teacher" ? styles.sentMessage : ""}`}><p>{message.text}</p><time>{message.time}</time></div>)}</div><form className={styles.messageForm} onSubmit={handleSendMessage}><input value={messageText} onChange={(event) => setMessageText(event.target.value)} placeholder="Write a message to the parent" /><button className={styles.primaryButton}>Send</button></form></section>
-            </div>
-        </div>
-    );
+    const pageContent = selectedPage === "Chat" ? renderChat() : selectedPage === "Classes" ? renderClasses() : selectedPage === "Calendar" ? renderCalendar() : selectedPage === "Reports" ? renderReports() : renderAI();
 
-    const renderCalendar = () => (
-        <div className={styles.pageContent}>
-            <div className={styles.pageIntro}><span className={styles.eyebrow}>CLASS CALENDAR</span><h1>Assignments and events</h1><p>Create items for a whole class or for one assigned student.</p></div>
-            <div className={styles.formWorkspace}><form className={styles.formPanel} onSubmit={handleCreateCalendarEvent}><div className={styles.segmentedControl}>{calendarTypes.map((type) => <button type="button" key={type} className={calendarForm.type === type ? styles.activeSegment : ""} onClick={() => setCalendarForm({ ...calendarForm, type })}>{type}</button>)}</div><label>Title<input required value={calendarForm.title} onChange={(event) => setCalendarForm({ ...calendarForm, title: event.target.value })} placeholder="Math Homework - Chapter 3" /></label><label>Description<textarea value={calendarForm.description} onChange={(event) => setCalendarForm({ ...calendarForm, description: event.target.value })} placeholder="Add instructions or event details" /></label><div className={styles.formGrid}><label>Date<input required type="date" value={calendarForm.date} onChange={(event) => setCalendarForm({ ...calendarForm, date: event.target.value })} /></label><label>Target<select value={calendarForm.target} onChange={(event) => setCalendarForm({ ...calendarForm, target: event.target.value })}><option value="class">Whole class · {selectedClass.name}</option><option value="student">One student · {selectedStudent.name}</option></select></label></div><button className={styles.primaryButton}>Create {calendarForm.type.toLowerCase()}</button></form><aside className={styles.previewPanel}><span className={styles.eyebrow}>PARENT PREVIEW</span><h2>{calendarForm.title || "New calendar item"}</h2><p>{calendarForm.description || "The item will appear in the selected class or student calendar."}</p><div className={styles.previewLine}><span>{calendarForm.type}</span><strong>{calendarForm.target === "class" ? selectedClass.name : selectedStudent.name}</strong></div><div className={styles.eventList}>{teacherCalendarEvents.map((item) => <div key={item.id}><span>{item.type}</span><strong>{item.title}</strong><small>{item.date}</small></div>)}</div></aside></div>
-        </div>
-    );
-
-    const renderGrades = () => (
-        <div className={styles.pageContent}>
-            <div className={styles.pageIntro}><span className={styles.eyebrow}>ACADEMIC UPDATE</span><h1>{selectedStudent.name}</h1><p>{selectedClass.name} · Enter grades and teacher-only attendance.</p></div>
-            <div className={styles.formWorkspace}><div className={styles.formPanel}><form onSubmit={handleSaveGrade}><h2>Save grade</h2><div className={styles.formGrid}><label>Subject<input value={gradeForm.subject} onChange={(event) => setGradeForm({ ...gradeForm, subject: event.target.value })} /></label><label>Assessment<input value={gradeForm.assessment} onChange={(event) => setGradeForm({ ...gradeForm, assessment: event.target.value })} /></label><label>Score<input required value={gradeForm.score} onChange={(event) => setGradeForm({ ...gradeForm, score: event.target.value })} placeholder="18 / 20" /></label><label>Date<input value={gradeForm.date} onChange={(event) => setGradeForm({ ...gradeForm, date: event.target.value })} /></label></div><button className={styles.primaryButton}>Save grade</button></form><form className={styles.attendanceForm} onSubmit={handleSaveAttendance}><h2>Today's attendance</h2><div className={styles.attendanceOptions}>{attendanceOptions.map((status) => <label key={status}><input type="radio" name="attendance" checked={attendanceForm === status} onChange={() => setAttendanceForm(status)} />{status}</label>)}</div><button className={styles.secondaryButton}>Save attendance</button></form></div><aside className={styles.dataPanel}><h2>Recent grades</h2>{teacherGradeEntries.map((entry) => <div className={styles.dataRow} key={entry.id}><span>{entry.subject}</span><strong>{entry.score}</strong><small>{entry.assessment} · {entry.student}</small></div>)}<h2>Attendance log</h2>{teacherAttendance.map((entry) => <div className={styles.dataRow} key={entry.id}><span>{entry.student}</span><strong>{entry.status}</strong><small>{entry.date}</small></div>)}</aside></div>
-        </div>
-    );
-
-    const renderReports = () => (
-        <div className={styles.pageContent}><div className={styles.pageIntro}><span className={styles.eyebrow}>STUDENT REPORTS</span><h1>Write a report</h1><p>Publish a report that the selected student&apos;s parent can read.</p></div><div className={styles.formWorkspace}><form className={styles.formPanel} onSubmit={handlePublishReport}><div className={styles.formGrid}><label>Student<input readOnly value={`${selectedStudent.name} · ${selectedClass.name}`} /></label><label>Report type<select value={reportForm.type} onChange={(event) => setReportForm({ ...reportForm, type: event.target.value })}><option>Academic progress</option><option>Behavior / participation</option><option>Attendance</option></select></label><label>Academic period<input value={reportForm.period} onChange={(event) => setReportForm({ ...reportForm, period: event.target.value })} /></label></div><label>Report content<textarea required value={reportForm.content} onChange={(event) => setReportForm({ ...reportForm, content: event.target.value })} placeholder="Write the report that the parent will see" /></label><button className={styles.primaryButton}>Publish report</button></form><aside className={styles.previewPanel}><span className={styles.eyebrow}>PARENT PREVIEW</span><h2>{reportForm.type}</h2><strong>{reportForm.period}</strong><p>{reportForm.content || "Your report preview will appear here before publishing."}</p><div className={styles.divider} /><small>Published reports can be used as an authorized source for AI analysis.</small><h2>Recent reports</h2>{teacherReports.map((report) => <div className={styles.dataRow} key={report.id}><span>{report.student}</span><strong>{report.type}</strong><small>{report.period}</small></div>)}</aside></div></div>
-    );
-
-    const renderAI = () => {
-        const scopeName = selectedAnalysisScope === "class" ? selectedClass.name : selectedStudent.name;
-        return <div className={styles.pageContent}><div className={styles.pageIntro}><span className={styles.eyebrow}>AI PERFORMANCE ANALYSIS</span><h1>Analyze {scopeName}</h1><p>Teachers can review a whole class for themselves or one student before communicating with the parent.</p></div><div className={styles.aiWorkspace}><aside className={styles.aiControls}><h2>Analysis scope</h2><div className={styles.scopeButtons}><button className={selectedAnalysisScope === "student" ? styles.activeSegment : ""} onClick={() => setSelectedAnalysisScope("student")}>One student</button><button className={selectedAnalysisScope === "class" ? styles.activeSegment : ""} onClick={() => setSelectedAnalysisScope("class")}>Whole class</button></div><label>Question<textarea defaultValue={`Summarize the current performance of ${scopeName}.`} /></label><button className={styles.primaryButton} onClick={() => showNotice(`Analysis prepared for ${scopeName}.`)}>Analyze performance</button></aside><section className={styles.aiResult}><span className={styles.aiTag}>ANALYSIS PREVIEW</span><h2>{scopeName} performance summary</h2><p>{selectedAnalysisScope === "class" ? "The class is progressing steadily. Recent grades show strong participation with a small group that may benefit from additional review and targeted practice." : `${selectedStudent.name} is showing positive progress in Mathematics. Recent grades, attendance, and teacher reports indicate a good foundation for continued improvement.`}</p><div className={styles.sourceChips}><span>Grades</span><span>Attendance</span><span>Reports</span></div></section></div></div>;
-    };
-
-    const pageContent = selectedPage === "Dashboard" ? renderDashboard() : selectedPage === "Classes" ? renderClasses() : selectedPage === "Messages" ? renderChat() : selectedPage === "Calendar" ? renderCalendar() : selectedPage === "Reports" ? renderReports() : selectedPage === "AI Analysis" ? renderAI() : renderGrades();
-
-    return <main className={styles.teacherDashboard}>
-        <aside className={styles.sidebar}>
-            <div className={styles.brand}><span>ZS</span><strong>ZeSchool</strong></div>
-            <div className={styles.teacherIdentity}><span className={styles.avatar}>{getInitials(teacherProfile.name)}</span><div><strong>{teacherProfile.name}</strong><small>{teacherProfile.department}</small></div></div>
-            <nav className={styles.navigation}>{pageItems.map((page) => <button key={page} className={selectedPage === page ? styles.activeNav : ""} onClick={() => setSelectedPage(page)}>{page}</button>)}</nav>
-            <button className={styles.logoutButton} onClick={() => navigate("/")}>Log out</button>
-        </aside>
-        <section className={styles.teacherMain}>
-            <header className={styles.topBar}><div className={styles.topContext}><span>Teacher</span><strong>{teacherProfile.name}</strong></div><div className={styles.selectionContext}><label>Active class<select value={selectedClassId} onChange={(event) => setSelectedClassId(event.target.value)}>{teacherClasses.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label><button className={styles.studentPill} onClick={() => setSelectedPage("Classes")}>{selectedStudent.name}</button></div></header>
-            <div className={styles.pageViewport}>{pageContent}</div>
-        </section>
-        {notice && <div className={styles.notice}>{notice}</div>}
-    </main>;
+    return <main className={shellStyles.dashboard}><aside className={shellStyles.pageRail} aria-label="Teacher pages and parent conversations"><div className={shellStyles.pageLabel}>Pages</div><nav className={shellStyles.pageList}>{pageItems.map((page) => <button type="button" key={page} className={`${shellStyles.pageButton} ${selectedPage === page ? shellStyles.selectedPage : ""}`} onClick={() => setSelectedPage(page)}>{page}</button>)}</nav>{selectedPage === "Chat" && <input className={chatStyles.teacherSearch} value={parentSearch} onChange={(event) => setParentSearch(event.target.value)} placeholder="Search parents" aria-label="Search parents" />}{selectedPage === "Chat" && <aside className={chatStyles.teacherSidebar} aria-label="Parent conversations"><div className={chatStyles.teacherList}>{visibleParents.map((parent) => <button type="button" key={parent.id} className={`${chatStyles.teacherButton} ${selectedConversationId === parent.id ? chatStyles.selectedTeacher : ""}`} onClick={() => setSelectedConversationId(parent.id)}><span className={chatStyles.teacherAvatarWrap}><span className={chatStyles.teacherAvatar}>{getInitials(parent.parent)}</span><span className={`${chatStyles.presenceDot} ${chatStyles[parent.status === "online" ? "presenceActive" : parent.status === "busy" ? "presenceBusy" : "presenceOffline"]}`} /></span><span className={chatStyles.teacherButtonContent}><span className={chatStyles.teacherButtonTopline}><span className={chatStyles.teacherButtonName}>{parent.parent}</span><span className={chatStyles.teacherButtonTime}>{parent.time}</span></span><span className={chatStyles.teacherButtonSubject}>{parent.student}</span><span className={chatStyles.teacherButtonPreview}>{parent.lastMessage}</span></span></button>)}</div></aside>}</aside><section className={shellStyles.dashboardMain}><header className={shellStyles.chatHeader}><div className={shellStyles.chatHeaderContent}><div className={styles.classSwitcher} aria-label="Choose class">{teacherClasses.map((item) => <button type="button" key={item.id} className={`${styles.classButton} ${selectedClassId === item.id ? styles.selectedClassButton : ""}`} onClick={() => setSelectedClassId(item.id)}>{item.name}</button>)}</div></div><button type="button" className={shellStyles.logoutButton} onClick={() => navigate("/")} aria-label="Log out" title="Log out"><LogoutIcon /></button></header><div className={shellStyles.chatBody}>{pageContent}</div></section>{notice && <div className={styles.notice}>{notice}</div>}</main>;
 }
 
 export default TeacherDashboardPage;

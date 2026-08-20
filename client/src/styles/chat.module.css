@@ -499,3 +499,39 @@
     color: #fbfbfb;
     background: #1e1f22;
 }
+
+.messageComposer > button {
+    min-width: 82px;
+    border: 0;
+    border-radius: 6px;
+    color: #ffffff;
+    background: #5865f2;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.messageComposer > button:hover {
+    background: #4752c4;
+}
+
+.teacherSearch {
+    font-size: 18px;
+}
+
+.teacherSearch::placeholder {
+    font-size: 18px;
+}
+
+.teacherSearch {
+    height: 60px;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    font-size: 18px;
+}
+
+.teacherSearch::placeholder {
+    font-size: 18px;
+}

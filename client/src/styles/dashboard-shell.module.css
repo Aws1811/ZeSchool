@@ -554,3 +554,46 @@
     min-height: 0;
     overflow: hidden;
 }
+
+.pageRail .pageButton {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    min-height: 44px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 6px;
+    color: #b5bac1;
+    background: transparent;
+    font: inherit;
+    font-size: 16px;
+    text-align: left;
+    text-transform: none;
+    cursor: pointer;
+}
+
+.pageRail .pageButton:hover {
+    color: #f2f3f5;
+    background: #35373c;
+}
+
+.pageRail .pageButton.selectedPage {
+    color: #ffffff;
+    background: #5865f2;
+}
+
+.pageRail .pageButton.selectedPage:hover {
+    color: #ffffff;
+    background: #5865f2;
+}
+
+.dashboardMain .logoutButton,
+.dashboardMain .logoutButton:hover,
+.dashboardMain .logoutButton:focus {
+    border: 0;
+    color: #ed4245 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}

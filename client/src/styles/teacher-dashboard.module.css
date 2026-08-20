@@ -850,3 +850,409 @@
         grid-template-columns: 1fr;
     }
 }
+
+.teacherChatPage {
+    display: grid;
+    min-width: 0;
+    min-height: calc(100vh - 72px);
+    height: 100%;
+    grid-template-columns: minmax(260px, 30%) minmax(0, 1fr);
+    color: #f2f3f5;
+    background: #1e1f22;
+}
+
+.parentChatSidebar {
+    min-width: 0;
+    min-height: 0;
+    overflow-y: auto;
+    background: #2b2d31;
+    border-right: 1px solid #111214;
+}
+
+.parentSearchInput {
+    display: block;
+    box-sizing: border-box;
+    width: calc(100% - 32px);
+    height: 52px;
+    margin: 16px;
+    padding: 0 15px;
+    border: 1px solid #4f545c;
+    border-radius: 6px;
+    outline: none;
+    color: #fbfbfb;
+    background: #1e1f22;
+    font: inherit;
+    font-size: 16px;
+}
+
+.parentSearchInput::placeholder {
+    color: #b5bac1;
+}
+
+.parentSearchInput:focus {
+    border-color: #5865f2;
+}
+
+.parentChatList {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #111214;
+}
+
+.parentChatButton {
+    display: flex;
+    width: 100%;
+    min-height: 82px;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border: 0;
+    border-bottom: 1px solid #3f4147;
+    color: #b5bac1;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.parentChatButton:hover,
+.selectedParentChat {
+    color: #ffffff;
+    background: #404249;
+    box-shadow: inset 3px 0 0 #5865f2;
+}
+
+.parentAvatarWrap {
+    position: relative;
+    display: block;
+    flex: 0 0 auto;
+    width: 43px;
+    height: 43px;
+}
+
+.parentAvatarWrap .avatar {
+    width: 43px;
+    height: 43px;
+    border: 2px solid #000000;
+    color: #2b73c6;
+    background: #e8f2f8;
+    font-size: 14px;
+}
+
+.parentAvatarWrap .presence {
+    position: absolute;
+    right: -2px;
+    bottom: -2px;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #1e1f22;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #000000;
+}
+
+.parentChatContent {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 0;
+}
+
+.parentChatTopline {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.parentChatTopline strong {
+    overflow: hidden;
+    color: #f2f3f5;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.parentChatTopline small {
+    flex: 0 0 auto;
+    color: #949ba4;
+    font-size: 11px;
+}
+
+.parentChatStudent {
+    color: #b5c2ff;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.parentChatPreview {
+    overflow: hidden;
+    color: #b5bac1;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.parentConversation {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex-direction: column;
+    background: #1e1f22;
+}
+
+.parentConversationHeader {
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: #2b2d31;
+    border-bottom: 1px solid #111214;
+}
+
+.parentConversationHeader > div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.parentConversationHeader strong {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.parentConversationHeader small {
+    color: #b5c2ff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.parentMessageList {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.parentMessage {
+    width: fit-content;
+    max-width: min(620px, 75%);
+    padding: 12px 14px 9px;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    color: #f2f3f5;
+    background: #313338;
+}
+
+.parentMessage strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #b5c2ff;
+    font-size: 18px;
+}
+
+.parentMessage p {
+    margin: 0;
+    color: #f2f3f5;
+    font-size: 18px;
+    line-height: 1.45;
+}
+
+.parentMessage time {
+    display: block;
+    margin-top: 5px;
+    color: #949ba4;
+    font-size: 11px;
+    text-align: right;
+}
+
+.parentSentMessage {
+    align-self: flex-end;
+    border-color: #5865f2;
+    background: #404249;
+}
+
+.parentSentMessage p {
+    color: #ffffff;
+}
+
+.parentComposer {
+    display: flex;
+    gap: 10px;
+    padding: 14px 24px 18px;
+    background: #2b2d31;
+    border-top: 1px solid #111214;
+}
+
+.parentComposer input {
+    min-width: 0;
+    height: 52px;
+    flex: 1;
+    padding: 0 15px;
+    border: 1px solid #4f545c;
+    border-radius: 6px;
+    outline: none;
+    color: #fbfbfb;
+    background: #1e1f22;
+    font: inherit;
+    font-size: 16px;
+}
+
+.classPageToolbar {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.classPageToolbar h1 {
+    margin: 8px 0 7px;
+    color: #ffffff;
+    font-size: clamp(28px, 4vw, 42px);
+}
+
+.classPageToolbar p {
+    margin: 0;
+    color: #949ba4;
+    font-size: 14px;
+}
+
+.classPageToolbar input {
+    width: min(300px, 100%);
+    padding: 13px 14px;
+    border: 1px solid #45474e;
+    border-radius: 5px;
+    outline: none;
+    color: #ffffff;
+    background: #2b2d31;
+}
+
+.teacherClassGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.teacherClassCard {
+    overflow: hidden;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.activeClassCard {
+    border-color: #5865f2;
+}
+
+.classCardHeader {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 17px;
+    border: 0;
+    color: #ffffff;
+    background: #313338;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.classCardHeader span {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 10px;
+    color: #ffffff;
+    background: #5865f2;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.classCardHeader strong {
+    font-size: 16px;
+}
+
+.classCardHeader small {
+    color: #949ba4;
+    font-size: 12px;
+}
+
+.classStudentList {
+    display: flex;
+    flex-direction: column;
+}
+
+.classStudentRow {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border: 0;
+    border-top: 1px solid #3f4147;
+    color: #ffffff;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.classStudentRow:hover,
+.classStudentRow.selectedRow {
+    background: #35373c;
+}
+
+.classStudentRow .avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 10px;
+}
+
+.classStudentRow > span:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.classStudentRow strong {
+    font-size: 13px;
+}
+
+.classStudentRow small {
+    color: #949ba4;
+    font-size: 11px;
+}
+
+.classStudentRow b {
+    color: #8ea1f2;
+    font-size: 19px;
+}
+
+@media (max-width: 800px) {
+    .teacherChatPage,
+    .teacherClassGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .parentChatSidebar {
+        max-height: 310px;
+    }
+
+    .classPageToolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .classPageToolbar input {
+        width: auto;
+    }
+}
