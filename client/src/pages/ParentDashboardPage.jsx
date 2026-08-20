@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, IconButton } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
+import AIAnalysisPage from "./AIAnalysisPage";
 import CalendarPage from "./CalendarPage";
 import GradesPage from "./GradesPage";
 import ChatPage, { TeacherConversationList, TeacherSearch } from "./ChatPage";
@@ -122,6 +123,8 @@ function ParentDashboardPage() {
                         <CalendarPage />
                     ) : selectedPage === "Grades" ? (
                         <GradesPage child={selectedChild} />
+                    ) : selectedPage === "AI analysis" ? (
+                        <AIAnalysisPage child={selectedChild} />
                     ) : (
                         <div className={styles.emptyChat}>
                             <div className={styles.emptyChatTitle}>
