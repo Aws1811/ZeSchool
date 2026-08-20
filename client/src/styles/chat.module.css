@@ -1,0 +1,817 @@
+.chatWorkspace {
+    display: grid;
+    min-width: 0;
+    min-height: 100vh;
+    flex: 1;
+    grid-template-columns: 270px minmax(0, 1fr);
+    background: #ffffff;
+}
+
+.teacherSidebar {
+    min-width: 0;
+    padding: 24px 0 0;
+    background: #edf2f4;
+    border-right: 1px solid #d7e2e6;
+}
+
+.teacherSidebarHeader {
+    padding: 0 18px 16px;
+}
+
+.teacherSidebarLabel {
+    color: #496557;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.teacherSidebarChild {
+    margin-top: 5px;
+    color: #20364c;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.teacherSearch {
+    width: calc(100% - 24px);
+    margin: 0 12px 12px;
+}
+
+.teacherSearch .MuiInputBase-root {
+    min-height: 42px;
+}
+
+.teacherSearch .MuiInputBase-input {
+    padding: 10px 13px;
+    color: #2b4046;
+    font-size: 14px;
+}
+
+.teacherSearch .MuiInputBase-input::placeholder {
+    color: #7b8d96;
+    opacity: 1;
+}
+
+.teacherSearch .MuiOutlinedInput-notchedOutline {
+    border-color: #cbd9de;
+}
+
+.teacherSearch .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #9eb4bc;
+}
+
+.teacherSearch .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #2b4046;
+    border-width: 1px;
+}
+
+.teacherSearch .MuiOutlinedInput-root {
+    border-radius: 8px;
+    background: #ffffff;
+}
+
+.teacherList {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.teacherButton {
+    display: flex !important;
+    width: 100%;
+    min-height: 82px;
+    align-items: center !important;
+    flex-direction: row;
+    gap: 10px;
+    padding: 12px 14px !important;
+    border-top: 1px solid #d7e2e6 !important;
+    border-radius: 0 !important;
+    color: #2b4046 !important;
+    text-align: left !important;
+    text-transform: none !important;
+}
+
+.teacherButton:hover,
+.selectedTeacher,
+.selectedTeacher:hover {
+    background: #2b4046 !important;
+}
+
+.selectedTeacher {
+    color: #ffffff !important;
+    box-shadow: inset 3px 0 0 #2b4046;
+}
+
+.teacherAvatar,
+.conversationAvatar {
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    color: #2b73c6;
+    background: #e8f2f8;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.teacherButtonContent {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.teacherButtonTopline {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.teacherButtonName {
+    overflow: hidden;
+    color: #2b4046;
+    font-size: 15px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.teacherButtonTime {
+    flex: 0 0 auto;
+    color: #6f8478;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.teacherButtonSubject {
+    color: #2b73c6;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.selectedTeacher .teacherButtonName,
+.selectedTeacher .teacherButtonSubject,
+.selectedTeacher .teacherButtonPreview,
+.selectedTeacher .teacherButtonTime {
+    color: #ffffff;
+}
+
+.teacherButtonPreview {
+    overflow: hidden;
+    color: #6b8074;
+    font-size: 13px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.unreadBadge {
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: #ffffff;
+    background: #2b73c6;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.noTeachers {
+    padding: 24px 18px;
+    color: #6b8074;
+    font-size: 14px;
+}
+
+.conversation {
+    display: flex;
+    min-width: 0;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #ffffff;
+}
+
+.conversationHeader {
+    display: flex;
+    min-height: 74px;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    border-bottom: 1px solid #dce6ef;
+}
+
+.conversationHeading {
+    min-width: 0;
+    flex: 1;
+}
+
+.conversationTitle {
+    overflow: hidden;
+    color: #20364c;
+    font-size: 19px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.conversationSubtitle {
+    margin-top: 3px;
+    overflow: hidden;
+    color: #75889b;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.conversationStatus {
+    flex: 0 0 auto;
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: #287456;
+    background: #e7f5ed;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.messageList {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+    padding: 18px 24px 28px;
+}
+
+.dateDivider {
+    align-self: center;
+    color: #8998a6;
+    font-size: 13px;
+}
+
+.messageRow {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.messageMineRow {
+    justify-content: flex-end;
+}
+
+.message {
+    max-width: min(620px, 75%);
+    padding: 10px 12px 8px;
+    border: 1px solid #e0e8f0;
+    border-radius: 8px;
+    background: #f0f3f6;
+}
+
+.messageMine {
+    border-color: #2b4046;
+    color: #2b4046;
+    background: #edf2f4;
+}
+
+.messageSender {
+    margin-bottom: 4px;
+    color: #2b73c6;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.messageText {
+    color: #2b4046;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.messageMine .messageText {
+    color: #2b4046;
+}
+
+.messageTime {
+    margin-top: 5px;
+    color: #8b9aa7;
+    font-size: 11px;
+    text-align: right;
+}
+
+.messageMine .messageTime {
+    color: #2b4046;
+}
+
+.messageComposer {
+    display: flex;
+    gap: 10px;
+    padding: 12px 24px 16px;
+    border-top: 1px solid #dce6ef;
+    background: #ffffff;
+}
+
+.messageComposer .MuiOutlinedInput-root {
+    border-radius: 7px;
+}
+
+.messageComposer .MuiButton-root {
+    min-width: 78px;
+    border-radius: 7px;
+    text-transform: uppercase;
+}
+
+.messageComposer .MuiInputBase-input {
+    font-size: 15px;
+}
+
+@media (max-width: 850px) {
+    .chatWorkspace {
+        grid-template-columns: 230px minmax(0, 1fr);
+    }
+
+    .message {
+        max-width: 82%;
+    }
+}
+
+@media (max-width: 620px) {
+    .chatWorkspace {
+        grid-template-columns: 190px minmax(0, 1fr);
+    }
+
+    .conversationHeader,
+    .messageList,
+    .messageComposer {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .message {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 460px) {
+    .chatWorkspace {
+        grid-template-columns: 1fr;
+    }
+
+    .teacherSidebar {
+        min-height: auto;
+        border-right: 0;
+        border-bottom: 1px solid #d7e2e6;
+    }
+
+    .teacherList {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        overflow-x: auto;
+    }
+
+    .teacherButton {
+        min-width: 150px;
+        border-right: 1px solid #d7e2e6 !important;
+    }
+
+    .conversation {
+        min-height: calc(100vh - 270px);
+    }
+}
+
+
+.chatWorkspace {
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.teacherSidebar {
+    min-height: 0;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.teacherSidebarChild {
+    font-size: 18px;
+}
+
+.teacherButtonName {
+    font-size: 16px;
+}
+
+.teacherButtonSubject {
+    color: #2b73c6;
+    font-size: 14px;
+}
+
+.teacherButtonPreview {
+    font-size: 14px;
+}
+
+.teacherButtonTime {
+    font-size: 13px;
+}
+
+.conversation {
+    min-height: 0;
+    height: 100%;
+}
+
+.conversationTitle {
+    font-size: 21px;
+}
+
+.conversationSubtitle {
+    font-size: 15px;
+}
+
+.messageSender {
+    font-size: 14px;
+}
+
+.presenceDot {
+    position: relative;
+    display: block;
+    flex: 0 0 auto;
+    width: 13px;
+    height: 13px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(32, 54, 76, 0.14);
+    cursor: help;
+}
+
+.presenceDot::after {
+    position: absolute;
+    right: 0;
+    bottom: 22px;
+    z-index: 5;
+    padding: 6px 9px;
+    border-radius: 6px;
+    color: #ffffff;
+    background: #20364c;
+    content: attr(data-status);
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(4px);
+    transition: opacity 160ms ease, transform 160ms ease;
+    white-space: nowrap;
+}
+
+.presenceDot:hover::after,
+.presenceDot:focus-visible::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.presenceActive {
+    background: #39a96b;
+}
+
+.presenceBusy {
+    background: #d64545;
+}
+
+.presenceOffline {
+    background: #8b98a1;
+}
+
+@media (max-width: 460px) {
+    .conversation {
+        min-height: 0;
+        height: calc(100vh - 270px);
+    }
+}
+
+
+.selectedTeacher .teacherButtonSubject {
+    color: #2b73c6;
+}
+
+
+.teacherSearch {
+    display: block;
+    width: calc(100% - 36px);
+    margin: 12px auto 14px;
+}
+
+.teacherSearch .MuiOutlinedInput-notchedOutline {
+    border: 0;
+}
+
+.teacherSearch .MuiOutlinedInput-root,
+.teacherSearch .MuiOutlinedInput-root:hover,
+.teacherSearch .MuiOutlinedInput-root.Mui-focused {
+    border: 0;
+    box-shadow: none;
+}
+
+.teacherList {
+    border-top: 1px solid #d7e2e6;
+}
+
+.teacherAvatarWrap {
+    position: relative;
+    display: block;
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+}
+
+.teacherAvatarWrap .presenceDot {
+    right: -2px;
+    bottom: -2px;
+    width: 11px;
+    height: 11px;
+}
+
+.teacherAvatarWrap .presenceDot::after {
+    right: -5px;
+    bottom: 18px;
+}
+
+
+.teacherSearch .MuiOutlinedInput-root,
+.teacherSearch .MuiOutlinedInput-root:hover,
+.teacherSearch .MuiOutlinedInput-root.Mui-focused {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.teacherSearch .MuiOutlinedInput-root fieldset,
+.teacherSearch .MuiOutlinedInput-notchedOutline {
+    border: 0 !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.teacherAvatar,
+.conversationAvatar {
+    border: 2px solid #000000;
+    box-sizing: border-box;
+}
+
+
+.teacherSearch .MuiInputBase-input,
+.teacherSearch .MuiInputBase-input::placeholder,
+.teacherButtonName,
+.teacherButtonSubject,
+.teacherButtonPreview,
+.teacherAvatar,
+.conversationAvatar,
+.conversationTitle,
+.conversationSubtitle,
+.messageSender,
+.messageText,
+.messageComposer .MuiInputBase-input,
+.messageComposer .MuiButton-root,
+.unreadBadge,
+.presenceDot::after {
+    font-size: 18px;
+}
+
+.teacherButtonTime,
+.messageTime {
+    font-size: 11px;
+}
+
+
+.teacherButtonContent {
+    gap: 0;
+}
+
+.teacherButtonTopline {
+    line-height: 1.15;
+}
+
+.teacherButtonSubject,
+.teacherButtonPreview {
+    line-height: 1.2;
+}
+
+.teacherAvatarWrap,
+.teacherAvatar {
+    width: 43px;
+    height: 43px;
+}
+
+.teacherAvatar {
+    font-size: 14px;
+}
+
+.teacherAvatarWrap .presenceDot {
+    right: -2px;
+    bottom: -2px;
+    width: 12px;
+    height: 12px;
+}
+
+.unreadBadge {
+    font-size: 14px;
+}
+
+.teacherButtonPreview {
+    font-size: 14px;
+}
+
+
+.teacherSearch {
+    margin-top: 10px;
+}
+
+.conversationHeader .teacherAvatarWrap {
+    width: 43px;
+    height: 43px;
+}
+
+.conversationHeader .teacherAvatarWrap .presenceDot {
+    right: -2px;
+    bottom: -2px;
+}
+
+.conversationHeader .conversationTitle {
+    font-size: 18px;
+}
+
+.conversationHeader .conversationSubtitle {
+    color: #2b73c6;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+.teacherSidebar {
+    background: #313338;
+    border-right: 0;
+}
+
+.teacherSearch {
+    background: transparent;
+}
+
+.teacherSearch .MuiOutlinedInput-root {
+    background: #1e1f22;
+}
+
+.teacherSearch .MuiInputBase-input,
+.teacherSearch .MuiInputBase-input::placeholder {
+    color: #dbdee1;
+}
+
+.teacherSearch .MuiInputBase-input::placeholder {
+    color: #949ba4;
+}
+
+.teacherList {
+    border-top-color: #1e1f22;
+}
+
+.teacherButton {
+    color: #b5bac1 !important;
+    border-top-color: transparent !important;
+}
+
+.teacherButton:hover {
+    color: #f2f3f5 !important;
+    background: #35373c !important;
+}
+
+.teacherButtonName {
+    color: #f2f3f5;
+}
+
+.teacherButtonSubject {
+    color: #8ea1f2;
+}
+
+.teacherButtonPreview,
+.teacherButtonTime {
+    color: #b5bac1;
+}
+
+.selectedTeacher,
+.selectedTeacher:hover {
+    color: #ffffff !important;
+    background: #404249 !important;
+    box-shadow: inset 3px 0 0 #5865f2;
+}
+
+.selectedTeacher .teacherButtonName,
+.selectedTeacher .teacherButtonPreview,
+.selectedTeacher .teacherButtonTime {
+    color: #ffffff;
+}
+
+.selectedTeacher .teacherButtonSubject {
+    color: #b5c2ff;
+}
+
+.unreadBadge {
+    background: #5865f2;
+}
+
+.conversationHeader,
+.messageComposer {
+    border-color: #e3e5e8;
+}
+
+
+.teacherSearch .MuiOutlinedInput-root {
+    border: 1px solid #2c2c2f !important;
+    background: #1e1f22;
+}
+
+.teacherSearch .MuiInputBase-input,
+.teacherSearch .MuiInputBase-input::placeholder {
+    color: #edfbfb;
+}
+
+
+.teacherSearch,
+.teacherSearch .MuiFormControl-root,
+.teacherSearch .MuiInputBase-root,
+.teacherSearch .MuiOutlinedInput-root {
+    background: #27272b !important;
+    border-color: #2c2c2f !important;
+}
+
+.teacherSearch .MuiOutlinedInput-root {
+    border: 1px solid #2c2c2f !important;
+}
+
+.teacherSearch .MuiOutlinedInput-root fieldset,
+.teacherSearch .MuiOutlinedInput-notchedOutline {
+    border: 1px solid #2c2c2f !important;
+}
+
+.teacherSearch .MuiInputBase-input {
+    color: #fbfbfb !important;
+    -webkit-text-fill-color: #fbfbfb !important;
+}
+
+.teacherSearch .MuiInputBase-input::placeholder {
+    color: #fbfbfb !important;
+    opacity: 0.78 !important;
+}
+
+
+.teacherSearch .MuiInputBase-root,
+.teacherSearch .MuiOutlinedInput-root {
+    background: #6e737d !important;
+}
+
+.teacherSearch .MuiInputBase-input,
+.teacherSearch .MuiInputBase-input::placeholder {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+
+.teacherSearch {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 42px;
+    padding: 8px 13px;
+    border: 1px solid #2c2c2f;
+    border-radius: 6px;
+    outline: none;
+    color: #ffffff;
+    background: #6e737d;
+    font: inherit;
+    font-size: 16px;
+}
+
+.teacherSearch::placeholder {
+    color: #ffffff;
+    opacity: 0.78;
+}
+
+.teacherSearch:hover,
+.teacherSearch:focus {
+    border-color: #2c2c2f;
+    outline: none;
+    color: #ffffff;
+    background: #6e737d;
+}
+
+
+.teacherSearch {
+    height: 48px;
+    padding: 11px 16px;
+    border: 1px solid #e8f2f8;
+    border-radius: 1px;
+}
+
+.teacherSearch:hover,
+.teacherSearch:focus {
+    border: 1px solid #e8f2f8;
+    border-radius: 1px;
+}
