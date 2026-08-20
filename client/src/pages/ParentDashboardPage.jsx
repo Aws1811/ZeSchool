@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, IconButton } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import ChatPage from "./ChatPage";
-import styles from "../styles/dashboard.module.css";
+import styles from "../styles/dashboard-shell.module.css";
 
 const pageItems = [
     "Chat",

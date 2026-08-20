@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, TextField } from "@mui/material";
-import styles from "../styles/dashboard.module.css";
+import styles from "../styles/chat.module.css";
 
 const teachers = [
     {
@@ -11,6 +11,7 @@ const teachers = [
         time: "10:42",
         unread: 2,
         initials: "NN",
+        status: "active",
     },
     {
         id: "teacher-2",
@@ -20,6 +21,7 @@ const teachers = [
         time: "Yesterday",
         unread: 0,
         initials: "KK",
+        status: "busy",
     },
     {
         id: "teacher-3",
@@ -29,8 +31,21 @@ const teachers = [
         time: "Mon",
         unread: 0,
         initials: "SS",
+        status: "offline",
     },
 ];
+
+const presenceClasses = {
+    active: "presenceActive",
+    busy: "presenceBusy",
+    offline: "presenceOffline",
+};
+
+const presenceLabels = {
+    active: "Active",
+    busy: "Busy",
+    offline: "Offline",
+};
 
 const initialMessages = {
     "teacher-1": [
@@ -81,7 +96,7 @@ function getInitials(name) {
         .toUpperCase();
 }
 
-function ChatPage({ selectedChild }) {
+function ChatPage() {
     const [selectedTeacherId, setSelectedTeacherId] = useState(teachers[0].id);
     const [searchText, setSearchText] = useState("");
     const [messageText, setMessageText] = useState("");
@@ -120,10 +135,6 @@ function ChatPage({ selectedChild }) {
     return (
         <div className={styles.chatWorkspace}>
             <aside className={styles.teacherSidebar} aria-label="Teacher conversations">
-                <div className={styles.teacherSidebarHeader}>
-                    <div className={styles.teacherSidebarLabel}>Teachers</div>
-                    <div className={styles.teacherSidebarChild}>{selectedChild.name}</div>
-                </div>
                 <TextField
                     className={styles.teacherSearch}
                     size="small"
@@ -139,7 +150,15 @@ function ChatPage({ selectedChild }) {
                             className={`${styles.teacherButton} ${selectedTeacherId === teacher.id ? styles.selectedTeacher : ""}`}
                             onClick={() => setSelectedTeacherId(teacher.id)}
                         >
-                            <span className={styles.teacherAvatar}>{teacher.initials}</span>
+                            <span className={styles.teacherAvatarWrap}>
+                                <span className={styles.teacherAvatar}>{teacher.initials}</span>
+                                <span
+                                    className={`${styles.presenceDot} ${styles[presenceClasses[teacher.status]]}`}
+                                    data-status={presenceLabels[teacher.status]}
+                                    aria-label={`${teacher.name} is ${presenceLabels[teacher.status].toLowerCase()}`}
+                                    title={presenceLabels[teacher.status]}
+                                />
+                            </span>
                             <span className={styles.teacherButtonContent}>
                                 <span className={styles.teacherButtonTopline}>
                                     <span className={styles.teacherButtonName}>{teacher.name}</span>
@@ -157,14 +176,19 @@ function ChatPage({ selectedChild }) {
 
             <section className={styles.conversation} aria-label="Conversation">
                 <header className={styles.conversationHeader}>
-                    <div className={styles.conversationAvatar}>{selectedTeacher.initials || getInitials(selectedTeacher.name)}</div>
+                    <span className={styles.teacherAvatarWrap}>
+                        <span className={styles.teacherAvatar}>{selectedTeacher.initials || getInitials(selectedTeacher.name)}</span>
+                        <span
+                            className={`${styles.presenceDot} ${styles[presenceClasses[selectedTeacher.status]]}`}
+                            data-status={presenceLabels[selectedTeacher.status]}
+                            aria-label={`${selectedTeacher.name} is ${presenceLabels[selectedTeacher.status].toLowerCase()}`}
+                            title={presenceLabels[selectedTeacher.status]}
+                        />
+                    </span>
                     <div className={styles.conversationHeading}>
                         <div className={styles.conversationTitle}>{selectedTeacher.name}</div>
-                        <div className={styles.conversationSubtitle}>
-                            {selectedTeacher.subject} for {selectedChild.name}
-                        </div>
+                        <div className={styles.conversationSubtitle}>{selectedTeacher.subject}</div>
                     </div>
-                    <span className={styles.conversationStatus}>Active</span>
                 </header>
 
                 <div className={styles.messageList}>

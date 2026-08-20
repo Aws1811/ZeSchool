@@ -7,7 +7,7 @@ import {
     RadioGroup,
     TextField,
 } from "@mui/material";
-import styles from "../App.module.css";
+import styles from "../styles/app.module.css";
 
 function ChildCard({ childName, usesBus, onNameChange, onBusChange, onRemove, removeDisabled }) {
     return (

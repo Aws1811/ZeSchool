@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Typography } from "@mui/material";
 import ChildCard from "./ChildCard";
-import styles from "../App.module.css";
+import styles from "../styles/app.module.css";
 
 function ChildSetupForm({ onSubmit }) {
     const [children, setChildren] = useState([{ name: "Child 1", usesBus: "no" }]);

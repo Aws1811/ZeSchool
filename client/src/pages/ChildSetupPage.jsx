@@ -3,7 +3,7 @@ import { Alert, Button } from "@mui/material";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import AuthLayout from "../components/AuthLayout";
 import ChildSetupForm from "../components/ChildSetupForm";
-import styles from "../App.module.css";
+import styles from "../styles/app.module.css";
 
 function ChildSetupPage() {
     const location = useLocation();

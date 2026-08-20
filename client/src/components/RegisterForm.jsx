@@ -11,7 +11,7 @@ import {
     TextField,
 } from "@mui/material";
 import DateOfBirthField from "./DateOfBirthField";
-import styles from "../App.module.css";
+import styles from "../styles/app.module.css";
 
 function RegisterForm({ onSubmit }) {
     const [showPassword, setShowPassword] = useState(false);
