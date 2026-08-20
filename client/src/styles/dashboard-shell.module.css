@@ -225,3 +225,308 @@
     min-height: 48px;
     font-size: 17px !important;
 }
+
+
+.dashboard {
+    grid-template-columns: 6.36% 16.31% 77.33%;
+}
+
+.pageRail {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.teacherHistory {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #2e4258;
+    overflow: hidden;
+}
+
+.teacherHistory > aside {
+    min-height: 0;
+    height: auto;
+    flex: 1;
+    padding-top: 0;
+    border-right: 0;
+}
+
+@media (max-width: 850px) {
+    .dashboard {
+        grid-template-columns: 72px 190px minmax(0, 1fr);
+    }
+}
+
+
+.dashboard {
+    grid-template-columns: 5% 17.67% 77.33%;
+}
+
+.pageRail {
+    padding: 18px 12px;
+    background: #1d3041;
+}
+
+.pageRail > .teacherSearch {
+    width: 100%;
+    margin: 0 0 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #344b5e;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-root {
+    background: #243b4d;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-input,
+.pageRail > .teacherSearch .MuiInputBase-input::placeholder {
+    color: #d8e4ec;
+}
+
+.pageLabel {
+    padding-left: 8px;
+    color: #a8bdca;
+    font-size: 13px;
+}
+
+.pageList {
+    gap: 3px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #344b5e;
+}
+
+.pageButton {
+    min-height: 44px;
+    padding: 0 10px !important;
+    color: #b9cbd6 !important;
+    font-size: 16px !important;
+}
+
+.pageButton:hover,
+.selectedPage {
+    color: #ffffff !important;
+    background: #2b73c6 !important;
+}
+
+.teacherHistory {
+    margin-top: 0;
+    padding-top: 12px;
+    border-top: 0;
+}
+
+.teacherHistory > aside {
+    background: #edf2f4;
+    border-radius: 0;
+}
+
+
+.childRail {
+    background: #1e1f22;
+    border-right: 1px solid #111214;
+}
+
+.railBrand {
+    background: #5865f2;
+}
+
+.childButton {
+    color: #b5bac1 !important;
+    background: #2b2d31 !important;
+}
+
+.childButton:hover,
+.selectedChild {
+    color: #ffffff !important;
+    background: #5865f2 !important;
+}
+
+.pageRail {
+    background: #2b2d31;
+    border-right: 1px solid #1e1f22;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-root {
+    background: #1e1f22;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-input,
+.pageRail > .teacherSearch .MuiInputBase-input::placeholder {
+    color: #dbdee1;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-input::placeholder {
+    color: #949ba4;
+}
+
+.pageLabel {
+    color: #949ba4;
+}
+
+.pageButton {
+    color: #b5bac1 !important;
+}
+
+.pageButton:hover {
+    color: #f2f3f5 !important;
+    background: #35373c !important;
+}
+
+.pageButton.selectedPage {
+    color: #ffffff !important;
+    background: #5865f2 !important;
+}
+
+.teacherHistory {
+    border-color: #1e1f22;
+}
+
+.teacherHistory > aside {
+    background: #313338;
+}
+
+
+.dashboard {
+    grid-template-columns: 20.17% 79.83%;
+}
+
+.pageRail {
+    min-height: 100vh;
+}
+
+.chatHeader {
+    min-height: 72px;
+    background: #2b2d31;
+    border-bottom-color: #1e1f22;
+}
+
+.chatHeaderContent {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 14px;
+}
+
+.childSwitcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.childSwitcher .childButton {
+    width: 42px;
+    min-height: 42px;
+    padding: 0 !important;
+    border-radius: 12px !important;
+    color: #b5bac1 !important;
+    background: #1e1f22 !important;
+    font-size: 14px !important;
+}
+
+.childSwitcher .childButton:hover,
+.childSwitcher .selectedChild {
+    color: #ffffff !important;
+    background: #5865f2 !important;
+}
+
+.chatSubtitle {
+    color: #edfbfb;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.pageRail > .teacherSearch {
+    border-bottom-color: #2c2c2f;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-root {
+    border: 1px solid #2c2c2f !important;
+    background: #1e1f22;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-input,
+.pageRail > .teacherSearch .MuiInputBase-input::placeholder {
+    color: #edfbfb;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-input::placeholder {
+    opacity: 0.72;
+}
+
+.logoutButton {
+    color: #b5bac1 !important;
+}
+
+@media (max-width: 620px) {
+    .dashboard {
+        grid-template-columns: minmax(190px, 36%) minmax(0, 1fr);
+    }
+
+    .pageRail {
+        display: flex;
+    }
+}
+
+
+.pageRail > .teacherSearch {
+    margin-bottom: 24px;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-root {
+    background: #27272b;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-input,
+.pageRail > .teacherSearch .MuiInputBase-input::placeholder {
+    color: #fbfbfb;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-input::placeholder {
+    opacity: 0.78;
+}
+
+.logoutButton {
+    color: #ed4245 !important;
+}
+
+.logoutButton svg {
+    width: 25px;
+    height: 25px;
+}
+
+
+.pageRail > .teacherSearch {
+    margin-bottom: 0 !important;
+}
+
+.pageRail > .pageLabel {
+    margin-top: 18px;
+}
+
+.pageRail > .teacherSearch .MuiInputBase-root,
+.pageRail > .teacherSearch .MuiOutlinedInput-root {
+    background: #6e737d !important;
+}
+
+.pageRail > .teacherSearch input.MuiInputBase-input,
+.pageRail > .teacherSearch input[type="text"] {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    caret-color: #ffffff !important;
+}
+
+.pageRail > .teacherSearch input.MuiInputBase-input::placeholder,
+.pageRail > .teacherSearch input[type="text"]::placeholder {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+
+.pageRail > .teacherSearch {
+    padding-bottom: 0;
+    border-bottom: 0;
+}

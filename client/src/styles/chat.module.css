@@ -645,3 +645,173 @@
     font-size: 18px;
     font-weight: 700;
 }
+
+
+.teacherSidebar {
+    background: #313338;
+    border-right: 0;
+}
+
+.teacherSearch {
+    background: transparent;
+}
+
+.teacherSearch .MuiOutlinedInput-root {
+    background: #1e1f22;
+}
+
+.teacherSearch .MuiInputBase-input,
+.teacherSearch .MuiInputBase-input::placeholder {
+    color: #dbdee1;
+}
+
+.teacherSearch .MuiInputBase-input::placeholder {
+    color: #949ba4;
+}
+
+.teacherList {
+    border-top-color: #1e1f22;
+}
+
+.teacherButton {
+    color: #b5bac1 !important;
+    border-top-color: transparent !important;
+}
+
+.teacherButton:hover {
+    color: #f2f3f5 !important;
+    background: #35373c !important;
+}
+
+.teacherButtonName {
+    color: #f2f3f5;
+}
+
+.teacherButtonSubject {
+    color: #8ea1f2;
+}
+
+.teacherButtonPreview,
+.teacherButtonTime {
+    color: #b5bac1;
+}
+
+.selectedTeacher,
+.selectedTeacher:hover {
+    color: #ffffff !important;
+    background: #404249 !important;
+    box-shadow: inset 3px 0 0 #5865f2;
+}
+
+.selectedTeacher .teacherButtonName,
+.selectedTeacher .teacherButtonPreview,
+.selectedTeacher .teacherButtonTime {
+    color: #ffffff;
+}
+
+.selectedTeacher .teacherButtonSubject {
+    color: #b5c2ff;
+}
+
+.unreadBadge {
+    background: #5865f2;
+}
+
+.conversationHeader,
+.messageComposer {
+    border-color: #e3e5e8;
+}
+
+
+.teacherSearch .MuiOutlinedInput-root {
+    border: 1px solid #2c2c2f !important;
+    background: #1e1f22;
+}
+
+.teacherSearch .MuiInputBase-input,
+.teacherSearch .MuiInputBase-input::placeholder {
+    color: #edfbfb;
+}
+
+
+.teacherSearch,
+.teacherSearch .MuiFormControl-root,
+.teacherSearch .MuiInputBase-root,
+.teacherSearch .MuiOutlinedInput-root {
+    background: #27272b !important;
+    border-color: #2c2c2f !important;
+}
+
+.teacherSearch .MuiOutlinedInput-root {
+    border: 1px solid #2c2c2f !important;
+}
+
+.teacherSearch .MuiOutlinedInput-root fieldset,
+.teacherSearch .MuiOutlinedInput-notchedOutline {
+    border: 1px solid #2c2c2f !important;
+}
+
+.teacherSearch .MuiInputBase-input {
+    color: #fbfbfb !important;
+    -webkit-text-fill-color: #fbfbfb !important;
+}
+
+.teacherSearch .MuiInputBase-input::placeholder {
+    color: #fbfbfb !important;
+    opacity: 0.78 !important;
+}
+
+
+.teacherSearch .MuiInputBase-root,
+.teacherSearch .MuiOutlinedInput-root {
+    background: #6e737d !important;
+}
+
+.teacherSearch .MuiInputBase-input,
+.teacherSearch .MuiInputBase-input::placeholder {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+
+.teacherSearch {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 42px;
+    padding: 8px 13px;
+    border: 1px solid #2c2c2f;
+    border-radius: 6px;
+    outline: none;
+    color: #ffffff;
+    background: #6e737d;
+    font: inherit;
+    font-size: 16px;
+}
+
+.teacherSearch::placeholder {
+    color: #ffffff;
+    opacity: 0.78;
+}
+
+.teacherSearch:hover,
+.teacherSearch:focus {
+    border-color: #2c2c2f;
+    outline: none;
+    color: #ffffff;
+    background: #6e737d;
+}
+
+
+.teacherSearch {
+    height: 48px;
+    padding: 11px 16px;
+    border: 1px solid #e8f2f8;
+    border-radius: 1px;
+}
+
+.teacherSearch:hover,
+.teacherSearch:focus {
+    border: 1px solid #e8f2f8;
+    border-radius: 1px;
+}
