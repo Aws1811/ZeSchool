@@ -3,6 +3,7 @@ import ChildSetupPage from "./pages/ChildSetupPage";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import ParentDashboardPage from "./pages/ParentDashboardPage";
+import TeacherDashboardPage from "./pages/TeacherDashboardPage";
 import RegisterPage from "./pages/RegisterPage";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/dashboard" element={<ParentDashboardPage />} />
+                <Route path="/teacher-dashboard" element={<TeacherDashboardPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/register/children" element={<ChildSetupPage />} />
             </Routes>

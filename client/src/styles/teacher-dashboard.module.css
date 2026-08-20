@@ -1,0 +1,852 @@
+.teacherDashboard {
+    display: grid;
+    grid-template-columns: 238px minmax(0, 1fr);
+    min-height: 100vh;
+    color: #f2f3f5;
+    background: #1e1f22;
+}
+
+.sidebar {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 22px 16px;
+    background: #2b2d31;
+    border-right: 1px solid #1e1f22;
+}
+
+.brand,
+.teacherIdentity,
+.topContext,
+.selectionContext,
+.sectionHeading,
+.documentHeader,
+.messagePanel header,
+.messagePanel header > div {
+    display: flex;
+    align-items: center;
+}
+
+.brand {
+    gap: 10px;
+    padding: 0 8px 24px;
+}
+
+.brand span,
+.avatar {
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #ffffff;
+    background: #5865f2;
+    font-weight: 800;
+}
+
+.brand span {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    font-size: 11px;
+}
+
+.brand strong {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.teacherIdentity {
+    gap: 10px;
+    padding: 14px 8px 22px;
+    border-bottom: 1px solid #3f4147;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 auto;
+    font-size: 12px;
+}
+
+.teacherIdentity div,
+.conversationRow > span:nth-child(3),
+.studentRow > span:nth-child(2),
+.messagePanel header > div > span:last-child {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.teacherIdentity strong,
+.teacherIdentity small,
+.conversationRow strong,
+.conversationRow small,
+.conversationRow em,
+.studentRow strong,
+.studentRow small,
+.messagePanel header strong,
+.messagePanel header small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.teacherIdentity strong,
+.conversationRow strong,
+.studentRow strong,
+.messagePanel header strong {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.teacherIdentity small,
+.conversationRow small,
+.studentRow small,
+.messagePanel header small {
+    color: #949ba4;
+    font-size: 11px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 20px;
+}
+
+.navigation button,
+.logoutButton,
+.classCard,
+.studentRow,
+.conversationRow,
+.secondaryButton,
+.primaryButton,
+.segmentedControl button,
+.studentPill {
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+}
+
+.navigation button {
+    padding: 12px 12px;
+    border-radius: 7px;
+    color: #b5bac1;
+    background: transparent;
+    font-size: 14px;
+    text-align: left;
+}
+
+.navigation button:hover,
+.activeNav {
+    color: #ffffff !important;
+    background: #5865f2 !important;
+}
+
+.logoutButton {
+    margin-top: auto;
+    padding: 12px;
+    color: #ed4245;
+    background: transparent;
+    text-align: left;
+}
+
+.teacherMain {
+    display: flex;
+    min-width: 0;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #1e1f22;
+}
+
+.topBar {
+    display: flex;
+    min-height: 72px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 28px;
+    background: #232428;
+    border-bottom: 1px solid #3f4147;
+}
+
+.topContext,
+.selectionContext {
+    gap: 12px;
+}
+
+.topContext span {
+    padding: 7px 10px;
+    border-radius: 5px;
+    color: #b5c2ff;
+    background: #313338;
+    font-size: 12px;
+}
+
+.topContext strong,
+.selectionContext label,
+.studentPill {
+    color: #edfbfb;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.selectionContext label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #949ba4;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.selectionContext select,
+.contextBar select {
+    padding: 8px 10px;
+    border: 1px solid #3f4147;
+    border-radius: 5px;
+    color: #edfbfb;
+    background: #2b2d31;
+}
+
+.studentPill {
+    padding: 9px 12px;
+    border-radius: 5px;
+    background: #5865f2;
+}
+
+.pageViewport {
+    min-height: 0;
+    flex: 1;
+    overflow: auto;
+}
+
+.pageContent {
+    width: min(100%, 1260px);
+    margin: 0 auto;
+    padding: 32px 34px 50px;
+}
+
+.pageIntro {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    color: #8ea1f2;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.pageIntro h1 {
+    margin: 8px 0 7px;
+    color: #ffffff;
+    font-size: clamp(28px, 4vw, 42px);
+}
+
+.pageIntro p {
+    margin: 0;
+    color: #949ba4;
+    font-size: 14px;
+}
+
+.statGrid,
+.classGrid,
+.formGrid,
+.overviewGrid,
+.sourceChips {
+    display: grid;
+    gap: 12px;
+}
+
+.statGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.statCard,
+.classCard,
+.sectionBlock,
+.contextBar,
+.formPanel,
+.previewPanel,
+.dataPanel,
+.aiControls,
+.aiResult,
+.conversationPanel,
+.messagePanel {
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.statCard {
+    display: flex;
+    min-height: 118px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding: 20px;
+}
+
+.statCard span {
+    color: #949ba4;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.statCard strong {
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.statCard small,
+.classCard small,
+.previewPanel small,
+.dataRow small {
+    color: #949ba4;
+    font-size: 12px;
+}
+
+.sectionBlock {
+    margin-top: 18px;
+    padding: 22px;
+}
+
+.sectionHeading {
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.sectionHeading h2,
+.formPanel h2,
+.previewPanel h2,
+.dataPanel h2,
+.aiControls h2,
+.aiResult h2 {
+    margin: 6px 0 0;
+    color: #ffffff;
+    font-size: 19px;
+}
+
+.secondaryButton,
+.primaryButton {
+    padding: 11px 15px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.secondaryButton {
+    color: #d9e0ff;
+    background: #404249;
+}
+
+.primaryButton {
+    color: #ffffff;
+    background: #5865f2;
+}
+
+.secondaryButton:hover,
+.primaryButton:hover {
+    filter: brightness(1.12);
+}
+
+.classGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.classCard {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4px 12px;
+    padding: 16px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.classCard > span {
+    grid-row: span 2;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border-radius: 11px;
+    color: #ffffff;
+    background: #5865f2;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.classCard strong {
+    align-self: end;
+    font-size: 15px;
+}
+
+.classCard:hover,
+.selectedRow {
+    border-color: #5865f2;
+    background: #313338;
+}
+
+.contextBar {
+    display: flex;
+    align-items: end;
+    gap: 14px;
+    margin-bottom: 16px;
+    padding: 16px;
+}
+
+.contextBar label,
+.formPanel label,
+.aiControls label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    color: #b5bac1;
+    font-size: 12px;
+}
+
+.growField {
+    flex: 1;
+}
+
+.contextBar input,
+.contextBar select,
+.formPanel input,
+.formPanel textarea,
+.formPanel select,
+.aiControls textarea,
+.conversationPanel > input,
+.messageForm input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 13px;
+    border: 1px solid #45474e;
+    border-radius: 5px;
+    outline: none;
+    color: #f2f3f5;
+    background: #1e1f22;
+    font: inherit;
+}
+
+.contextBar input:focus,
+.formPanel input:focus,
+.formPanel textarea:focus,
+.formPanel select:focus,
+.aiControls textarea:focus,
+.conversationPanel > input:focus,
+.messageForm input:focus {
+    border-color: #5865f2;
+}
+
+.studentList {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.studentRow {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 15px;
+    border: 1px solid #3f4147;
+    border-radius: 6px;
+    color: #ffffff;
+    background: #2b2d31;
+    text-align: left;
+}
+
+.studentRow em {
+    color: #9bb6a5;
+    font-size: 12px;
+    font-style: normal;
+}
+
+.studentRow b {
+    color: #8ea1f2;
+    font-size: 20px;
+}
+
+.chatWorkspace {
+    display: grid;
+    grid-template-columns: minmax(230px, 0.65fr) minmax(0, 1.35fr);
+    min-height: 570px;
+    gap: 12px;
+}
+
+.conversationPanel {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    overflow: auto;
+}
+
+.conversationPanel > input {
+    margin-bottom: 7px;
+}
+
+.conversationRow {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 9px;
+    padding: 11px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: #ffffff;
+    background: transparent;
+    text-align: left;
+}
+
+.conversationRow .avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 10px;
+}
+
+.conversationRow em {
+    color: #949ba4;
+    font-size: 11px;
+    font-style: normal;
+}
+
+.conversationRow time {
+    color: #949ba4;
+    font-size: 10px;
+}
+
+.presence {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.online { background: #57f287; }
+.busy { background: #ed4245; }
+.offline { background: #747f8d; }
+
+.messagePanel {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.messagePanel header {
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 18px;
+    border-bottom: 1px solid #3f4147;
+}
+
+.messagePanel header > div {
+    gap: 10px;
+}
+
+.statusText {
+    color: #57f287;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.messageList {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    overflow: auto;
+}
+
+.messageBubble {
+    width: fit-content;
+    max-width: 72%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    color: #dfe3e8;
+    background: #404249;
+}
+
+.sentMessage {
+    align-self: flex-end;
+    color: #ffffff;
+    background: #5865f2;
+}
+
+.messageBubble p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.messageBubble time {
+    display: block;
+    margin-top: 5px;
+    color: #b5bac1;
+    font-size: 10px;
+    text-align: right;
+}
+
+.messageForm {
+    display: flex;
+    gap: 8px;
+    padding: 14px;
+    border-top: 1px solid #3f4147;
+}
+
+.formWorkspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.75fr);
+    gap: 16px;
+}
+
+.formPanel,
+.previewPanel,
+.dataPanel,
+.aiControls,
+.aiResult {
+    padding: 22px;
+}
+
+.formPanel,
+.formPanel form,
+.previewPanel,
+.dataPanel,
+.aiControls,
+.aiResult {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.formPanel textarea,
+.aiControls textarea {
+    min-height: 155px;
+    resize: vertical;
+}
+
+.formGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.segmentedControl,
+.scopeButtons,
+.sourceChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.segmentedControl button,
+.scopeButtons button {
+    padding: 9px 13px;
+    border-radius: 5px;
+    color: #b5bac1;
+    background: #404249;
+    font-size: 12px;
+}
+
+.activeSegment {
+    color: #ffffff !important;
+    background: #5865f2 !important;
+}
+
+.previewPanel {
+    background: #232428;
+}
+
+.previewPanel h2 {
+    font-size: 23px;
+}
+
+.previewPanel p,
+.aiResult p {
+    margin: 0;
+    color: #b5bac1;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.previewLine {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 5px;
+    background: #313338;
+}
+
+.previewLine span,
+.previewLine strong {
+    font-size: 12px;
+}
+
+.previewLine span {
+    color: #b5c2ff;
+}
+
+.previewLine strong {
+    color: #ffffff;
+}
+
+.eventList,
+.dataPanel {
+    gap: 10px;
+}
+
+.eventList > div,
+.dataRow {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 11px 0;
+    border-bottom: 1px solid #3f4147;
+}
+
+.eventList span,
+.dataRow span {
+    color: #8ea1f2;
+    font-size: 11px;
+}
+
+.eventList strong,
+.dataRow strong {
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.attendanceForm {
+    padding-top: 16px;
+    border-top: 1px solid #3f4147;
+}
+
+.attendanceOptions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.attendanceOptions label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 7px;
+    color: #d8dce1;
+}
+
+.divider {
+    height: 1px;
+    background: #3f4147;
+}
+
+.aiWorkspace {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.7fr) minmax(0, 1.3fr);
+    gap: 16px;
+}
+
+.aiControls textarea {
+    min-height: 130px;
+}
+
+.aiResult {
+    justify-content: center;
+    min-height: 360px;
+}
+
+.aiTag {
+    width: fit-content;
+    padding: 6px 9px;
+    border-radius: 999px;
+    color: #b5c2ff;
+    background: #404249;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.sourceChips span {
+    padding: 8px 11px;
+    border-radius: 999px;
+    color: #d9e0ff;
+    background: #404249;
+    font-size: 12px;
+}
+
+.notice {
+    position: fixed;
+    right: 26px;
+    bottom: 24px;
+    z-index: 4;
+    padding: 13px 17px;
+    border: 1px solid #5865f2;
+    border-radius: 6px;
+    color: #ffffff;
+    background: #313338;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+    font-size: 13px;
+}
+
+@media (max-width: 980px) {
+    .teacherDashboard {
+        grid-template-columns: 205px minmax(0, 1fr);
+    }
+
+    .statGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .formWorkspace,
+    .aiWorkspace {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .teacherDashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        min-height: auto;
+    }
+
+    .navigation {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .logoutButton {
+        margin-top: 16px;
+    }
+
+    .topBar,
+    .contextBar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .pageContent {
+        padding: 24px 18px 40px;
+    }
+
+    .chatWorkspace {
+        grid-template-columns: 1fr;
+    }
+
+    .conversationPanel {
+        max-height: 330px;
+    }
+
+    .classGrid,
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+}
