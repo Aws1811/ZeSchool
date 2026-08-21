@@ -3,7 +3,7 @@
 }
 
 :root {
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-family: system-ui, sans-serif;
     color: #102a43;
     background: #f8fbff;
     font-synthesis: none;
@@ -16,6 +16,7 @@ body {
     min-width: 320px;
     min-height: 100vh;
     margin: 0;
+    font-family: system-ui, sans-serif;
 }
 
 button,
