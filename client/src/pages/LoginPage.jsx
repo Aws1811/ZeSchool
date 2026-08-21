@@ -26,6 +26,21 @@ function LoginPage() {
 
             setMessage("");
 
+            localStorage.setItem(
+                "zeschoolUser",
+                JSON.stringify(response.data.user)
+            );
+
+            localStorage.setItem(
+                "zeschoolChildren",
+                JSON.stringify(response.data.children || [])
+            );
+
+            if (response.data.user.role === "teacher") {
+                navigate("/teacher-dashboard");
+                return;
+            }
+
             navigate("/dashboard", {
                 state: {
                     user: response.data.user,

@@ -95,6 +95,9 @@ function RegisterPage() {
 
             setMessage("");
 
+            localStorage.setItem("zeschoolUser", JSON.stringify(response.data.user));
+            localStorage.setItem("zeschoolChildren", JSON.stringify([]));
+
             navigate("/teacher-dashboard", {
                 state: {
                     user: response.data.user

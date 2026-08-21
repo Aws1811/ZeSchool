@@ -59,6 +59,8 @@ function ParentDashboardPage() {
     const selectedChild = children[selectedChildIndex] || children[0];
 
     const handleLogout = () => {
+        localStorage.removeItem("zeschoolUser");
+        localStorage.removeItem("zeschoolChildren");
         navigate("/");
     };
 

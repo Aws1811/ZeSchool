@@ -29,6 +29,9 @@ function ChildSetupPage() {
 
             setMessage("");
 
+            localStorage.setItem("zeschoolUser", JSON.stringify(response.data.user));
+            localStorage.setItem("zeschoolChildren", JSON.stringify(response.data.children));
+
             navigate("/dashboard", {
                 state: {
                     user: response.data.user,

@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProtectedRoute from "./components/ProtectedRoute";
 import ChildSetupPage from "./pages/ChildSetupPage";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
@@ -12,8 +13,22 @@ function App() {
             <Routes>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<LoginPage />} />
-                <Route path="/dashboard" element={<ParentDashboardPage />} />
-                <Route path="/teacher-dashboard" element={<TeacherDashboardPage />} />
+                <Route
+                    path="/dashboard"
+                    element={
+                        <ProtectedRoute role="parent">
+                            <ParentDashboardPage />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/teacher-dashboard"
+                    element={
+                        <ProtectedRoute role="teacher">
+                            <TeacherDashboardPage />
+                        </ProtectedRoute>
+                    }
+                />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/register/children" element={<ChildSetupPage />} />
             </Routes>
