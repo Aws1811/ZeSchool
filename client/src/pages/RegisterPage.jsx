@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import AuthLayout from "../components/AuthLayout";
@@ -8,7 +9,7 @@ function RegisterPage() {
     const navigate = useNavigate();
     const [message, setMessage] = useState("");
 
-    const handleRegisterDetails = (formData) => {
+    const handleRegisterDetails = async (formData) => {
         const name =
             formData.role === "teacher"
                 ? formData.teacherName
@@ -38,10 +39,15 @@ function RegisterPage() {
             }
         }
 
-        if (formData.role === "parent") {
-            const birthDate = new Date(formData.dateOfBirth);
-            const today = new Date();
+        const birthDate = new Date(formData.dateOfBirth);
+        const today = new Date();
 
+        if (birthDate > today) {
+            setMessage("Date of birth cannot be in the future.");
+            return;
+        }
+
+        if (formData.role === "parent") {
             let age = today.getFullYear() - birthDate.getFullYear();
 
             const monthDifference =
@@ -66,18 +72,40 @@ function RegisterPage() {
             return;
         }
 
-        if (formData.role === "teacher") {
-            setMessage(
-                "Teacher registration details are ready for backend connection."
-            );
+        if (formData.role === "parent") {
+            setMessage("");
+
+            navigate("/register/children", {
+                state: {
+                    registrationData: formData
+                }
+            });
+
             return;
         }
 
-        setMessage("");
+        try {
+            const response = await axios.post(
+                "http://localhost:8000/api/users/register",
+                {
+                    ...formData,
+                    children: []
+                }
+            );
 
-        navigate("/register/children", {
-            state: { registrationData: formData }
-        });
+            setMessage("");
+
+            navigate("/teacher-dashboard", {
+                state: {
+                    user: response.data.user
+                }
+            });
+        } catch (error) {
+            setMessage(
+                error.response?.data?.message ||
+                "Registration failed."
+            );
+        }
     };
 
     return (
@@ -93,3 +121,4 @@ function RegisterPage() {
 }
 
 export default RegisterPage;
+
