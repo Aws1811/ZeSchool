@@ -60,3 +60,15 @@ export const teacherAttendance = [
     { id: "attendance-1", studentId: "student-ali", student: "Ali Ahmed", status: "Present", date: "August 20, 2026" },
     { id: "attendance-2", studentId: "student-sara", student: "Sara Ahmed", status: "Late", date: "August 20, 2026" },
 ];
+
+export const teacherClassSchedule = {
+    "class-5a": [
+        { id: "lecture-5a-1", day: "Sunday", time: "08:00 - 09:00", subject: "Mathematics", room: "Room 5A" },
+        { id: "lecture-5a-2", day: "Tuesday", time: "10:00 - 11:00", subject: "Mathematics", room: "Room 5A" },
+        { id: "lecture-5a-3", day: "Thursday", time: "09:00 - 10:00", subject: "Mathematics", room: "Room 5A" },
+    ],
+    "class-6b": [
+        { id: "lecture-6b-1", day: "Monday", time: "09:00 - 10:00", subject: "Mathematics", room: "Room 6B" },
+        { id: "lecture-6b-2", day: "Wednesday", time: "08:00 - 09:00", subject: "Mathematics", room: "Room 6B" },
+    ],
+};

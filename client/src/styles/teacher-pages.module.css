@@ -571,3 +571,433 @@
 .calendarPage .eventForm {
     flex: 0 0 auto;
 }
+.classesWorkspace {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 20px;
+    min-width: 0;
+}
+
+.classesPage .classGrid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 18px;
+}
+
+.classesPage .classCard {
+    min-height: 132px;
+}
+
+.classesPage .classHeader {
+    height: 100%;
+    min-height: 132px;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 18px;
+    padding: 24px;
+}
+
+.classesPage .classHeader span {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.classesPage .classHeader strong {
+    font-size: 20px;
+}
+
+.classDetails,
+.classSchedule {
+    width: 100%;
+    min-width: 0;
+    align-self: start;
+    overflow: hidden;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.classDetailsHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px;
+    border-bottom: 1px solid #3f4147;
+    background: #313338;
+}
+
+.classDetailsHeader h2 {
+    margin: 8px 0 0;
+    color: #ffffff;
+    font-size: 23px;
+}
+
+.classDetailsCount {
+    padding: 7px 10px;
+    border-radius: 6px;
+    color: #d8e4f0;
+    background: #404249;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.classesPage .studentRow {
+    padding: 15px 18px;
+}
+
+.classesPage .studentAvatar {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+}
+
+.classesPage .studentRow strong {
+    font-size: 17px;
+}
+
+.classesPage .studentRow small {
+    font-size: 15px;
+}
+
+.classesPage .studentRow b {
+    color: #949ba4;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.classesPage .inlineTools input {
+    font-size: 17px;
+}
+
+.teacherDashboard .pageButton {
+    font-size: 19px !important;
+}
+
+@media (max-width: 1100px) {
+    .classesWorkspace {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+    }
+
+    .classSchedule {
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 900px) {
+    .classesWorkspace {
+        grid-template-columns: 1fr;
+    }
+
+    .classSchedule {
+        grid-column: auto;
+        max-width: none;
+    }
+}
+
+@media (max-width: 620px) {
+    .classesPage .classGrid {
+        grid-template-columns: 1fr;
+    }
+}
+.classSwitcher .classButton {
+    font-size: 14px;
+}
+
+.scheduleList {
+    display: flex;
+    flex-direction: column;
+}
+
+.scheduleItem {
+    display: grid;
+    min-height: 71px;
+    box-sizing: border-box;
+    align-content: center;
+    gap: 4px;
+    padding: 15px 18px;
+    border-bottom: 1px solid #3f4147;
+}
+
+.scheduleItem:last-child {
+    border-bottom: 0;
+}
+
+.scheduleItem strong {
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.scheduleItem span {
+    color: #b5bac1;
+    font-size: 15px;
+}
+.classOverview {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.classOverviewHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.classOverviewHeader h2 {
+    margin: 8px 0 0;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.classOverviewPeriod {
+    padding: 7px 10px;
+    border-radius: 6px;
+    color: #d8e4f0;
+    background: #404249;
+    font-size: 15px;
+}
+
+.overviewGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.overviewCard {
+    display: flex;
+    min-height: 96px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    box-sizing: border-box;
+    border: 1px solid #3f4147;
+    border-radius: 6px;
+    background: #313338;
+}
+
+.overviewCard span {
+    color: #b5bac1;
+    font-size: 15px;
+}
+
+.overviewCard strong {
+    color: #ffffff;
+    font-size: 28px;
+}
+
+@media (max-width: 700px) {
+    .overviewGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 440px) {
+    .classOverviewHeader {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .overviewGrid {
+        grid-template-columns: 1fr;
+    }
+}
+.reportsPage .reportWorkspace {
+    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
+    align-items: start;
+    gap: 20px;
+}
+
+.reportsPage .reportForm,
+.reportsPage .reportHistory {
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.reportsPage .reportForm {
+    gap: 20px;
+}
+
+.reportFields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.reportsPage .reportForm label {
+    gap: 8px;
+    color: #b5bac1;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.reportsPage .reportForm input,
+.reportsPage .reportForm select,
+.reportsPage .reportForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 15px;
+    border: 1px solid #4f545c;
+    border-radius: 6px;
+    outline: none;
+    color: #ffffff;
+    background: #1e1f22;
+    font: inherit;
+    font-size: 16px;
+}
+
+.reportsPage .reportForm input,
+.reportsPage .reportForm select {
+    min-height: 52px;
+}
+
+.reportsPage .reportForm input:focus,
+.reportsPage .reportForm select:focus,
+.reportsPage .reportForm textarea:focus {
+    border-color: #5865f2;
+}
+
+.reportsPage .reportDescription {
+    display: flex;
+    flex-direction: column;
+}
+
+.reportsPage .reportForm textarea {
+    min-height: 230px;
+    resize: vertical;
+}
+
+.reportsPage .reportForm .primaryButton {
+    width: 100%;
+    min-height: 54px;
+    font-size: 16px;
+}
+
+.reportHistory {
+    max-height: 620px;
+    overflow: auto;
+}
+
+.reportHistoryHeader {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #3f4147;
+}
+
+.reportHistoryHeader h2 {
+    margin: 8px 0 0;
+    color: #ffffff;
+    font-size: 23px;
+}
+
+.reportHistoryList {
+    display: flex;
+    flex-direction: column;
+}
+
+.reportHistoryItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 0;
+    border-bottom: 1px solid #3f4147;
+}
+
+.reportHistoryItem:last-child {
+    border-bottom: 0;
+}
+
+.reportHistoryTopline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.reportHistoryTopline strong {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.reportHistoryTopline span,
+.reportHistoryItem small {
+    color: #949ba4;
+    font-size: 13px;
+}
+
+.reportHistoryItem p {
+    margin: 0;
+    color: #b5bac1;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .reportsPage .reportWorkspace {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .reportFields {
+        grid-template-columns: 1fr;
+    }
+}
+.classFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: auto;
+    padding: 18px 20px;
+    border-top: 1px solid #3f4147;
+    color: #b5bac1;
+}
+
+.classFooter p {
+    margin: 8px 0 0;
+    color: #949ba4;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.classFooterMeta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.classFooterMeta span {
+    padding: 7px 10px;
+    border: 1px solid #3f4147;
+    border-radius: 6px;
+    color: #b5bac1;
+    background: #2b2d31;
+    font-size: 13px;
+}
+
+@media (max-width: 620px) {
+    .classFooter {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .classFooterMeta {
+        justify-content: flex-start;
+    }
+}
