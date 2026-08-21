@@ -1,0 +1,364 @@
+.aiPage {
+    display: flex;
+    min-width: 0;
+    min-height: 100%;
+    flex-direction: column;
+    overflow: auto;
+    padding: 28px 30px 36px;
+    color: #f2f3f5;
+    background: #1e1f22;
+}
+
+.workspace {
+    display: grid;
+    min-width: 0;
+    min-height: 100%;
+    grid-template-columns: minmax(260px, 330px) minmax(0, 1fr);
+    gap: 20px;
+}
+
+.controlPanel,
+.answerPanel {
+    min-width: 0;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.controlPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px;
+}
+
+.eyebrow {
+    color: #8ea1f2;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.controlPanel h1 {
+    margin: -5px 0 0;
+    color: #ffffff;
+    font-size: 28px;
+    line-height: 1.15;
+}
+
+.controlIntro {
+    margin: -8px 0 0;
+    color: #b5bac1;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.contextLine {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 14px;
+    border-left: 3px solid #5865f2;
+    background: #313338;
+}
+
+.contextLine span,
+.controlLabel {
+    color: #949ba4;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.contextLine strong {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.controlSection {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.modeSwitch,
+.sourceList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.modeSwitch button,
+.sourceList button {
+    min-height: 42px;
+    flex: 1;
+    padding: 0 12px;
+    border: 1px solid #4f545c;
+    border-radius: 6px;
+    color: #b5bac1;
+    background: #1e1f22;
+    font: inherit;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.modeSwitch button:hover,
+.activeMode,
+.sourceList button:hover,
+.activeSource {
+    border-color: #5865f2 !important;
+    color: #ffffff !important;
+    background: #404249 !important;
+}
+
+.studentSelect {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    color: #949ba4;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.studentSelect select {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 12px;
+    border: 1px solid #4f545c;
+    border-radius: 6px;
+    outline: none;
+    color: #ffffff;
+    background: #1e1f22;
+    font: inherit;
+    font-size: 16px;
+}
+
+.analyzeButton {
+    min-height: 50px;
+    margin-top: auto;
+    border: 0;
+    border-radius: 6px;
+    color: #ffffff;
+    background: #5865f2;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.analyzeButton:hover {
+    background: #4752c4;
+}
+
+.controlNote {
+    color: #949ba4;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.answerPanel {
+    position: relative;
+    display: flex;
+    min-height: 620px;
+    flex-direction: column;
+    padding: 32px;
+    overflow: hidden;
+    background: #313338;
+}
+
+.answerPanel::before {
+    position: absolute;
+    top: 0;
+    left: 32px;
+    width: 54px;
+    height: 5px;
+    border-radius: 0 0 4px 4px;
+    background: #5865f2;
+    content: "";
+}
+
+.answerHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.answerHeader h2 {
+    margin: 9px 0 5px;
+    color: #ffffff;
+    font-size: 34px;
+}
+
+.answerHeader p {
+    margin: 0;
+    color: #949ba4;
+    font-size: 15px;
+}
+
+.status {
+    padding: 8px 11px;
+    border-radius: 999px;
+    color: #b5c2ff;
+    background: #404249;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.answerContent {
+    max-width: 850px;
+    margin-top: 70px;
+}
+
+.answerLabel,
+.recommendation span,
+.followUp span {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.answerContent p {
+    margin: 14px 0 0;
+    color: #dbdee1;
+    font-size: 21px;
+    line-height: 1.7;
+}
+
+.answerDetails {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 42px;
+}
+
+.answerDetails div {
+    display: flex;
+    min-height: 86px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14px;
+    border: 1px solid #4f545c;
+    background: #2b2d31;
+}
+
+.answerDetails span {
+    color: #949ba4;
+    font-size: 14px;
+}
+
+.answerDetails strong {
+    color: #ffffff;
+    font-size: 28px;
+}
+
+.recommendation {
+    margin-top: auto;
+    padding: 17px;
+    border-left: 3px solid #3ba55d;
+    background: #2b2d31;
+}
+
+.recommendation span {
+    color: #3ba55d;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+}
+
+.recommendation p,
+.followUp p {
+    margin: 9px 0 0;
+    color: #dbdee1;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.questionForm {
+    display: flex;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.questionForm input {
+    min-width: 0;
+    height: 48px;
+    flex: 1;
+    padding: 0 14px;
+    border: 1px solid #4f545c;
+    border-radius: 6px;
+    outline: none;
+    color: #ffffff;
+    background: #1e1f22;
+    font: inherit;
+    font-size: 16px;
+}
+
+.questionForm input:focus {
+    border-color: #5865f2;
+}
+
+.questionForm button {
+    min-width: 76px;
+    border: 0;
+    border-radius: 6px;
+    color: #ffffff;
+    background: #5865f2;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.questionForm button:hover {
+    background: #4752c4;
+}
+
+.followUp {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border: 1px solid #5865f2;
+    background: #2b2d31;
+}
+
+.followUp span {
+    color: #b5c2ff;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .aiPage {
+        padding: 24px 20px 36px;
+    }
+
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .controlPanel {
+        min-height: auto;
+    }
+
+    .answerPanel {
+        min-height: 620px;
+    }
+}
+
+@media (max-width: 560px) {
+    .aiPage {
+        padding: 20px 14px 30px;
+    }
+
+    .controlPanel,
+    .answerPanel {
+        padding: 22px 18px;
+    }
+
+    .answerHeader {
+        flex-direction: column;
+    }
+
+    .answerDetails {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

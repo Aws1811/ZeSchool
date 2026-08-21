@@ -1,0 +1,1003 @@
+.page {
+    display: flex;
+    min-height: 100%;
+    flex-direction: column;
+    gap: 22px;
+    overflow: auto;
+    padding: 28px 30px 36px;
+    color: #f2f3f5;
+    background: #1e1f22;
+}
+
+.pageHeading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.pageHeading h1 {
+    margin: 7px 0 0;
+    color: #ffffff;
+    font-size: clamp(27px, 4vw, 42px);
+}
+
+.pageHeading p {
+    margin: 9px 0 0;
+    color: #949ba4;
+    font-size: 14px;
+}
+
+.eyebrow {
+    color: #8ea1f2;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.pageHeading input {
+    width: min(320px, 100%);
+    box-sizing: border-box;
+    padding: 13px 15px;
+    border: 1px solid #4f545c;
+    border-radius: 6px;
+    outline: none;
+    color: #ffffff;
+    background: #27272b;
+    font: inherit;
+}
+
+.pageHeading input:focus,
+.reportForm input:focus,
+.reportForm textarea:focus,
+.reportForm select:focus,
+.eventForm input:focus,
+.eventForm select:focus,
+.aiPrompt textarea:focus {
+    border-color: #5865f2;
+}
+
+.classGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.classCard {
+    overflow: hidden;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.activeClass {
+    border-color: #5865f2;
+}
+
+.classHeader {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 18px;
+    border: 0;
+    color: #ffffff;
+    background: #313338;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.classHeader span {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 11px;
+    color: #ffffff;
+    background: #5865f2;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.classHeader strong {
+    font-size: 17px;
+}
+
+.classHeader small {
+    color: #949ba4;
+    font-size: 12px;
+}
+
+.studentList {
+    display: flex;
+    flex-direction: column;
+}
+
+.studentRow {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 11px;
+    width: 100%;
+    padding: 12px 16px;
+    border: 0;
+    border-top: 1px solid #3f4147;
+    color: #f2f3f5;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.studentRow:hover,
+.selectedStudent {
+    background: #35373c;
+}
+
+.studentAvatar {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    color: #2b73c6;
+    background: #e8f2f8;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.studentRow > span:nth-child(2) {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.studentRow strong {
+    font-size: 14px;
+}
+
+.studentRow small {
+    overflow: hidden;
+    color: #949ba4;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.studentRow b {
+    color: #8ea1f2;
+    font-size: 21px;
+}
+
+.calendarToolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.monthControls {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.monthControls strong {
+    min-width: 150px;
+    color: #ffffff;
+    font-size: 19px;
+    text-align: center;
+}
+
+.monthControls button,
+.calendarToolbar button {
+    border: 0;
+    border-radius: 6px;
+    color: #ffffff;
+    background: #404249;
+    font: inherit;
+    cursor: pointer;
+}
+
+.monthControls button {
+    width: 36px;
+    height: 36px;
+    font-size: 22px;
+}
+
+.primaryButton {
+    padding: 12px 16px;
+    border: 0;
+    border-radius: 6px;
+    color: #ffffff;
+    background: #5865f2;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.primaryButton:hover {
+    background: #4752c4;
+}
+
+.eventForm {
+    display: grid;
+    grid-template-columns: minmax(180px, 1.2fr) minmax(170px, 0.8fr) auto auto auto;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    border: 1px solid #3f4147;
+    border-radius: 7px;
+    background: #2b2d31;
+}
+
+.eventForm input,
+.eventForm select,
+.reportForm input,
+.reportForm select,
+.reportForm textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 13px;
+    border: 1px solid #4f545c;
+    border-radius: 5px;
+    outline: none;
+    color: #ffffff;
+    background: #1e1f22;
+    font: inherit;
+}
+
+.eventForm > span {
+    color: #b5bac1;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.colorPicker {
+    display: flex;
+    gap: 7px;
+}
+
+.colorButton {
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.red { background: #ed4245; }
+.yellow { background: #f0b232; }
+.blue { background: #5865f2; }
+.green { background: #57f287; }
+
+.activeColor {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 2px #5865f2;
+}
+
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-auto-rows: minmax(86px, 1fr);
+    overflow: hidden;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.weekday {
+    display: grid;
+    min-height: 38px;
+    place-items: center;
+    color: #949ba4;
+    background: #232428;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.dayCell {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px;
+    border: 0;
+    border-top: 1px solid #3f4147;
+    border-right: 1px solid #3f4147;
+    color: #f2f3f5;
+    background: #2b2d31;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dayCell:nth-child(7n) {
+    border-right: 0;
+}
+
+.dayCell:hover,
+.selectedDay {
+    background: #35373c;
+    box-shadow: inset 0 0 0 1px #5865f2;
+}
+
+.dayCell > span {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.outsideMonth > span {
+    color: #646a73;
+}
+
+.event {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    padding: 4px 6px;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.reportWorkspace,
+.aiWorkspace {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+    gap: 18px;
+}
+
+.reportForm,
+.reportPreview,
+.aiPrompt,
+.aiResult {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 22px;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.reportForm label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    color: #b5bac1;
+    font-size: 12px;
+}
+
+.reportForm textarea,
+.aiPrompt textarea {
+    min-height: 220px;
+    resize: vertical;
+}
+
+.reportPreview {
+    background: #232428;
+}
+
+.reportPreview h2,
+.aiResult h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 23px;
+}
+
+.reportPreview strong {
+    color: #b5c2ff;
+    font-size: 15px;
+}
+
+.reportPreview small,
+.reportPreview p,
+.aiResult p {
+    color: #b5bac1;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.reportPreview p,
+.aiResult p {
+    margin: 0;
+}
+
+.scopeButtons,
+.sourceChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.scopeButtons button,
+.sourceChips span {
+    padding: 9px 12px;
+    border: 0;
+    border-radius: 999px;
+    color: #b5bac1;
+    background: #404249;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.scopeButtons .activeSegment {
+    color: #ffffff;
+    background: #5865f2;
+}
+
+.aiPrompt textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #4f545c;
+    border-radius: 6px;
+    outline: none;
+    color: #ffffff;
+    background: #1e1f22;
+    font: inherit;
+    line-height: 1.5;
+}
+
+.aiResult {
+    justify-content: center;
+    min-height: 320px;
+}
+
+.notice {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 10;
+    padding: 13px 17px;
+    border: 1px solid #5865f2;
+    border-radius: 6px;
+    color: #ffffff;
+    background: #313338;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    font-size: 13px;
+}
+
+.classSwitcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.classButton {
+    padding: 8px 14px;
+    border: 0;
+    border-radius: 6px;
+    color: #b5bac1;
+    background: #1e1f22;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.selectedClassButton,
+.classButton:hover {
+    color: #ffffff;
+    background: #5865f2;
+}
+
+@media (max-width: 900px) {
+    .classGrid,
+    .reportWorkspace,
+    .aiWorkspace {
+        grid-template-columns: 1fr;
+    }
+
+    .eventForm {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 620px) {
+    .page {
+        padding: 22px 18px 30px;
+    }
+
+    .pageHeading,
+    .calendarToolbar {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .pageHeading input {
+        width: 100%;
+    }
+
+    .calendarGrid {
+        grid-auto-rows: minmax(68px, 1fr);
+    }
+
+    .eventForm {
+        grid-template-columns: 1fr;
+    }
+}
+
+.inlineTools {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.inlineTools input {
+    width: min(320px, 100%);
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #4f545c;
+    border-radius: 6px;
+    outline: none;
+    color: #ffffff;
+    background: #27272b;
+    font: inherit;
+}
+
+.calendarPage {
+    height: 100%;
+    box-sizing: border-box;
+    gap: 14px;
+    overflow: hidden;
+    padding: 16px 18px 18px;
+}
+
+.calendarPage .calendarToolbar {
+    flex: 0 0 auto;
+}
+
+.calendarPage .calendarGrid {
+    min-height: 0;
+    flex: 1;
+    grid-auto-rows: minmax(0, 1fr);
+}
+
+.calendarPage .dayCell {
+    min-height: 0;
+}
+
+.calendarPage .eventForm {
+    flex: 0 0 auto;
+}
+.classesWorkspace {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 20px;
+    min-width: 0;
+}
+
+.classesPage .classGrid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: 18px;
+}
+
+.classesPage .classCard {
+    min-height: 132px;
+}
+
+.classesPage .classHeader {
+    height: 100%;
+    min-height: 132px;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 18px;
+    padding: 24px;
+}
+
+.classesPage .classHeader span {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.classesPage .classHeader strong {
+    font-size: 20px;
+}
+
+.classDetails,
+.classSchedule {
+    width: 100%;
+    min-width: 0;
+    align-self: start;
+    overflow: hidden;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.classDetailsHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px;
+    border-bottom: 1px solid #3f4147;
+    background: #313338;
+}
+
+.classDetailsHeader h2 {
+    margin: 8px 0 0;
+    color: #ffffff;
+    font-size: 23px;
+}
+
+.classDetailsCount {
+    padding: 7px 10px;
+    border-radius: 6px;
+    color: #d8e4f0;
+    background: #404249;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.classesPage .studentRow {
+    padding: 15px 18px;
+}
+
+.classesPage .studentAvatar {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+}
+
+.classesPage .studentRow strong {
+    font-size: 17px;
+}
+
+.classesPage .studentRow small {
+    font-size: 15px;
+}
+
+.classesPage .studentRow b {
+    color: #949ba4;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.classesPage .inlineTools input {
+    font-size: 17px;
+}
+
+.teacherDashboard .pageButton {
+    font-size: 19px !important;
+}
+
+@media (max-width: 1100px) {
+    .classesWorkspace {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+    }
+
+    .classSchedule {
+        grid-column: 1 / -1;
+        justify-self: center;
+        max-width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 900px) {
+    .classesWorkspace {
+        grid-template-columns: 1fr;
+    }
+
+    .classSchedule {
+        grid-column: auto;
+        max-width: none;
+    }
+}
+
+@media (max-width: 620px) {
+    .classesPage .classGrid {
+        grid-template-columns: 1fr;
+    }
+}
+.classSwitcher .classButton {
+    font-size: 14px;
+}
+
+.scheduleList {
+    display: flex;
+    flex-direction: column;
+}
+
+.scheduleItem {
+    display: grid;
+    min-height: 71px;
+    box-sizing: border-box;
+    align-content: center;
+    gap: 4px;
+    padding: 15px 18px;
+    border-bottom: 1px solid #3f4147;
+}
+
+.scheduleItem:last-child {
+    border-bottom: 0;
+}
+
+.scheduleItem strong {
+    color: #ffffff;
+    font-size: 17px;
+}
+
+.scheduleItem span {
+    color: #b5bac1;
+    font-size: 15px;
+}
+.classOverview {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.classOverviewHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.classOverviewHeader h2 {
+    margin: 8px 0 0;
+    color: #ffffff;
+    font-size: 22px;
+}
+
+.classOverviewPeriod {
+    padding: 7px 10px;
+    border-radius: 6px;
+    color: #d8e4f0;
+    background: #404249;
+    font-size: 15px;
+}
+
+.overviewGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.overviewCard {
+    display: flex;
+    min-height: 96px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    box-sizing: border-box;
+    border: 1px solid #3f4147;
+    border-radius: 6px;
+    background: #313338;
+}
+
+.overviewCard span {
+    color: #b5bac1;
+    font-size: 15px;
+}
+
+.overviewCard strong {
+    color: #ffffff;
+    font-size: 28px;
+}
+
+@media (max-width: 700px) {
+    .overviewGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 440px) {
+    .classOverviewHeader {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .overviewGrid {
+        grid-template-columns: 1fr;
+    }
+}
+.reportsPage .reportWorkspace {
+    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
+    align-items: start;
+    gap: 20px;
+}
+
+.reportsPage .reportForm,
+.reportsPage .reportHistory {
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid #3f4147;
+    border-radius: 8px;
+    background: #2b2d31;
+}
+
+.reportsPage .reportForm {
+    gap: 20px;
+}
+
+.reportFields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.reportsPage .reportForm label {
+    gap: 8px;
+    color: #b5bac1;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.reportsPage .reportForm input,
+.reportsPage .reportForm select,
+.reportsPage .reportForm textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 15px;
+    border: 1px solid #4f545c;
+    border-radius: 6px;
+    outline: none;
+    color: #ffffff;
+    background: #1e1f22;
+    font: inherit;
+    font-size: 16px;
+}
+
+.reportsPage .reportForm input,
+.reportsPage .reportForm select {
+    min-height: 52px;
+}
+
+.reportsPage .reportForm input:focus,
+.reportsPage .reportForm select:focus,
+.reportsPage .reportForm textarea:focus {
+    border-color: #5865f2;
+}
+
+.reportsPage .reportDescription {
+    display: flex;
+    flex-direction: column;
+}
+
+.reportsPage .reportForm textarea {
+    min-height: 230px;
+    resize: vertical;
+}
+
+.reportsPage .reportForm .primaryButton {
+    width: 100%;
+    min-height: 54px;
+    font-size: 16px;
+}
+
+.reportHistory {
+    max-height: 620px;
+    overflow: auto;
+}
+
+.reportHistoryHeader {
+    padding-bottom: 18px;
+    border-bottom: 1px solid #3f4147;
+}
+
+.reportHistoryHeader h2 {
+    margin: 8px 0 0;
+    color: #ffffff;
+    font-size: 23px;
+}
+
+.reportHistoryList {
+    display: flex;
+    flex-direction: column;
+}
+
+.reportHistoryItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 0;
+    border-bottom: 1px solid #3f4147;
+}
+
+.reportHistoryItem:last-child {
+    border-bottom: 0;
+}
+
+.reportHistoryTopline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.reportHistoryTopline strong {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.reportHistoryTopline span,
+.reportHistoryItem small {
+    color: #949ba4;
+    font-size: 13px;
+}
+
+.reportHistoryItem p {
+    margin: 0;
+    color: #b5bac1;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .reportsPage .reportWorkspace {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .reportFields {
+        grid-template-columns: 1fr;
+    }
+}
+.classFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: auto;
+    padding: 18px 20px;
+    border-top: 1px solid #3f4147;
+    color: #b5bac1;
+}
+
+.classFooter p {
+    margin: 8px 0 0;
+    color: #949ba4;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.classFooterMeta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.classFooterMeta span {
+    padding: 7px 10px;
+    border: 1px solid #3f4147;
+    border-radius: 6px;
+    color: #b5bac1;
+    background: #2b2d31;
+    font-size: 13px;
+}
+
+@media (max-width: 620px) {
+    .classFooter {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .classFooterMeta {
+        justify-content: flex-start;
+    }
+}
