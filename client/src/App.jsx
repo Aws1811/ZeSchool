@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ChildSetupPage from "./pages/ChildSetupPage";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import ParentDashboardPage from "./pages/ParentDashboardPage";
@@ -15,7 +14,6 @@ function App() {
                 <Route path="/dashboard" element={<ParentDashboardPage />} />
                 <Route path="/teacher-dashboard" element={<TeacherDashboardPage />} />
                 <Route path="/register" element={<RegisterPage />} />
-                <Route path="/register/children" element={<ChildSetupPage />} />
             </Routes>
         </BrowserRouter>
     );

@@ -1,0 +1,13 @@
+
+> server@1.0.0 dev
+> node --watch server.js
+
+◇ injected env (3) from .env // tip: ⌘ override existing { override: true }
+◇ injected env (0) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Connected to MongoDB database: ZeSchool
+Server is running on port 8000
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ⌘ enable debugging { debug: true }
+◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+Connected to MongoDB database: ZeSchool
+Server is running on port 8000

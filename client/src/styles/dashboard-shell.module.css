@@ -1,9 +1,9 @@
-.dashboard {
+﻿.dashboard {
     min-height: 100vh;
     display: grid;
     grid-template-columns: 84px 230px minmax(0, 1fr);
-    color: #d8e4f0;
-    background: #1b2635;
+    color: var(--app-text);
+    background: var(--app-page);
 }
 
 .childRail {
@@ -12,8 +12,8 @@
     align-items: center;
     gap: 14px;
     padding: 20px 10px;
-    background: #15202d;
-    border-right: 1px solid #29394b;
+    background: var(--app-surface);
+    border-right: 1px solid var(--app-border);
 }
 
 .railBrand {
@@ -23,8 +23,8 @@
     place-items: center;
     margin-bottom: 10px;
     border-radius: 15px;
-    color: #ffffff;
-    background: #2b73c6;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font-size: 14px;
     font-weight: 800;
     letter-spacing: 0.05em;
@@ -36,8 +36,8 @@
     padding: 6px 3px !important;
     border: 1px solid transparent !important;
     border-radius: 13px !important;
-    color: #9db0c3 !important;
-    background: #223244 !important;
+    color: var(--app-text-muted) !important;
+    background: var(--app-surface-raised) !important;
     font-size: 11px !important;
     font-weight: 700 !important;
     line-height: 1.2 !important;
@@ -46,8 +46,8 @@
 
 .childButton:hover,
 .selectedChild {
-    color: #ffffff !important;
-    background: #2b73c6 !important;
+    color: var(--app-text-inverse) !important;
+    background: var(--app-accent) !important;
 }
 
 .selectedChild {
@@ -59,20 +59,20 @@
     min-width: 0;
     flex-direction: column;
     padding: 22px 14px;
-    background: #202f40;
-    border-right: 1px solid #2e4258;
+    background: var(--app-surface);
+    border-right: 1px solid var(--app-border);
 }
 
 .workspaceTitle {
     padding: 0 12px 20px;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 16px;
     font-weight: 700;
 }
 
 .pageLabel {
     padding: 0 12px 9px;
-    color: #7f96ad;
+    color: var(--app-text-subtle);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -90,15 +90,15 @@
     min-height: 42px;
     padding: 0 12px !important;
     border-radius: 8px !important;
-    color: #9db0c3 !important;
+    color: var(--app-text-muted) !important;
     font-size: 14px !important;
     text-transform: none !important;
 }
 
 .pageButton:hover,
 .selectedPage {
-    color: #ffffff !important;
-    background: #2b73c6 !important;
+    color: var(--app-text-inverse) !important;
+    background: var(--app-accent) !important;
 }
 
 .dashboardMain {
@@ -106,7 +106,7 @@
     min-width: 0;
     min-height: 100vh;
     flex-direction: column;
-    background: #f4f7fb;
+    background: var(--app-page);
 }
 
 .chatHeader {
@@ -116,9 +116,9 @@
     justify-content: space-between;
     gap: 20px;
     padding: 0 26px;
-    color: #20364c;
-    background: #ffffff;
-    border-bottom: 1px solid #dce6ef;
+    color: var(--app-text-deep);
+    background: var(--app-text-inverse);
+    border-bottom: 1px solid var(--app-border-soft);
 }
 
 .chatHeaderContent {
@@ -127,7 +127,7 @@
 
 .chatTitle {
     overflow: hidden;
-    color: #20364c;
+    color: var(--app-text-deep);
     font-size: 18px;
     font-weight: 700;
     text-overflow: ellipsis;
@@ -135,17 +135,17 @@
 }
 
 .chatSubtitle {
-    color: #75889b;
+    color: var(--app-text-blue-gray);
     font-size: 12px;
 }
 
 .logoutButton {
-    color: #c44f5c !important;
+    color: var(--app-danger-strong) !important;
     border-radius: 9px !important;
 }
 
 .logoutButton:hover {
-    background: #fff0f1 !important;
+    background: var(--app-danger-soft) !important;
 }
 
 .chatBody {
@@ -160,22 +160,22 @@
     width: min(100%, 620px);
     margin: auto;
     padding: 42px 30px;
-    border: 1px dashed #b9c9d8;
+    border: 1px dashed var(--app-border-blue);
     border-radius: 18px;
-    color: #657b8f;
-    background: #ffffff;
+    color: var(--app-text-muted);
+    background: var(--app-text-inverse);
     text-align: center;
 }
 
 .emptyChatTitle {
     margin-bottom: 10px;
-    color: #20364c;
+    color: var(--app-text-deep);
     font-size: 22px;
     font-weight: 700;
 }
 
 .emptyChatText {
-    color: #71869a;
+    color: var(--app-text-muted);
     font-size: 14px;
     line-height: 1.6;
 }
@@ -243,7 +243,7 @@
     flex-direction: column;
     margin-top: 16px;
     padding-top: 12px;
-    border-top: 1px solid #2e4258;
+    border-top: 1px solid var(--app-border);
     overflow: hidden;
 }
 
@@ -268,48 +268,48 @@
 
 .pageRail {
     padding: 18px 12px;
-    background: #1d3041;
+    background: var(--app-surface);
 }
 
 .pageRail > .teacherSearch {
     width: 100%;
     margin: 0 0 16px;
     padding-bottom: 14px;
-    border-bottom: 1px solid #344b5e;
+    border-bottom: 1px solid var(--app-border);
 }
 
 .pageRail > .teacherSearch .MuiInputBase-root {
-    background: #243b4d;
+    background: var(--app-input);
 }
 
 .pageRail > .teacherSearch .MuiInputBase-input,
 .pageRail > .teacherSearch .MuiInputBase-input::placeholder {
-    color: #d8e4ec;
+    color: var(--app-text-avatar);
 }
 
 .pageLabel {
     padding-left: 8px;
-    color: #a8bdca;
+    color: var(--app-text-muted);
     font-size: 13px;
 }
 
 .pageList {
     gap: 3px;
     padding-bottom: 14px;
-    border-bottom: 1px solid #344b5e;
+    border-bottom: 1px solid var(--app-border);
 }
 
 .pageButton {
     min-height: 44px;
     padding: 0 10px !important;
-    color: #b9cbd6 !important;
+    color: var(--app-text-muted) !important;
     font-size: 16px !important;
 }
 
 .pageButton:hover,
 .selectedPage {
-    color: #ffffff !important;
-    background: #2b73c6 !important;
+    color: var(--app-text-inverse) !important;
+    background: var(--app-accent) !important;
 }
 
 .teacherHistory {
@@ -319,73 +319,73 @@
 }
 
 .teacherHistory > aside {
-    background: #edf2f4;
+    background: var(--app-surface);
     border-radius: 0;
 }
 
 
 .childRail {
-    background: #1e1f22;
-    border-right: 1px solid #111214;
+    background: var(--app-page);
+    border-right: 1px solid var(--app-divider);
 }
 
 .railBrand {
-    background: #5865f2;
+    background: var(--app-accent);
 }
 
 .childButton {
-    color: #b5bac1 !important;
-    background: #2b2d31 !important;
+    color: var(--app-text-muted) !important;
+    background: var(--app-surface) !important;
 }
 
 .childButton:hover,
 .selectedChild {
-    color: #ffffff !important;
-    background: #5865f2 !important;
+    color: var(--app-text-inverse) !important;
+    background: var(--app-accent) !important;
 }
 
 .pageRail {
-    background: #2b2d31;
-    border-right: 1px solid #1e1f22;
+    background: var(--app-surface);
+    border-right: 1px solid var(--app-page);
 }
 
 .pageRail > .teacherSearch .MuiInputBase-root {
-    background: #1e1f22;
+    background: var(--app-page);
 }
 
 .pageRail > .teacherSearch .MuiInputBase-input,
 .pageRail > .teacherSearch .MuiInputBase-input::placeholder {
-    color: #dbdee1;
+    color: var(--app-text-soft);
 }
 
 .pageRail > .teacherSearch .MuiInputBase-input::placeholder {
-    color: #949ba4;
+    color: var(--app-text-subtle);
 }
 
 .pageLabel {
-    color: #949ba4;
+    color: var(--app-text-subtle);
 }
 
 .pageButton {
-    color: #b5bac1 !important;
+    color: var(--app-text-muted) !important;
 }
 
 .pageButton:hover {
-    color: #f2f3f5 !important;
-    background: #35373c !important;
+    color: var(--app-text) !important;
+    background: var(--app-surface-hover) !important;
 }
 
 .pageButton.selectedPage {
-    color: #ffffff !important;
-    background: #5865f2 !important;
+    color: var(--app-text-inverse) !important;
+    background: var(--app-accent) !important;
 }
 
 .teacherHistory {
-    border-color: #1e1f22;
+    border-color: var(--app-page);
 }
 
 .teacherHistory > aside {
-    background: #313338;
+    background: var(--app-surface-raised);
 }
 
 
@@ -399,8 +399,8 @@
 
 .chatHeader {
     min-height: 72px;
-    background: #2b2d31;
-    border-bottom-color: #1e1f22;
+    background: var(--app-surface);
+    border-bottom-color: var(--app-page);
 }
 
 .chatHeaderContent {
@@ -421,35 +421,35 @@
     min-height: 42px;
     padding: 0 !important;
     border-radius: 12px !important;
-    color: #b5bac1 !important;
-    background: #1e1f22 !important;
+    color: var(--app-text-muted) !important;
+    background: var(--app-page) !important;
     font-size: 14px !important;
 }
 
 .childSwitcher .childButton:hover,
 .childSwitcher .selectedChild {
-    color: #ffffff !important;
-    background: #5865f2 !important;
+    color: var(--app-text-inverse) !important;
+    background: var(--app-accent) !important;
 }
 
 .chatSubtitle {
-    color: #edfbfb;
+    color: var(--app-text-accent);
     font-size: 16px;
     font-weight: 700;
 }
 
 .pageRail > .teacherSearch {
-    border-bottom-color: #2c2c2f;
+    border-bottom-color: var(--app-border);
 }
 
 .pageRail > .teacherSearch .MuiInputBase-root {
-    border: 1px solid #2c2c2f !important;
-    background: #1e1f22;
+    border: 1px solid var(--app-border) !important;
+    background: var(--app-page);
 }
 
 .pageRail > .teacherSearch .MuiInputBase-input,
 .pageRail > .teacherSearch .MuiInputBase-input::placeholder {
-    color: #edfbfb;
+    color: var(--app-text-accent);
 }
 
 .pageRail > .teacherSearch .MuiInputBase-input::placeholder {
@@ -457,7 +457,7 @@
 }
 
 .logoutButton {
-    color: #b5bac1 !important;
+    color: var(--app-text-muted) !important;
 }
 
 @media (max-width: 620px) {
@@ -476,12 +476,12 @@
 }
 
 .pageRail > .teacherSearch .MuiInputBase-root {
-    background: #27272b;
+    background: var(--app-input);
 }
 
 .pageRail > .teacherSearch .MuiInputBase-input,
 .pageRail > .teacherSearch .MuiInputBase-input::placeholder {
-    color: #fbfbfb;
+    color: var(--app-text-strong);
 }
 
 .pageRail > .teacherSearch .MuiInputBase-input::placeholder {
@@ -489,7 +489,7 @@
 }
 
 .logoutButton {
-    color: #ed4245 !important;
+    color: var(--app-danger) !important;
 }
 
 .logoutButton svg {
@@ -508,20 +508,20 @@
 
 .pageRail > .teacherSearch .MuiInputBase-root,
 .pageRail > .teacherSearch .MuiOutlinedInput-root {
-    background: #6e737d !important;
+    background: var(--app-input-muted) !important;
 }
 
 .pageRail > .teacherSearch input.MuiInputBase-input,
 .pageRail > .teacherSearch input[type="text"] {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
-    caret-color: #ffffff !important;
+    color: var(--app-text-inverse) !important;
+    -webkit-text-fill-color: var(--app-text-inverse) !important;
+    caret-color: var(--app-text-inverse) !important;
 }
 
 .pageRail > .teacherSearch input.MuiInputBase-input::placeholder,
 .pageRail > .teacherSearch input[type="text"]::placeholder {
-    color: #ffffff !important;
-    -webkit-text-fill-color: #ffffff !important;
+    color: var(--app-text-inverse) !important;
+    -webkit-text-fill-color: var(--app-text-inverse) !important;
     opacity: 1 !important;
 }
 
@@ -565,7 +565,7 @@
     padding: 0 10px;
     border: 0;
     border-radius: 6px;
-    color: #b5bac1;
+    color: var(--app-text-muted);
     background: transparent;
     font: inherit;
     font-size: 16px;
@@ -575,26 +575,49 @@
 }
 
 .pageRail .pageButton:hover {
-    color: #f2f3f5;
-    background: #35373c;
+    color: var(--app-text);
+    background: var(--app-surface-hover);
 }
 
 .pageRail .pageButton.selectedPage {
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
 }
 
 .pageRail .pageButton.selectedPage:hover {
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
 }
 
 .dashboardMain .logoutButton,
 .dashboardMain .logoutButton:hover,
 .dashboardMain .logoutButton:focus {
     border: 0;
-    color: #ed4245 !important;
+    color: var(--app-danger) !important;
     background: transparent !important;
     box-shadow: none !important;
 }
+
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.headerActions .logoutButton {
+    display: inline-grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    padding: 0;
+}
+
+@media (max-width: 620px) {
+    .headerActions {
+        gap: 4px;
+    }
+}
+
+
 

@@ -1,4 +1,4 @@
-.watchPage {
+﻿.watchPage {
     display: flex;
     min-width: 0;
     min-height: 0;
@@ -8,14 +8,14 @@
     gap: 24px;
     overflow: auto;
     padding: 28px 32px 36px;
-    color: #f2f3f5;
-    background: #1e1f22;
+    color: var(--app-text);
+    background: var(--app-page);
 }
 
 .eyebrow,
 .noticeLabel,
 .watchLabel {
-    color: #8ea1f2;
+    color: var(--app-text-accent-strong);
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -23,41 +23,41 @@
 
 .watchHeader h1 {
     margin: 7px 0 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: clamp(28px, 4vw, 44px);
 }
 
 .watchHeader p {
     margin: 10px 0 0;
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 15px;
 }
 
 .connectionNotice {
     max-width: 860px;
     padding: 22px;
-    border-left: 3px solid #faa61a;
-    background: #2b2d31;
+    border-left: 3px solid var(--app-warning);
+    background: var(--app-surface);
 }
 
 .connectionNotice h2 {
     margin: 8px 0 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 20px;
 }
 
 .connectionNotice p {
     margin: 8px 0 0;
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 14px;
 }
 
 .watchSummary,
 .activityPanel {
     max-width: 1180px;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 6px;
-    background: #2b2d31;
+    background: var(--app-surface);
 }
 
 .watchSummary {
@@ -73,13 +73,13 @@
     width: 88px;
     height: 88px;
     place-items: center;
-    border: 8px solid #404249;
+    border: 8px solid var(--app-surface-soft);
     border-radius: 24px;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font-size: 30px;
     font-weight: 800;
-    box-shadow: inset 0 0 0 4px #2b2d31;
+    box-shadow: inset 0 0 0 4px var(--app-surface);
 }
 
 .watchIdentity {
@@ -91,14 +91,14 @@
 
 .watchIdentity h2 {
     margin: 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 22px;
 }
 
 .connectedStatus {
     padding: 5px 9px;
     border-radius: 999px;
-    color: #3ba55d;
+    color: var(--app-positive);
     background: rgba(59, 165, 93, 0.16);
     font-size: 11px;
     font-weight: 800;
@@ -111,12 +111,12 @@
 }
 
 .balanceBlock span {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 13px;
 }
 
 .balanceBlock strong {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 28px;
 }
 
@@ -125,8 +125,8 @@
     height: 42px;
     border: 0;
     border-radius: 5px;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font: inherit;
     font-size: 13px;
     font-weight: 700;
@@ -144,17 +144,17 @@
     justify-content: space-between;
     gap: 16px;
     padding: 22px 24px;
-    border-bottom: 1px solid #3f4147;
+    border-bottom: 1px solid var(--app-border);
 }
 
 .activityHeading h2 {
     margin: 8px 0 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 22px;
 }
 
 .activityHeading > span {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 12px;
 }
 
@@ -173,21 +173,21 @@
 }
 
 .tableHeader {
-    color: #949ba4;
-    background: #313338;
+    color: var(--app-text-subtle);
+    background: var(--app-surface-raised);
     font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
 }
 
 .tableRow {
-    border-top: 1px solid #3f4147;
-    color: #dbdee1;
+    border-top: 1px solid var(--app-border);
+    color: var(--app-text-soft);
     font-size: 14px;
 }
 
 .tableRow:hover {
-    background: #35373c;
+    background: var(--app-surface-hover);
 }
 
 .tableRow > div {
@@ -197,12 +197,12 @@
 }
 
 .tableRow strong {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 14px;
 }
 
 .tableRow small {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 12px;
 }
 
@@ -292,3 +292,6 @@
 .tableRow small {
     font-size: 13px;
 }
+
+
+

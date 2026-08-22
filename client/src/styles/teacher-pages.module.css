@@ -1,12 +1,12 @@
-.page {
+﻿.page {
     display: flex;
     min-height: 100%;
     flex-direction: column;
     gap: 22px;
     overflow: auto;
     padding: 28px 30px 36px;
-    color: #f2f3f5;
-    background: #1e1f22;
+    color: var(--app-text);
+    background: var(--app-page);
 }
 
 .pageHeading {
@@ -18,18 +18,18 @@
 
 .pageHeading h1 {
     margin: 7px 0 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: clamp(27px, 4vw, 42px);
 }
 
 .pageHeading p {
     margin: 9px 0 0;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 14px;
 }
 
 .eyebrow {
-    color: #8ea1f2;
+    color: var(--app-text-accent-strong);
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -39,11 +39,11 @@
     width: min(320px, 100%);
     box-sizing: border-box;
     padding: 13px 15px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 6px;
     outline: none;
-    color: #ffffff;
-    background: #27272b;
+    color: var(--app-text-inverse);
+    background: var(--app-input);
     font: inherit;
 }
 
@@ -54,7 +54,7 @@
 .eventForm input:focus,
 .eventForm select:focus,
 .aiPrompt textarea:focus {
-    border-color: #5865f2;
+    border-color: var(--app-accent);
 }
 
 .classGrid {
@@ -65,13 +65,13 @@
 
 .classCard {
     overflow: hidden;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 8px;
-    background: #2b2d31;
+    background: var(--app-surface);
 }
 
 .activeClass {
-    border-color: #5865f2;
+    border-color: var(--app-accent);
 }
 
 .classHeader {
@@ -82,8 +82,8 @@
     width: 100%;
     padding: 18px;
     border: 0;
-    color: #ffffff;
-    background: #313338;
+    color: var(--app-text-inverse);
+    background: var(--app-surface-raised);
     font: inherit;
     text-align: left;
     cursor: pointer;
@@ -95,8 +95,8 @@
     height: 42px;
     place-items: center;
     border-radius: 11px;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font-size: 12px;
     font-weight: 800;
 }
@@ -106,7 +106,7 @@
 }
 
 .classHeader small {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 12px;
 }
 
@@ -123,8 +123,8 @@
     width: 100%;
     padding: 12px 16px;
     border: 0;
-    border-top: 1px solid #3f4147;
-    color: #f2f3f5;
+    border-top: 1px solid var(--app-border);
+    color: var(--app-text);
     background: transparent;
     font: inherit;
     text-align: left;
@@ -133,7 +133,7 @@
 
 .studentRow:hover,
 .selectedStudent {
-    background: #35373c;
+    background: var(--app-surface-hover);
 }
 
 .studentAvatar {
@@ -141,10 +141,10 @@
     width: 34px;
     height: 34px;
     place-items: center;
-    border: 2px solid #000000;
+    border: 2px solid var(--app-avatar-border);
     border-radius: 50%;
-    color: #2b73c6;
-    background: #e8f2f8;
+    color: var(--app-accent);
+    background: var(--app-avatar);
     font-size: 11px;
     font-weight: 800;
 }
@@ -162,14 +162,14 @@
 
 .studentRow small {
     overflow: hidden;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 12px;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .studentRow b {
-    color: #8ea1f2;
+    color: var(--app-text-accent-strong);
     font-size: 21px;
 }
 
@@ -188,7 +188,7 @@
 
 .monthControls strong {
     min-width: 150px;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 19px;
     text-align: center;
 }
@@ -197,8 +197,8 @@
 .calendarToolbar button {
     border: 0;
     border-radius: 6px;
-    color: #ffffff;
-    background: #404249;
+    color: var(--app-text-inverse);
+    background: var(--app-surface-soft);
     font: inherit;
     cursor: pointer;
 }
@@ -213,8 +213,8 @@
     padding: 12px 16px;
     border: 0;
     border-radius: 6px;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font: inherit;
     font-size: 13px;
     font-weight: 700;
@@ -222,7 +222,7 @@
 }
 
 .primaryButton:hover {
-    background: #4752c4;
+    background: var(--app-accent-hover);
 }
 
 .eventForm {
@@ -231,9 +231,9 @@
     align-items: center;
     gap: 10px;
     padding: 14px;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 7px;
-    background: #2b2d31;
+    background: var(--app-surface);
 }
 
 .eventForm input,
@@ -244,16 +244,16 @@
     box-sizing: border-box;
     width: 100%;
     padding: 12px 13px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 5px;
     outline: none;
-    color: #ffffff;
-    background: #1e1f22;
+    color: var(--app-text-inverse);
+    background: var(--app-page);
     font: inherit;
 }
 
 .eventForm > span {
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 12px;
     white-space: nowrap;
 }
@@ -271,14 +271,14 @@
     cursor: pointer;
 }
 
-.red { background: #ed4245; }
-.yellow { background: #f0b232; }
-.blue { background: #5865f2; }
-.green { background: #57f287; }
+.red { background: var(--app-danger); }
+.yellow { background: var(--app-warning-bright); }
+.blue { background: var(--app-accent); }
+.green { background: var(--app-positive-bright); }
 
 .activeColor {
-    border-color: #ffffff;
-    box-shadow: 0 0 0 2px #5865f2;
+    border-color: var(--app-text-inverse);
+    box-shadow: 0 0 0 2px var(--app-accent);
 }
 
 .calendarGrid {
@@ -286,17 +286,17 @@
     grid-template-columns: repeat(7, minmax(0, 1fr));
     grid-auto-rows: minmax(86px, 1fr);
     overflow: hidden;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 8px;
-    background: #2b2d31;
+    background: var(--app-surface);
 }
 
 .weekday {
     display: grid;
     min-height: 38px;
     place-items: center;
-    color: #949ba4;
-    background: #232428;
+    color: var(--app-text-subtle);
+    background: var(--app-surface-deep);
     font-size: 11px;
     font-weight: 700;
 }
@@ -309,10 +309,10 @@
     gap: 8px;
     padding: 10px;
     border: 0;
-    border-top: 1px solid #3f4147;
-    border-right: 1px solid #3f4147;
-    color: #f2f3f5;
-    background: #2b2d31;
+    border-top: 1px solid var(--app-border);
+    border-right: 1px solid var(--app-border);
+    color: var(--app-text);
+    background: var(--app-surface);
     font: inherit;
     text-align: left;
     cursor: pointer;
@@ -324,18 +324,18 @@
 
 .dayCell:hover,
 .selectedDay {
-    background: #35373c;
-    box-shadow: inset 0 0 0 1px #5865f2;
+    background: var(--app-surface-hover);
+    box-shadow: inset 0 0 0 1px var(--app-accent);
 }
 
 .dayCell > span {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 13px;
     font-weight: 700;
 }
 
 .outsideMonth > span {
-    color: #646a73;
+    color: var(--app-text-dim);
 }
 
 .event {
@@ -344,7 +344,7 @@
     overflow: hidden;
     padding: 4px 6px;
     border-radius: 4px;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 10px;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -365,16 +365,16 @@
     flex-direction: column;
     gap: 15px;
     padding: 22px;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 8px;
-    background: #2b2d31;
+    background: var(--app-surface);
 }
 
 .reportForm label {
     display: flex;
     flex-direction: column;
     gap: 7px;
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 12px;
 }
 
@@ -385,25 +385,25 @@
 }
 
 .reportPreview {
-    background: #232428;
+    background: var(--app-surface-deep);
 }
 
 .reportPreview h2,
 .aiResult h2 {
     margin: 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 23px;
 }
 
 .reportPreview strong {
-    color: #b5c2ff;
+    color: var(--app-text-accent);
     font-size: 15px;
 }
 
 .reportPreview small,
 .reportPreview p,
 .aiResult p {
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 14px;
     line-height: 1.7;
 }
@@ -425,27 +425,27 @@
     padding: 9px 12px;
     border: 0;
     border-radius: 999px;
-    color: #b5bac1;
-    background: #404249;
+    color: var(--app-text-muted);
+    background: var(--app-surface-soft);
     font: inherit;
     font-size: 12px;
     cursor: pointer;
 }
 
 .scopeButtons .activeSegment {
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
 }
 
 .aiPrompt textarea {
     box-sizing: border-box;
     width: 100%;
     padding: 14px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 6px;
     outline: none;
-    color: #ffffff;
-    background: #1e1f22;
+    color: var(--app-text-inverse);
+    background: var(--app-page);
     font: inherit;
     line-height: 1.5;
 }
@@ -461,10 +461,10 @@
     bottom: 24px;
     z-index: 10;
     padding: 13px 17px;
-    border: 1px solid #5865f2;
+    border: 1px solid var(--app-accent);
     border-radius: 6px;
-    color: #ffffff;
-    background: #313338;
+    color: var(--app-text-inverse);
+    background: var(--app-surface-raised);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     font-size: 13px;
 }
@@ -479,8 +479,8 @@
     padding: 8px 14px;
     border: 0;
     border-radius: 6px;
-    color: #b5bac1;
-    background: #1e1f22;
+    color: var(--app-text-muted);
+    background: var(--app-page);
     font: inherit;
     font-size: 13px;
     font-weight: 700;
@@ -489,8 +489,8 @@
 
 .selectedClassButton,
 .classButton:hover {
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
 }
 
 @media (max-width: 900px) {
@@ -538,11 +538,11 @@
     width: min(320px, 100%);
     box-sizing: border-box;
     padding: 12px 14px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 6px;
     outline: none;
-    color: #ffffff;
-    background: #27272b;
+    color: var(--app-text-inverse);
+    background: var(--app-input);
     font: inherit;
 }
 
@@ -615,9 +615,9 @@
     min-width: 0;
     align-self: start;
     overflow: hidden;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 8px;
-    background: #2b2d31;
+    background: var(--app-surface);
 }
 
 .classDetailsHeader {
@@ -626,21 +626,21 @@
     justify-content: space-between;
     gap: 16px;
     padding: 22px;
-    border-bottom: 1px solid #3f4147;
-    background: #313338;
+    border-bottom: 1px solid var(--app-border);
+    background: var(--app-surface-raised);
 }
 
 .classDetailsHeader h2 {
     margin: 8px 0 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 23px;
 }
 
 .classDetailsCount {
     padding: 7px 10px;
     border-radius: 6px;
-    color: #d8e4f0;
-    background: #404249;
+    color: var(--app-text);
+    background: var(--app-surface-soft);
     font-size: 15px;
     white-space: nowrap;
 }
@@ -664,7 +664,7 @@
 }
 
 .classesPage .studentRow b {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 14px;
     font-weight: 600;
 }
@@ -722,7 +722,7 @@
     align-content: center;
     gap: 4px;
     padding: 15px 18px;
-    border-bottom: 1px solid #3f4147;
+    border-bottom: 1px solid var(--app-border);
 }
 
 .scheduleItem:last-child {
@@ -730,12 +730,12 @@
 }
 
 .scheduleItem strong {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 17px;
 }
 
 .scheduleItem span {
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 15px;
 }
 .classOverview {
@@ -743,9 +743,9 @@
     margin-top: 20px;
     padding: 20px;
     box-sizing: border-box;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 8px;
-    background: #2b2d31;
+    background: var(--app-surface);
 }
 
 .classOverviewHeader {
@@ -758,15 +758,15 @@
 
 .classOverviewHeader h2 {
     margin: 8px 0 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 22px;
 }
 
 .classOverviewPeriod {
     padding: 7px 10px;
     border-radius: 6px;
-    color: #d8e4f0;
-    background: #404249;
+    color: var(--app-text);
+    background: var(--app-surface-soft);
     font-size: 15px;
 }
 
@@ -783,18 +783,18 @@
     justify-content: space-between;
     padding: 16px;
     box-sizing: border-box;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 6px;
-    background: #313338;
+    background: var(--app-surface-raised);
 }
 
 .overviewCard span {
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 15px;
 }
 
 .overviewCard strong {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 28px;
 }
 
@@ -824,9 +824,9 @@
 .reportsPage .reportHistory {
     min-width: 0;
     padding: 24px;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 8px;
-    background: #2b2d31;
+    background: var(--app-surface);
 }
 
 .reportsPage .reportForm {
@@ -841,7 +841,7 @@
 
 .reportsPage .reportForm label {
     gap: 8px;
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 15px;
     font-weight: 600;
 }
@@ -852,11 +852,11 @@
     width: 100%;
     box-sizing: border-box;
     padding: 14px 15px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 6px;
     outline: none;
-    color: #ffffff;
-    background: #1e1f22;
+    color: var(--app-text-inverse);
+    background: var(--app-page);
     font: inherit;
     font-size: 16px;
 }
@@ -869,7 +869,7 @@
 .reportsPage .reportForm input:focus,
 .reportsPage .reportForm select:focus,
 .reportsPage .reportForm textarea:focus {
-    border-color: #5865f2;
+    border-color: var(--app-accent);
 }
 
 .reportsPage .reportDescription {
@@ -895,12 +895,12 @@
 
 .reportHistoryHeader {
     padding-bottom: 18px;
-    border-bottom: 1px solid #3f4147;
+    border-bottom: 1px solid var(--app-border);
 }
 
 .reportHistoryHeader h2 {
     margin: 8px 0 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 23px;
 }
 
@@ -914,7 +914,7 @@
     flex-direction: column;
     gap: 8px;
     padding: 18px 0;
-    border-bottom: 1px solid #3f4147;
+    border-bottom: 1px solid var(--app-border);
 }
 
 .reportHistoryItem:last-child {
@@ -929,19 +929,19 @@
 }
 
 .reportHistoryTopline strong {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 16px;
 }
 
 .reportHistoryTopline span,
 .reportHistoryItem small {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 13px;
 }
 
 .reportHistoryItem p {
     margin: 0;
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 14px;
     line-height: 1.6;
 }
@@ -964,13 +964,13 @@
     gap: 24px;
     margin-top: auto;
     padding: 18px 20px;
-    border-top: 1px solid #3f4147;
-    color: #b5bac1;
+    border-top: 1px solid var(--app-border);
+    color: var(--app-text-muted);
 }
 
 .classFooter p {
     margin: 8px 0 0;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 14px;
     line-height: 1.5;
 }
@@ -984,10 +984,10 @@
 
 .classFooterMeta span {
     padding: 7px 10px;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 6px;
-    color: #b5bac1;
-    background: #2b2d31;
+    color: var(--app-text-muted);
+    background: var(--app-surface);
     font-size: 13px;
 }
 
@@ -1001,3 +1001,6 @@
         justify-content: flex-start;
     }
 }
+
+
+
