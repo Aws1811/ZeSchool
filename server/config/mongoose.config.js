@@ -2,11 +2,13 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 
 async function connectDatabase() {
-    if (!process.env.URI) {
+    const uri = process.env.URI || process.env.MONGODB_URI;
+
+    if (!uri) {
         throw new Error("URI is required in server/.env");
     }
 
-    await mongoose.connect(process.env.URI, {
+    await mongoose.connect(uri, {
         dbName: process.env.DB || undefined,
     });
 
