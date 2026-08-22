@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Alert, Button, TextField } from "@mui/material";
+import { Alert, Button, TextField, Typography } from "@mui/material";
 import styles from "../styles/app.module.css";
 
-function LoginForm({ onSubmit, message }) {
+function LoginForm({ onSubmit, message, teacherAccounts = [], onTeacherSelect }) {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
@@ -11,7 +11,7 @@ function LoginForm({ onSubmit, message }) {
                 fullWidth
                 label="Email or phone number"
                 name="loginIdentifier"
-                placeholder="you@example.com"
+                placeholder="you@example.com or 059 000 0000"
                 required
             />
             <div className={styles.passwordField}>
@@ -33,7 +33,25 @@ function LoginForm({ onSubmit, message }) {
             <Button fullWidth type="submit" variant="contained" size="large">
                 Login
             </Button>
-            {message && <Alert severity="info">{message}</Alert>}
+            {teacherAccounts.length > 0 && (
+                <div className={styles.teacherAccess}>
+                    <Typography className={styles.teacherAccessTitle}>Teacher access</Typography>
+                    <Typography className={styles.teacherAccessDescription}>Choose a predefined teacher account.</Typography>
+                    <div className={styles.teacherAccessList}>
+                        {teacherAccounts.map((teacher) => (
+                            <Button
+                                key={teacher.id}
+                                type="button"
+                                variant="outlined"
+                                onClick={() => onTeacherSelect(teacher)}
+                            >
+                                {teacher.name}
+                            </Button>
+                        ))}
+                    </div>
+                </div>
+            )}
+            {message && <Alert severity="error">{message}</Alert>}
         </form>
     );
 }

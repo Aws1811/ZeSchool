@@ -2,12 +2,9 @@ import { useState } from "react";
 import {
     Button,
     FormControl,
-    FormControlLabel,
     FormLabel,
     InputAdornment,
     MenuItem,
-    Radio,
-    RadioGroup,
     TextField,
 } from "@mui/material";
 import DateOfBirthField from "./DateOfBirthField";
@@ -16,10 +13,9 @@ import styles from "../styles/app.module.css";
 function RegisterForm({ onSubmit }) {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const [validationMessage, setValidationMessage] = useState("");
     const [formData, setFormData] = useState({
-        role: "parent",
         parentName: "",
-        teacherName: "",
         contactType: "email",
         contactValue: "",
         phonePrefix: "+970",
@@ -39,29 +35,51 @@ function RegisterForm({ onSubmit }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSubmit(formData);
+        const name = formData.parentName.trim();
+        const contactValue = formData.contactValue.trim();
+        const emailIsValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactValue);
+        const phoneIsValid = /^[0-9\s]{7,}$/.test(contactValue);
+
+        if (name.length < 2) {
+            setValidationMessage("Parent name must be at least 2 characters.");
+            return;
+        }
+        if (formData.contactType === "email" && !emailIsValid) {
+            setValidationMessage("Enter a valid email address.");
+            return;
+        }
+        if (formData.contactType === "phone" && !phoneIsValid) {
+            setValidationMessage("Enter a valid phone number.");
+            return;
+        }
+        if (!formData.gender || !formData.dateOfBirth) {
+            setValidationMessage("Gender and date of birth are required.");
+            return;
+        }
+        if (formData.password.length < 6) {
+            setValidationMessage("Password must be at least 6 characters.");
+            return;
+        }
+        if (formData.password !== formData.confirmPassword) {
+            setValidationMessage("Passwords do not match.");
+            return;
+        }
+
+        setValidationMessage("");
+        onSubmit({ ...formData, parentName: name, contactValue });
     };
 
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <FormControl>
-                <FormLabel>Register as</FormLabel>
-                <RadioGroup
-                    row
-                    name="role"
-                    value={formData.role}
-                    onChange={updateFormData}
-                >
-                    <FormControlLabel value="parent" control={<Radio />} label="Parent" />
-                    <FormControlLabel value="teacher" control={<Radio />} label="Teacher" />
-                </RadioGroup>
+                <FormLabel>Register as parent</FormLabel>
             </FormControl>
             <TextField
                 fullWidth
-                label={formData.role === "teacher" ? "Teacher name" : "Parent name"}
+                label="Parent name"
                 InputLabelProps={{ shrink: true }}
-                name={formData.role === "teacher" ? "teacherName" : "parentName"}
-                value={formData.role === "teacher" ? formData.teacherName : formData.parentName}
+                name="parentName"
+                value={formData.parentName}
                 onChange={updateFormData}
                 required
             />
@@ -107,12 +125,12 @@ function RegisterForm({ onSubmit }) {
                 />
             </div>
             <div className={styles.formRow}>
-                    <TextField
-                        fullWidth
-                        select
-                        label="Gender"
-                        InputLabelProps={{ shrink: true }}
-                        name="gender"
+                <TextField
+                    fullWidth
+                    select
+                    label="Gender"
+                    InputLabelProps={{ shrink: true }}
+                    name="gender"
                     value={formData.gender}
                     onChange={updateFormData}
                     required
@@ -120,11 +138,8 @@ function RegisterForm({ onSubmit }) {
                     <MenuItem value="female">Female</MenuItem>
                     <MenuItem value="male">Male</MenuItem>
                     <MenuItem value="prefer-not-to-say">Prefer not to say</MenuItem>
-                    </TextField>
-                    <DateOfBirthField
-                        value={formData.dateOfBirth}
-                        onChange={updateFormData}
-                    />
+                </TextField>
+                <DateOfBirthField value={formData.dateOfBirth} onChange={updateFormData} />
             </div>
             <div className={styles.passwordField}>
                 <TextField
@@ -137,11 +152,7 @@ function RegisterForm({ onSubmit }) {
                     onChange={updateFormData}
                     required
                 />
-                <Button
-                    type="button"
-                    className={styles.passwordButton}
-                    onClick={() => setShowPassword(!showPassword)}
-                >
+                <Button type="button" className={styles.passwordButton} onClick={() => setShowPassword(!showPassword)}>
                     {showPassword ? "Hide" : "Show"}
                 </Button>
             </div>
@@ -156,16 +167,13 @@ function RegisterForm({ onSubmit }) {
                     onChange={updateFormData}
                     required
                 />
-                <Button
-                    type="button"
-                    className={styles.passwordButton}
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                >
+                <Button type="button" className={styles.passwordButton} onClick={() => setShowConfirmPassword(!showConfirmPassword)}>
                     {showConfirmPassword ? "Hide" : "Show"}
                 </Button>
             </div>
+            {validationMessage && <div className={styles.formError}>{validationMessage}</div>}
             <Button fullWidth type="submit" variant="contained" size="large">
-                Continue
+                Create parent account
             </Button>
         </form>
     );

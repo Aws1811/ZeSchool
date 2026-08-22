@@ -1,14 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, IconButton } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
-import AIAnalysisPage from "./AIAnalysisPage";
-import BusPage from "./BusPage";
-import CalendarPage from "./CalendarPage";
-import ReportsPage from "./ReportsPage";
-import SmartwatchPage from "./SmartwatchPage";
-import GradesPage from "./GradesPage";
 import ChatPage, { TeacherConversationList, TeacherSearch } from "./ChatPage";
 import styles from "../styles/dashboard-shell.module.css";
+import ThemeToggle from "../components/ThemeToggle";
+import EmptyDataPage from "../components/EmptyDataPage";
+import { getChatContext } from "../api/chatApi";
 
 const pageItems = [
     "Chat",
@@ -18,11 +15,6 @@ const pageItems = [
     "Bus",
     "Smart watch",
     "AI analysis",
-];
-
-const defaultChildren = [
-    { name: "Child 1" },
-    { name: "Child 2" },
 ];
 
 function LogoutIcon() {
@@ -39,7 +31,7 @@ function LogoutIcon() {
     );
 }
 
-function getChildInitials(name) {
+function getStudentInitials(name) {
     return name
         .split(" ")
         .map((part) => part[0])
@@ -51,19 +43,36 @@ function getChildInitials(name) {
 function ParentDashboardPage() {
     const navigate = useNavigate();
     const location = useLocation();
-    const [selectedChildIndex, setSelectedChildIndex] = useState(0);
+    const [selectedStudentIndex, setSelectedStudentIndex] = useState(0);
+    const [theme, setTheme] = useState(() => window.localStorage.getItem("zeschool-theme") || "dark");
     const [selectedPage, setSelectedPage] = useState("Chat");
-    const [selectedTeacherId, setSelectedTeacherId] = useState("teacher-1");
+    const [selectedConversationId, setSelectedConversationId] = useState("");
     const [searchText, setSearchText] = useState("");
-    const children = location.state?.children?.length ? location.state.children : defaultChildren;
-    const selectedChild = children[selectedChildIndex] || children[0];
+    const [chatContext, setChatContext] = useState(null);
+    const students = chatContext?.students || location.state?.students || [];
+    const selectedStudent = students[selectedStudentIndex] || students[0] || { id: "", name: "Loading students" };
+    const studentConversations = chatContext?.conversations?.filter((conversation) => conversation.student.id === selectedStudent.id) || [];
+    const activeConversationId = studentConversations.some((conversation) => conversation.id === selectedConversationId)
+        ? selectedConversationId
+        : studentConversations[0]?.id || "";
+
+    useEffect(() => {
+        getChatContext("parent", undefined, location.state?.email)
+            .then(setChatContext)
+            .catch(() => setChatContext({ students: [], conversations: [] }));
+    }, [location.state?.email]);
+
+    useEffect(() => {
+        document.documentElement.dataset.theme = theme;
+        window.localStorage.setItem("zeschool-theme", theme);
+    }, [theme]);
 
     const handleLogout = () => {
         navigate("/");
     };
 
     return (
-        <main className={styles.dashboard}>
+        <main className={`${styles.dashboard} ${theme === "light" ? "light-theme" : ""}`}>
             <aside className={styles.pageRail} aria-label="Parent pages and teacher conversations">
                 <div className={styles.pageLabel}>Pages</div>
                 <nav className={styles.pageList}>
@@ -81,9 +90,10 @@ function ParentDashboardPage() {
                 {selectedPage === "Chat" && (
                     <div className={styles.teacherHistory}>
                         <TeacherConversationList
-                            selectedTeacherId={selectedTeacherId}
-                            onSelectTeacher={setSelectedTeacherId}
+                            selectedConversationId={activeConversationId}
+                            onSelectConversation={setSelectedConversationId}
                             searchText={searchText}
+                            conversations={studentConversations}
                         />
                     </div>
                 )}
@@ -92,58 +102,46 @@ function ParentDashboardPage() {
             <section className={styles.dashboardMain}>
                 <header className={styles.chatHeader}>
                     <div className={styles.chatHeaderContent}>
-                        <div className={styles.childSwitcher} aria-label="Choose child">
-                            {children.map((child, index) => (
+                        <div className={styles.childSwitcher} aria-label="Choose student">
+                            {students.map((student, index) => (
                                 <Button
-                                    key={`${child.name}-${index}`}
-                                    className={`${styles.childButton} ${selectedChildIndex === index ? styles.selectedChild : ""}`}
-                                    onClick={() => setSelectedChildIndex(index)}
-                                    title={child.name}
-                                    aria-label={child.name}
+                                    key={`${student.name}-${index}`}
+                                    className={`${styles.childButton} ${selectedStudentIndex === index ? styles.selectedChild : ""}`}
+                                    onClick={() => setSelectedStudentIndex(index)}
+                                    title={student.name}
+                                    aria-label={student.name}
                                 >
-                                    {getChildInitials(child.name)}
+                                    {getStudentInitials(student.name)}
                                 </Button>
                             ))}
                         </div>
-                        <div className={styles.chatSubtitle}>{selectedChild.name}</div>
+                        <div className={styles.chatSubtitle}>{selectedStudent.name}</div>
                     </div>
-                    <IconButton
-                        className={styles.logoutButton}
-                        onClick={handleLogout}
-                        aria-label="Log out"
-                        title="Log out"
-                    >
-                        <LogoutIcon />
-                    </IconButton>
+                    <div className={styles.headerActions}>
+                        <ThemeToggle theme={theme} onToggle={() => setTheme((current) => current === "dark" ? "light" : "dark")} />
+                        <IconButton
+                            className={styles.logoutButton}
+                            onClick={handleLogout}
+                            aria-label="Log out"
+                            title="Log out"
+                        >
+                            <LogoutIcon />
+                        </IconButton>
+                    </div>
                 </header>
 
                 <div className={styles.chatBody}>
                     {selectedPage === "Chat" ? (
                         <ChatPage
-                            selectedTeacherId={selectedTeacherId}
-                            onSelectTeacher={setSelectedTeacherId}
+                            selectedConversationId={activeConversationId}
+                            userId={chatContext?.user?.id}
+                            conversations={studentConversations}
                         />
-                    ) : selectedPage === "Calendar" ? (
-                        <CalendarPage />
-                    ) : selectedPage === "Grades" ? (
-                        <GradesPage child={selectedChild} />
-                    ) : selectedPage === "AI analysis" ? (
-                        <AIAnalysisPage child={selectedChild} />
-                    ) : selectedPage === "Bus" ? (
-                        <BusPage child={selectedChild} />
-                    ) : selectedPage === "Reports" ? (
-                        <ReportsPage child={selectedChild} />
-                    ) : selectedPage === "Smart watch" ? (
-                        <SmartwatchPage child={selectedChild} />
                     ) : (
-                        <div className={styles.emptyChat}>
-                            <div className={styles.emptyChatTitle}>
-                                {selectedPage} placeholder
-                            </div>
-                            <div className={styles.emptyChatText}>
-                                This area is ready for the {selectedPage.toLowerCase()} experience for {selectedChild.name}.
-                            </div>
-                        </div>
+                        <EmptyDataPage
+                            title={`${selectedPage} data`}
+                            description={`No ${selectedPage.toLowerCase()} data is available for ${selectedStudent.name} yet.`}
+                        />
                     )}
                 </div>
             </section>

@@ -1,4 +1,4 @@
-.aiPage {
+﻿.aiPage {
     display: flex;
     min-width: 0;
     min-height: 0;
@@ -8,8 +8,8 @@
     gap: 20px;
     overflow: auto;
     padding: 28px 32px 36px;
-    color: #f2f3f5;
-    background: #1e1f22;
+    color: var(--app-text);
+    background: var(--app-page);
 }
 
 .aiHeader {
@@ -21,7 +21,7 @@
 
 .eyebrow,
 .noteLabel {
-    color: #8ea1f2;
+    color: var(--app-text-accent-strong);
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -29,14 +29,14 @@
 
 .aiHeader h1 {
     margin: 7px 0 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: clamp(28px, 4vw, 44px);
     line-height: 1.1;
 }
 
 .aiHeader p {
     margin: 10px 0 0;
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 15px;
 }
 
@@ -46,24 +46,24 @@
     flex-direction: column;
     gap: 4px;
     padding: 12px 16px;
-    border-left: 3px solid #5865f2;
-    background: #2b2d31;
+    border-left: 3px solid var(--app-accent);
+    background: var(--app-surface);
 }
 
 .childContext span {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
 }
 
 .childContext strong {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 16px;
 }
 
 .childContext small {
-    color: #b5c2ff;
+    color: var(--app-text-accent);
     font-size: 13px;
 }
 
@@ -72,9 +72,9 @@
     align-items: flex-end;
     gap: 18px;
     padding: 14px 16px;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 6px;
-    background: #2b2d31;
+    background: var(--app-surface);
 }
 
 .controlGroup,
@@ -86,7 +86,7 @@
 
 .controlGroup label,
 .sourceFilters > span {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 12px;
     font-weight: 700;
 }
@@ -95,16 +95,16 @@
     min-width: 150px;
     height: 40px;
     padding: 0 10px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 5px;
     outline: none;
-    color: #f2f3f5;
-    background: #1e1f22;
+    color: var(--app-text);
+    background: var(--app-page);
     font: inherit;
 }
 
 .controlGroup select:focus {
-    border-color: #5865f2;
+    border-color: var(--app-accent);
 }
 
 .sourceFilters {
@@ -120,10 +120,10 @@
 .filterButton {
     min-height: 40px;
     padding: 0 12px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 5px;
-    color: #b5bac1;
-    background: #1e1f22;
+    color: var(--app-text-muted);
+    background: var(--app-page);
     font: inherit;
     font-size: 13px;
     cursor: pointer;
@@ -131,9 +131,9 @@
 
 .filterButton:hover,
 .activeFilter {
-    border-color: #5865f2;
-    color: #ffffff;
-    background: #404249;
+    border-color: var(--app-accent);
+    color: var(--app-text-inverse);
+    background: var(--app-surface-soft);
 }
 
 .analyzeButton {
@@ -141,8 +141,8 @@
     padding: 0 16px;
     border: 0;
     border-radius: 5px;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font: inherit;
     font-size: 13px;
     font-weight: 700;
@@ -151,7 +151,7 @@
 }
 
 .analyzeButton:hover {
-    background: #4752c4;
+    background: var(--app-accent-hover);
 }
 
 .analysisWorkspace {
@@ -167,7 +167,7 @@
 .aiChatPanel {
     min-width: 0;
     min-height: 0;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 6px;
 }
 
@@ -177,7 +177,7 @@
     flex-direction: column;
     padding: 30px;
     overflow: hidden;
-    background: #313338;
+    background: var(--app-surface-raised);
 }
 
 .notePin {
@@ -187,7 +187,7 @@
     width: 54px;
     height: 5px;
     border-radius: 0 0 4px 4px;
-    background: #faa61a;
+    background: var(--app-warning);
 }
 
 .reportTopline,
@@ -200,20 +200,20 @@
 
 .reportTopline h2 {
     margin: 8px 0 4px;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 28px;
 }
 
 .reportTopline span {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 13px;
 }
 
 .reportStatus {
     padding: 7px 10px;
     border-radius: 999px;
-    color: #b5c2ff !important;
-    background: #404249;
+    color: var(--app-text-accent) !important;
+    background: var(--app-surface-soft);
     font-size: 12px !important;
     font-weight: 700;
     white-space: nowrap;
@@ -226,14 +226,14 @@
 
 .reportBody h3 {
     margin: 0 0 12px;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 15px;
     text-transform: uppercase;
 }
 
 .reportBody p {
     margin: 0;
-    color: #dbdee1;
+    color: var(--app-text-soft);
     font-size: 18px;
     line-height: 1.7;
 }
@@ -247,32 +247,32 @@
 
 .reportMetrics div {
     padding: 15px;
-    border: 1px solid #4f545c;
-    background: #2b2d31;
+    border: 1px solid var(--app-border-strong);
+    background: var(--app-surface);
 }
 
 .reportMetrics span {
     display: block;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 12px;
 }
 
 .reportMetrics strong {
     display: block;
     margin-top: 8px;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 26px;
 }
 
 .adviceBlock {
     margin-top: auto;
     padding: 16px;
-    border-left: 3px solid #3ba55d;
-    background: #2b2d31;
+    border-left: 3px solid var(--app-positive);
+    background: var(--app-surface);
 }
 
 .adviceBlock span {
-    color: #3ba55d;
+    color: var(--app-positive);
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -281,14 +281,14 @@
 
 .adviceBlock p {
     margin: 8px 0 0;
-    color: #dbdee1;
+    color: var(--app-text-soft);
     font-size: 15px;
     line-height: 1.5;
 }
 
 .sourcesLine {
     margin-top: 16px;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 12px;
 }
 
@@ -296,13 +296,13 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background: #2b2d31;
+    background: var(--app-surface);
 }
 
 .chatPanelHeader {
     align-items: center;
     padding: 18px;
-    border-bottom: 1px solid #3f4147;
+    border-bottom: 1px solid var(--app-border);
 }
 
 .aiAvatar {
@@ -312,21 +312,21 @@
     flex: 0 0 auto;
     place-items: center;
     border-radius: 50%;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font-size: 11px;
     font-weight: 800;
 }
 
 .chatPanelHeader h2 {
     margin: 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 16px;
 }
 
 .chatPanelHeader p {
     margin: 4px 0 0;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 12px;
 }
 
@@ -342,7 +342,7 @@
 
 .emptyChat {
     margin: auto 0;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 14px;
     line-height: 1.5;
     text-align: center;
@@ -350,40 +350,40 @@
 
 .chatMessage {
     padding: 11px 12px;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 6px;
-    background: #313338;
+    background: var(--app-surface-raised);
 }
 
 .chatMessage span {
-    color: #b5c2ff;
+    color: var(--app-text-accent);
     font-size: 12px;
     font-weight: 700;
 }
 
 .chatMessage p {
     margin: 6px 0 0;
-    color: #dbdee1;
+    color: var(--app-text-soft);
     font-size: 14px;
     line-height: 1.5;
 }
 
 .userMessage {
     align-self: flex-end;
-    border-color: #5865f2;
-    background: #404249;
+    border-color: var(--app-accent);
+    background: var(--app-surface-soft);
 }
 
 .userMessage span,
 .userMessage p {
-    color: #ffffff;
+    color: var(--app-text-inverse);
 }
 
 .chatComposer {
     display: flex;
     gap: 8px;
     padding: 12px;
-    border-top: 1px solid #3f4147;
+    border-top: 1px solid var(--app-border);
 }
 
 .chatInput {
@@ -391,29 +391,29 @@
     height: 44px;
     flex: 1;
     padding: 0 12px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 5px;
     outline: none;
-    color: #fbfbfb;
-    background: #1e1f22;
+    color: var(--app-text-strong);
+    background: var(--app-page);
     font: inherit;
     font-size: 14px;
 }
 
 .chatInput::placeholder {
-    color: #b5bac1;
+    color: var(--app-text-muted);
 }
 
 .chatInput:focus {
-    border-color: #5865f2;
+    border-color: var(--app-accent);
 }
 
 .chatComposer button {
     min-width: 58px;
     border: 0;
     border-radius: 5px;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font: inherit;
     font-size: 12px;
     font-weight: 700;
@@ -421,7 +421,7 @@
 }
 
 .chatComposer button:hover {
-    background: #4752c4;
+    background: var(--app-accent-hover);
 }
 
 @media (max-width: 900px) {
@@ -505,3 +505,6 @@
 .chatMessage p {
     font-size: 15px;
 }
+
+
+

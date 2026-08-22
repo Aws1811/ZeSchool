@@ -1,56 +1,54 @@
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
     {
-        name: {
+        email: {
             type: String,
-            required: [true, "Name is required"],
-            minlength: [2, "Name must be at least 2 characters"]
+            required: true,
+            unique: true,
+            lowercase: true,
+            trim: true,
         },
-
-        role: {
+        displayName: {
             type: String,
-            required: [true, "Role is required"],
-            enum: ["parent", "teacher"]
+            required: true,
+            trim: true,
+            minlength: 2,
         },
-
         contactType: {
             type: String,
-            required: [true, "Contact type is required"],
-            enum: ["email", "phone"]
+            enum: ["email", "phone"],
         },
-
         contactValue: {
             type: String,
-            required: [true, "Email or phone number is required"],
-            unique: true
+            trim: true,
         },
-
         phonePrefix: {
             type: String,
-            default: "+970"
+            trim: true,
         },
-
         gender: {
             type: String,
-            required: [true, "Gender is required"],
-            enum: ["male", "female", "prefer-not-to-say"]
+            enum: ["male", "female", "prefer-not-to-say"],
         },
-
         dateOfBirth: {
             type: Date,
-            required: [true, "Date of birth is required"]
         },
-
-        password: {
+        passwordHash: {
             type: String,
-            required: [true, "Password is required"],
-            minlength: [6, "Password must be at least 6 characters"]
-        }
+            select: false,
+        },
+        role: {
+            type: String,
+            enum: ["parent", "teacher"],
+            required: true,
+        },
+        isActive: {
+            type: Boolean,
+            default: true,
+        },
     },
-    { timestamps: true }
+    { timestamps: true },
 );
 
-const User = mongoose.model("User", UserSchema);
-
-module.exports = User;
+module.exports = mongoose.model("User", userSchema);

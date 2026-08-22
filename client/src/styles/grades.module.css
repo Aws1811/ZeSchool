@@ -1,4 +1,4 @@
-.gradesPage {
+﻿.gradesPage {
     display: flex;
     min-width: 0;
     min-height: 0;
@@ -6,8 +6,8 @@
     flex-direction: column;
     overflow: auto;
     padding: 48px 7vw 64px;
-    color: #f2f3f5;
-    background: #1e1f22;
+    color: var(--app-text);
+    background: var(--app-page);
 }
 
 .gradesHeader {
@@ -17,14 +17,14 @@
 
 .gradesHeader h1 {
     margin: 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: clamp(30px, 4vw, 52px);
     line-height: 1.1;
 }
 
 .gradesDate {
     margin-top: 12px;
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 16px;
 }
 
@@ -32,18 +32,18 @@
     width: min(100%, 980px);
     margin: 56px auto 24px;
     padding-bottom: 18px;
-    border-bottom: 1px solid #3f4147;
+    border-bottom: 1px solid var(--app-border);
 }
 
 .studentName {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 26px;
     font-weight: 700;
 }
 
 .studentClass {
     margin-top: 6px;
-    color: #b5c2ff;
+    color: var(--app-text-accent);
     font-size: 17px;
     font-weight: 600;
 }
@@ -63,20 +63,20 @@
 
 .examSectionHeader h2 {
     margin: 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 22px;
 }
 
 .examSectionHeader span {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 14px;
 }
 
 .examTable {
     overflow: hidden;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 8px;
-    background: #313338;
+    background: var(--app-surface-raised);
 }
 
 .examRow {
@@ -86,8 +86,8 @@
     align-items: center;
     gap: 18px;
     padding: 12px 18px;
-    border-bottom: 1px solid #3f4147;
-    color: #dbdee1;
+    border-bottom: 1px solid var(--app-border);
+    color: var(--app-text-soft);
     font-size: 15px;
 }
 
@@ -97,8 +97,8 @@
 
 .examHeader {
     min-height: 48px;
-    color: #b5bac1;
-    background: #2b2d31;
+    color: var(--app-text-muted);
+    background: var(--app-surface);
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
@@ -111,7 +111,7 @@
 
 .examRow:not(.examHeader):hover,
 .hoveredExam {
-    background: #404249;
+    background: var(--app-surface-soft);
     transform: translateX(3px);
 }
 
@@ -122,12 +122,12 @@
 }
 
 .examTitle strong {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 16px;
 }
 
 .examTitle small {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 13px;
 }
 
@@ -144,3 +144,6 @@
         min-width: 760px;
     }
 }
+
+
+

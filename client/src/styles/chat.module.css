@@ -1,4 +1,4 @@
-.chatWorkspace {
+﻿.chatWorkspace {
     display: grid;
     min-width: 0;
     min-height: 0;
@@ -6,8 +6,8 @@
     flex: 1;
     grid-template-columns: minmax(260px, 30%) minmax(0, 1fr);
     overflow: hidden;
-    color: #f2f3f5;
-    background: #1e1f22;
+    color: var(--app-text);
+    background: var(--app-page);
 }
 
 .teacherSidebar {
@@ -15,8 +15,8 @@
     min-height: 0;
     height: 100%;
     overflow-y: auto;
-    background: #2b2d31;
-    border-right: 1px solid #111214;
+    background: var(--app-surface);
+    border-right: 1px solid var(--app-divider);
 }
 
 .teacherSearch {
@@ -26,32 +26,32 @@
     height: 48px;
     margin: 16px;
     padding: 11px 16px;
-    border: 1px solid #e8f2f8;
+    border: 1px solid var(--app-avatar);
     border-radius: 1px;
     outline: none;
-    color: #ffffff;
-    background: #6e737d;
+    color: var(--app-text-inverse);
+    background: var(--app-input-muted);
     font: inherit;
     font-size: 16px;
 }
 
 .teacherSearch::placeholder {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     opacity: 0.78;
 }
 
 .teacherSearch:hover,
 .teacherSearch:focus {
-    border-color: #e8f2f8;
+    border-color: var(--app-avatar);
     outline: none;
-    color: #ffffff;
-    background: #6e737d;
+    color: var(--app-text-inverse);
+    background: var(--app-input-muted);
 }
 
 .teacherList {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid #111214;
+    border-top: 1px solid var(--app-divider);
 }
 
 .teacherButton {
@@ -63,9 +63,9 @@
     gap: 10px;
     padding: 12px 16px !important;
     border: 0 !important;
-    border-bottom: 1px solid #3f4147 !important;
+    border-bottom: 1px solid var(--app-border) !important;
     border-radius: 0 !important;
-    color: #b5bac1 !important;
+    color: var(--app-text-muted) !important;
     background: transparent !important;
     text-align: left !important;
     text-transform: none !important;
@@ -73,15 +73,15 @@
 }
 
 .teacherButton:hover {
-    color: #f2f3f5 !important;
-    background: #35373c !important;
+    color: var(--app-text) !important;
+    background: var(--app-surface-hover) !important;
 }
 
 .selectedTeacher,
 .selectedTeacher:hover {
-    color: #ffffff !important;
-    background: #404249 !important;
-    box-shadow: inset 3px 0 0 #5865f2;
+    color: var(--app-text-inverse) !important;
+    background: var(--app-surface-soft) !important;
+    box-shadow: inset 3px 0 0 var(--app-accent);
 }
 
 .teacherAvatarWrap {
@@ -99,10 +99,10 @@
     width: 43px;
     height: 43px;
     place-items: center;
-    border: 2px solid #000000;
+    border: 2px solid var(--app-avatar-border);
     border-radius: 50%;
-    color: #2b73c6;
-    background: #e8f2f8;
+    color: var(--app-accent);
+    background: var(--app-avatar);
     font-size: 14px;
     font-weight: 800;
 }
@@ -117,9 +117,9 @@
     display: block;
     width: 12px;
     height: 12px;
-    border: 2px solid #1e1f22;
+    border: 2px solid var(--app-page);
     border-radius: 50%;
-    box-shadow: 0 0 0 1px #000000;
+    box-shadow: 0 0 0 1px var(--app-avatar-border);
     cursor: help;
 }
 
@@ -130,8 +130,8 @@
     z-index: 5;
     padding: 6px 9px;
     border-radius: 6px;
-    color: #ffffff;
-    background: #111214;
+    color: var(--app-text-inverse);
+    background: var(--app-divider);
     content: attr(data-status);
     font-size: 12px;
     font-weight: 600;
@@ -149,15 +149,15 @@
 }
 
 .presenceActive {
-    background: #3ba55d;
+    background: var(--app-positive);
 }
 
 .presenceBusy {
-    background: #ed4245;
+    background: var(--app-danger);
 }
 
 .presenceOffline {
-    background: #72767d;
+    background: var(--app-status-offline);
 }
 
 .teacherButtonContent {
@@ -179,7 +179,7 @@
 
 .teacherButtonName {
     overflow: hidden;
-    color: #f2f3f5;
+    color: var(--app-text);
     font-size: 16px;
     font-weight: 700;
     text-overflow: ellipsis;
@@ -187,7 +187,7 @@
 }
 
 .teacherButtonSubject {
-    color: #b5c2ff;
+    color: var(--app-text-accent);
     font-size: 14px;
     font-weight: 700;
     line-height: 1.2;
@@ -195,7 +195,7 @@
 
 .teacherButtonPreview {
     overflow: hidden;
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 14px;
     line-height: 1.2;
     text-overflow: ellipsis;
@@ -204,7 +204,7 @@
 
 .teacherButtonTime {
     flex: 0 0 auto;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 11px;
     font-weight: 500;
 }
@@ -213,11 +213,11 @@
 .selectedTeacher .teacherButtonSubject,
 .selectedTeacher .teacherButtonPreview,
 .selectedTeacher .teacherButtonTime {
-    color: #ffffff;
+    color: var(--app-text-inverse);
 }
 
 .selectedTeacher .teacherButtonSubject {
-    color: #b5c2ff;
+    color: var(--app-text-accent);
 }
 
 .unreadBadge {
@@ -227,15 +227,15 @@
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font-size: 14px;
     font-weight: 800;
 }
 
 .noTeachers {
     padding: 24px 18px;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 15px;
 }
 
@@ -245,8 +245,8 @@
     min-height: 0;
     height: 100%;
     flex-direction: column;
-    color: #f2f3f5;
-    background: #1e1f22;
+    color: var(--app-text);
+    background: var(--app-page);
 }
 
 .conversationHeader {
@@ -255,8 +255,8 @@
     align-items: center;
     gap: 12px;
     padding: 16px 24px;
-    background: #2b2d31;
-    border-bottom: 1px solid #111214;
+    background: var(--app-surface);
+    border-bottom: 1px solid var(--app-divider);
 }
 
 .conversationHeading {
@@ -266,7 +266,7 @@
 
 .conversationTitle {
     overflow: hidden;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 18px;
     font-weight: 700;
     text-overflow: ellipsis;
@@ -276,7 +276,7 @@
 .conversationSubtitle {
     margin-top: 3px;
     overflow: hidden;
-    color: #b5c2ff;
+    color: var(--app-text-accent);
     font-size: 18px;
     font-weight: 700;
     text-overflow: ellipsis;
@@ -291,12 +291,12 @@
     gap: 16px;
     overflow-y: auto;
     padding: 24px;
-    background: #1e1f22;
+    background: var(--app-page);
 }
 
 .dateDivider {
     align-self: center;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 13px;
 }
 
@@ -312,51 +312,51 @@
 .message {
     max-width: min(620px, 75%);
     padding: 12px 14px 9px;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 8px;
-    color: #f2f3f5;
-    background: #313338;
+    color: var(--app-text);
+    background: var(--app-surface-raised);
 }
 
 .messageMine {
-    border-color: #5865f2;
-    background: #404249;
+    border-color: var(--app-accent);
+    background: var(--app-surface-soft);
 }
 
 .messageSender {
     margin-bottom: 4px;
-    color: #b5c2ff;
+    color: var(--app-text-accent);
     font-size: 18px;
     font-weight: 800;
 }
 
 .messageText {
-    color: #f2f3f5;
+    color: var(--app-text);
     font-size: 18px;
     line-height: 1.45;
 }
 
 .messageMine .messageText {
-    color: #ffffff;
+    color: var(--app-text-inverse);
 }
 
 .messageTime {
     margin-top: 5px;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 11px;
     text-align: right;
 }
 
 .messageMine .messageTime {
-    color: #b5bac1;
+    color: var(--app-text-muted);
 }
 
 .messageComposer {
     display: flex;
     gap: 10px;
     padding: 14px 24px 18px;
-    background: #2b2d31;
-    border-top: 1px solid #111214;
+    background: var(--app-surface);
+    border-top: 1px solid var(--app-divider);
 }
 
 .messageComposer .MuiTextField-root {
@@ -365,41 +365,41 @@
 
 .messageComposer .MuiOutlinedInput-root {
     border-radius: 6px;
-    color: #ffffff;
-    background: #1e1f22;
+    color: var(--app-text-inverse);
+    background: var(--app-page);
 }
 
 .messageComposer .MuiOutlinedInput-notchedOutline {
-    border-color: #4f545c;
+    border-color: var(--app-border-strong);
 }
 
 .messageComposer .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline,
 .messageComposer .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: #5865f2;
+    border-color: var(--app-accent);
 }
 
 .messageComposer .MuiInputBase-input {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 16px;
 }
 
 .messageComposer .MuiInputBase-input::placeholder {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     opacity: 1;
 }
 
 .messageComposer .MuiButton-root {
     min-width: 82px;
     border-radius: 6px;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
 }
 
 .messageComposer .MuiButton-root:hover {
-    background: #4752c4;
+    background: var(--app-accent-hover);
 }
 
 @media (max-width: 850px) {
@@ -439,7 +439,7 @@
         height: auto;
         max-height: 270px;
         border-right: 0;
-        border-bottom: 1px solid #111214;
+        border-bottom: 1px solid var(--app-divider);
     }
 
     .conversation {
@@ -455,25 +455,25 @@
     height: 52px;
     flex: 1;
     padding: 0 15px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 6px;
     outline: none;
-    color: #fbfbfb;
-    background: #1e1f22;
+    color: var(--app-text-strong);
+    background: var(--app-page);
     font: inherit;
     font-size: 16px;
 }
 
 .messageInput::placeholder {
-    color: #b5bac1;
+    color: var(--app-text-muted);
     opacity: 1;
 }
 
 .messageInput:hover,
 .messageInput:focus {
-    border-color: #5865f2;
-    color: #fbfbfb;
-    background: #1e1f22;
+    border-color: var(--app-accent);
+    color: var(--app-text-strong);
+    background: var(--app-page);
 }
 
 
@@ -481,31 +481,31 @@
     height: 52px;
     margin: 16px;
     padding: 0 15px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 6px;
-    color: #fbfbfb;
-    background: #1e1f22;
+    color: var(--app-text-strong);
+    background: var(--app-page);
     font-size: 16px;
 }
 
 .teacherSearch::placeholder {
-    color: #b5bac1;
+    color: var(--app-text-muted);
     opacity: 1;
 }
 
 .teacherSearch:hover,
 .teacherSearch:focus {
-    border-color: #5865f2;
-    color: #fbfbfb;
-    background: #1e1f22;
+    border-color: var(--app-accent);
+    color: var(--app-text-strong);
+    background: var(--app-page);
 }
 
 .messageComposer > button {
     min-width: 82px;
     border: 0;
     border-radius: 6px;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font: inherit;
     font-size: 14px;
     font-weight: 700;
@@ -514,7 +514,7 @@
 }
 
 .messageComposer > button:hover {
-    background: #4752c4;
+    background: var(--app-accent-hover);
 }
 
 .teacherSearch {
@@ -534,4 +534,16 @@
 
 .teacherSearch::placeholder {
     font-size: 18px;
+}
+
+
+
+
+:global(.light-theme) .conversationHeader {
+    background: #ffffff !important;
+}
+
+:global(.light-theme) .message,
+:global(.light-theme) .messageMine {
+    background: #ffffff !important;
 }

@@ -1,4 +1,4 @@
-.page {
+﻿.page {
     min-height: 100vh;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(420px, 520px);
@@ -6,7 +6,7 @@
     align-items: center;
     padding: 56px 8vw;
     box-sizing: border-box;
-    background: linear-gradient(135deg, #f8fbff 0%, #eef5ff 52%, #ffffff 100%);
+    background: linear-gradient(135deg, var(--app-surface-light) 0%, var(--app-surface-light-alt) 52%, var(--app-text-inverse) 100%);
 }
 
 .introduction {
@@ -20,8 +20,8 @@
     place-items: center;
     margin-bottom: 28px;
     border-radius: 16px;
-    color: #ffffff;
-    background: #2457a6;
+    color: var(--app-text-inverse);
+    background: var(--app-text-blue);
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -29,7 +29,7 @@
 
 .eyebrow {
     margin-bottom: 14px !important;
-    color: #2457a6;
+    color: var(--app-text-blue);
     font-size: 18px !important;
     font-weight: 700 !important;
     letter-spacing: 0.04em !important;
@@ -37,7 +37,7 @@
 
 .title {
     margin-bottom: 22px !important;
-    color: #102a43;
+    color: var(--app-text-deep);
     font-size: clamp(42px, 5vw, 68px) !important;
     font-weight: 700 !important;
     line-height: 1.08 !important;
@@ -46,14 +46,14 @@
 
 .description {
     max-width: 480px;
-    color: #526779;
+    color: var(--app-text-label);
     font-size: 19px !important;
     line-height: 1.65 !important;
 }
 
 .authCard {
     width: 100%;
-    border: 1px solid #dce7f2;
+    border: 1px solid var(--app-border-soft);
     border-radius: 24px !important;
     background: rgba(255, 255, 255, 0.96) !important;
     box-shadow: 0 24px 60px rgba(34, 69, 107, 0.14) !important;
@@ -71,7 +71,7 @@
     grid-template-columns: 1fr 1fr;
     padding: 4px;
     border-radius: 12px;
-    background: #eef4fb;
+    background: var(--app-surface-light-alt);
 }
 
 .switchButton,
@@ -83,11 +83,11 @@
 }
 
 .switchButton {
-    color: #526779 !important;
+    color: var(--app-text-label) !important;
 }
 
 .activeButton {
-    background: #2457a6 !important;
+    background: var(--app-text-blue) !important;
 }
 
 .form {
@@ -98,13 +98,13 @@
 
 .formTitle {
     margin-bottom: 7px !important;
-    color: #102a43;
+    color: var(--app-text-deep);
     font-size: 27px !important;
     font-weight: 700 !important;
 }
 
 .formDescription {
-    color: #6b7c8f;
+    color: var(--app-text-blue-gray-dark);
     font-size: 14px !important;
     line-height: 1.5 !important;
 }
@@ -129,24 +129,24 @@
     position: absolute !important;
     right: 7px;
     min-width: 48px !important;
-    color: #2457a6 !important;
+    color: var(--app-text-blue) !important;
     text-transform: none !important;
 }
 
 .remember {
     width: fit-content;
     margin: -8px 0 0 !important;
-    color: #526779;
+    color: var(--app-text-label);
 }
 
 .forgotButton {
     align-self: center;
-    color: #2457a6 !important;
+    color: var(--app-text-blue) !important;
     text-transform: none !important;
 }
 
 .futureNote {
-    color: #7b8b9b;
+    color: var(--app-text-subtle);
     font-size: 12px !important;
     line-height: 1.5 !important;
     text-align: center;
@@ -159,14 +159,14 @@
 
 .childCard {
     padding: 16px;
-    border: 1px solid #dce7f2;
+    border: 1px solid var(--app-border-soft);
     border-radius: 14px;
-    background: #f8fbff;
+    background: var(--app-surface-light);
 }
 
 .childTitle {
     margin-bottom: 8px !important;
-    color: #102a43;
+    color: var(--app-text-deep);
     font-weight: 700 !important;
 }
 
@@ -216,13 +216,13 @@
     display: grid;
     place-items: center;
     padding: 48px 24px;
-    background: linear-gradient(135deg, #f8fbff 0%, #eef5ff 52%, #ffffff 100%);
+    background: linear-gradient(135deg, var(--app-surface-light) 0%, var(--app-surface-light-alt) 52%, var(--app-text-inverse) 100%);
 }
 
 .landingContent {
     width: min(100%, 720px);
     padding: 64px;
-    border: 1px solid #dce7f2;
+    border: 1px solid var(--app-border-soft);
     border-radius: 28px;
     background: rgba(255, 255, 255, 0.96);
     box-shadow: 0 24px 60px rgba(34, 69, 107, 0.14);
@@ -235,7 +235,7 @@
 
 .landingTitle {
     margin-bottom: 22px !important;
-    color: #102a43;
+    color: var(--app-text-deep);
     font-size: clamp(42px, 6vw, 72px) !important;
     font-weight: 700 !important;
     line-height: 1.08 !important;
@@ -245,7 +245,7 @@
 .landingDescription {
     max-width: 540px;
     margin: 0 auto 32px !important;
-    color: #526779;
+    color: var(--app-text-label);
     font-size: 18px !important;
     line-height: 1.65 !important;
 }
@@ -288,7 +288,7 @@
 }
 
 .childSetupLabel {
-    color: #526779;
+    color: var(--app-text-label);
     font-size: 14px !important;
     font-weight: 600 !important;
 }
@@ -383,13 +383,13 @@
 
 .childNameField .MuiInputBase-input {
     padding: 2px 0;
-    color: #102a43;
+    color: var(--app-text-deep);
     font-size: 16px;
     font-weight: 700;
 }
 
 .childCardHeader .MuiButton-root:disabled {
-    color: #aeb9c4;
+    color: var(--app-text-muted);
 }
 
 
@@ -411,3 +411,6 @@
     display: inline-flex;
     gap: 2px;
 }
+
+
+

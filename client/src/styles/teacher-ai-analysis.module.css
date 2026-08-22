@@ -1,12 +1,12 @@
-.aiPage {
+﻿.aiPage {
     display: flex;
     min-width: 0;
     min-height: 100%;
     flex-direction: column;
     overflow: auto;
     padding: 28px 30px 36px;
-    color: #f2f3f5;
-    background: #1e1f22;
+    color: var(--app-text);
+    background: var(--app-page);
 }
 
 .workspace {
@@ -20,9 +20,9 @@
 .controlPanel,
 .answerPanel {
     min-width: 0;
-    border: 1px solid #3f4147;
+    border: 1px solid var(--app-border);
     border-radius: 8px;
-    background: #2b2d31;
+    background: var(--app-surface);
 }
 
 .controlPanel {
@@ -33,7 +33,7 @@
 }
 
 .eyebrow {
-    color: #8ea1f2;
+    color: var(--app-text-accent-strong);
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -41,14 +41,14 @@
 
 .controlPanel h1 {
     margin: -5px 0 0;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 28px;
     line-height: 1.15;
 }
 
 .controlIntro {
     margin: -8px 0 0;
-    color: #b5bac1;
+    color: var(--app-text-muted);
     font-size: 16px;
     line-height: 1.55;
 }
@@ -58,19 +58,19 @@
     flex-direction: column;
     gap: 5px;
     padding: 14px;
-    border-left: 3px solid #5865f2;
-    background: #313338;
+    border-left: 3px solid var(--app-accent);
+    background: var(--app-surface-raised);
 }
 
 .contextLine span,
 .controlLabel {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 14px;
     font-weight: 700;
 }
 
 .contextLine strong {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 18px;
 }
 
@@ -92,10 +92,10 @@
     min-height: 42px;
     flex: 1;
     padding: 0 12px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 6px;
-    color: #b5bac1;
-    background: #1e1f22;
+    color: var(--app-text-muted);
+    background: var(--app-page);
     font: inherit;
     font-size: 15px;
     cursor: pointer;
@@ -105,16 +105,16 @@
 .activeMode,
 .sourceList button:hover,
 .activeSource {
-    border-color: #5865f2 !important;
-    color: #ffffff !important;
-    background: #404249 !important;
+    border-color: var(--app-accent) !important;
+    color: var(--app-text-inverse) !important;
+    background: var(--app-surface-soft) !important;
 }
 
 .studentSelect {
     display: flex;
     flex-direction: column;
     gap: 9px;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 14px;
     font-weight: 700;
 }
@@ -123,11 +123,11 @@
     width: 100%;
     min-height: 46px;
     padding: 0 12px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 6px;
     outline: none;
-    color: #ffffff;
-    background: #1e1f22;
+    color: var(--app-text-inverse);
+    background: var(--app-page);
     font: inherit;
     font-size: 16px;
 }
@@ -137,8 +137,8 @@
     margin-top: auto;
     border: 0;
     border-radius: 6px;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font: inherit;
     font-size: 16px;
     font-weight: 700;
@@ -146,11 +146,11 @@
 }
 
 .analyzeButton:hover {
-    background: #4752c4;
+    background: var(--app-accent-hover);
 }
 
 .controlNote {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 13px;
     line-height: 1.45;
 }
@@ -162,7 +162,7 @@
     flex-direction: column;
     padding: 32px;
     overflow: hidden;
-    background: #313338;
+    background: var(--app-surface-raised);
 }
 
 .answerPanel::before {
@@ -172,7 +172,7 @@
     width: 54px;
     height: 5px;
     border-radius: 0 0 4px 4px;
-    background: #5865f2;
+    background: var(--app-accent);
     content: "";
 }
 
@@ -185,21 +185,21 @@
 
 .answerHeader h2 {
     margin: 9px 0 5px;
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 34px;
 }
 
 .answerHeader p {
     margin: 0;
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 15px;
 }
 
 .status {
     padding: 8px 11px;
     border-radius: 999px;
-    color: #b5c2ff;
-    background: #404249;
+    color: var(--app-text-accent);
+    background: var(--app-surface-soft);
     font-size: 14px;
     font-weight: 700;
     white-space: nowrap;
@@ -213,7 +213,7 @@
 .answerLabel,
 .recommendation span,
 .followUp span {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 16px;
     font-weight: 800;
     text-transform: uppercase;
@@ -221,7 +221,7 @@
 
 .answerContent p {
     margin: 14px 0 0;
-    color: #dbdee1;
+    color: var(--app-text-soft);
     font-size: 21px;
     line-height: 1.7;
 }
@@ -239,29 +239,29 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 14px;
-    border: 1px solid #4f545c;
-    background: #2b2d31;
+    border: 1px solid var(--app-border-strong);
+    background: var(--app-surface);
 }
 
 .answerDetails span {
-    color: #949ba4;
+    color: var(--app-text-subtle);
     font-size: 14px;
 }
 
 .answerDetails strong {
-    color: #ffffff;
+    color: var(--app-text-inverse);
     font-size: 28px;
 }
 
 .recommendation {
     margin-top: auto;
     padding: 17px;
-    border-left: 3px solid #3ba55d;
-    background: #2b2d31;
+    border-left: 3px solid var(--app-positive);
+    background: var(--app-surface);
 }
 
 .recommendation span {
-    color: #3ba55d;
+    color: var(--app-positive);
     font-size: 14px;
     letter-spacing: 0.08em;
 }
@@ -269,7 +269,7 @@
 .recommendation p,
 .followUp p {
     margin: 9px 0 0;
-    color: #dbdee1;
+    color: var(--app-text-soft);
     font-size: 16px;
     line-height: 1.55;
 }
@@ -285,25 +285,25 @@
     height: 48px;
     flex: 1;
     padding: 0 14px;
-    border: 1px solid #4f545c;
+    border: 1px solid var(--app-border-strong);
     border-radius: 6px;
     outline: none;
-    color: #ffffff;
-    background: #1e1f22;
+    color: var(--app-text-inverse);
+    background: var(--app-page);
     font: inherit;
     font-size: 16px;
 }
 
 .questionForm input:focus {
-    border-color: #5865f2;
+    border-color: var(--app-accent);
 }
 
 .questionForm button {
     min-width: 76px;
     border: 0;
     border-radius: 6px;
-    color: #ffffff;
-    background: #5865f2;
+    color: var(--app-text-inverse);
+    background: var(--app-accent);
     font: inherit;
     font-size: 15px;
     font-weight: 700;
@@ -311,18 +311,18 @@
 }
 
 .questionForm button:hover {
-    background: #4752c4;
+    background: var(--app-accent-hover);
 }
 
 .followUp {
     margin-top: 18px;
     padding: 14px 16px;
-    border: 1px solid #5865f2;
-    background: #2b2d31;
+    border: 1px solid var(--app-accent);
+    background: var(--app-surface);
 }
 
 .followUp span {
-    color: #b5c2ff;
+    color: var(--app-text-accent);
     font-size: 13px;
 }
 
@@ -362,3 +362,6 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+
+

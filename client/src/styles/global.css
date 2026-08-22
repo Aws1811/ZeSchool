@@ -3,20 +3,165 @@
 }
 
 :root {
+    --app-page: #1e1f22;
+    --app-surface: #2b2d31;
+    --app-surface-raised: #313338;
+    --app-surface-soft: #404249;
+    --app-surface-hover: #35373c;
+    --app-border: #3f4147;
+    --app-border-strong: #4f545c;
+    --app-divider: #111214;
+    --app-text: #f2f3f5;
+    --app-text-muted: #b5bac1;
+    --app-text-subtle: #949ba4;
+    --app-text-accent: #b5c2ff;
+    --app-text-inverse: #ffffff;
+    --app-accent: #5865f2;
+    --app-accent-hover: #4752c4;
+    --app-accent-soft: #404249;
+    --app-positive: #3ba55d;
+    --app-warning: #faa61a;
+    --app-danger: #ed4245;
+    --app-input: #1e1f22;
+    --app-conversation-header: #2b2d31;
+    --app-message-list: #1e1f22;
+    --app-message-surface: #313338;
+    --app-message-mine: #404249;
+    --app-surface-deep: #232428;
+    --app-surface-deep-alt: #24282e;
+    --app-surface-soft-alt: #3a3c43;
+    --app-input-muted: #6e737d;
+    --app-avatar: #e8f2f8;
+    --app-text-strong: #fbfbfb;
+    --app-text-soft: #dbdee1;
+    --app-text-deep: #102a43;
+    --app-text-blue: #2457a6;
+    --app-border-soft: #dce7f2;
+    --app-danger-strong: #c44f5c;
+    --app-danger-soft: #2f2024;
+    --app-positive-bright: #57f287;
+    --app-positive-soft: #244d38;
+    --app-warning-bright: #f2b84b;
+    --app-notice: #e8f1ff;
+    --app-notice-text: #24436e;
+    --app-text-label: #526779;
+    --app-text-accent-strong: #8ea1f2;
+    --app-text-dim: #646a73;
+    --app-text-deepest: #17191c;
+    --app-border-light: #d6dbe1;
+    --app-border-dark: #45474e;
+    --app-surface-light: #f8fbff;
+    --app-surface-light-alt: #eef5ff;
+    --app-accent-light: #d9e0ff;
+    --app-accent-dark: #4d5dd1;
+    --app-status-muted: #747f8d;
+    --app-status-soft: #9bb6a5;
+    --app-text-gray: #59616b;
+    --app-border-light-alt: #dfe3e8;
+    --app-surface-gray: #f4f5f7;
+    --app-text-gray-dark: #1f2328;
+    --app-text-blue-gray: #75889b;
+    --app-border-blue: #b9c9d8;
+    --app-text-blue-gray-dark: #6b7c8f;
+    --app-surface-calendar: #3a3c43;
+    --app-status-offline: #72767d;
+    --app-text-avatar: #d8e4ec;
+    --app-text-report: #20242a;
+    --app-text-report-muted: #707984;
+    --app-border-report: #454c55;
+    --app-avatar-border: #000000;
     font-family: system-ui, sans-serif;
-    color: #102a43;
-    background: #f8fbff;
+    color: var(--app-text);
+    background: var(--app-page);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+.light-theme {
+    --app-page: #f4f7fb;
+    --app-surface: #ffffff;
+    --app-surface-raised: #ffffff;
+    --app-surface-soft: #e8efff;
+    --app-surface-hover: #eef3ff;
+    --app-border: #dce5ee;
+    --app-border-strong: #cbd8e5;
+    --app-divider: #dce5ee;
+    --app-text: #26364a;
+    --app-text-muted: #64788f;
+    --app-text-subtle: #8b9bad;
+    --app-text-accent: #3853a8;
+    --app-text-inverse: #ffffff;
+    --app-accent: #5865f2;
+    --app-accent-hover: #4754d8;
+    --app-accent-soft: #e8efff;
+    --app-positive: #3ba55d;
+    --app-warning: #c77d00;
+    --app-danger: #d04450;
+    --app-input: #ffffff;
+    --app-conversation-header: #ffffff;
+    --app-message-list: #f4f7fb;
+    --app-message-surface: transparent;
+    --app-message-mine: transparent;
+    --app-surface-deep: #ffffff;
+    --app-surface-deep-alt: #f4f7fb;
+    --app-surface-soft-alt: #eef3ff;
+    --app-input-muted: #ffffff;
+    --app-avatar: #eef4fb;
+    --app-text-strong: #26364a;
+    --app-text-soft: #26364a;
+    --app-text-deep: #26364a;
+    --app-text-blue: #2b73c6;
+    --app-border-soft: #dce5ee;
+    --app-danger-strong: #d04450;
+    --app-danger-soft: #fff0f1;
+    --app-positive-bright: #3ba55d;
+    --app-positive-soft: #edf9f2;
+    --app-warning-bright: #c77d00;
+    --app-notice: #e8f1ff;
+    --app-notice-text: #24436e;
+    --app-text-label: #64788f;
+    --app-text-accent-strong: #3853a8;
+    --app-text-dim: #64788f;
+    --app-text-deepest: #26364a;
+    --app-border-light: #d6e0eb;
+    --app-border-dark: #cbd8e5;
+    --app-surface-light: #f8fafc;
+    --app-surface-light-alt: #eef3ff;
+    --app-accent-light: #e8efff;
+    --app-accent-dark: #4754d8;
+    --app-status-muted: #8b9bad;
+    --app-status-soft: #9bb6a5;
+    --app-text-gray: #64788f;
+    --app-border-light-alt: #dfe3e8;
+    --app-surface-gray: #f4f7fb;
+    --app-text-gray-dark: #26364a;
+    --app-text-blue-gray: #75889b;
+    --app-border-blue: #b9c9d8;
+    --app-text-blue-gray-dark: #6b7c8f;
+    --app-surface-calendar: #eef3ff;
+    --app-status-offline: #8b9bad;
+    --app-text-avatar: #26364a;
+    --app-text-report: #26364a;
+    --app-text-report-muted: #64788f;
+    --app-border-report: #cbd8e5;
+    --app-avatar-border: #d6e0eb;
+}
+
+html,
+body,
+#root {
     min-width: 320px;
-    min-height: 100vh;
+    min-height: 100%;
     margin: 0;
+}
+
+body {
+    min-height: 100vh;
     font-family: system-ui, sans-serif;
+    color: var(--app-text);
+    background: var(--app-page);
 }
 
 button,
@@ -24,4 +169,120 @@ input,
 textarea,
 select {
     font: inherit;
+}
+
+input,
+textarea,
+select {
+    color: var(--app-text);
+    background: var(--app-input);
+    border-color: var(--app-border-strong);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--app-text-subtle);
+}
+
+.theme-toggle {
+    display: inline-grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--app-border-strong);
+    border-radius: 11px;
+    color: var(--app-text);
+    background: var(--app-surface);
+    cursor: pointer;
+    transition: color 160ms ease, background 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.theme-toggle:hover {
+    color: var(--app-text-inverse);
+    background: var(--app-surface-hover);
+    border-color: var(--app-accent);
+    transform: translateY(-1px);
+}
+
+.theme-toggle:focus-visible {
+    outline: 3px solid rgba(88, 101, 242, 0.35);
+    outline-offset: 2px;
+}
+
+.light-theme .theme-toggle:hover {
+    color: var(--app-text);
+}
+
+.light-theme [class*="conversationTitle"],
+.light-theme [class*="conversationSubtitle"],
+.light-theme [class*="messageSender"],
+.light-theme [class*="messageText"],
+.light-theme [class*="messageTime"] {
+    color: var(--app-text) !important;
+}
+
+.light-theme [class*="messageList"] {
+    background: var(--app-message-list) !important;
+}
+
+.light-theme [class*="messageList"] * {
+    background: transparent !important;
+}
+
+.light-theme [class*="conversationHeader"] {
+    background: var(--app-conversation-header) !important;
+}
+
+.light-theme [class*="messageComposer"],
+.light-theme [class*="chatBody"],
+.light-theme [class*="conversation"] {
+    background: transparent !important;
+}
+
+.light-theme [class*="messageInput"] {
+    background: var(--app-input) !important;
+}
+
+.light-theme [class*="messageMine"] [class*="messageText"],
+.light-theme [class*="messageMine"] [class*="messageTime"] {
+    color: var(--app-text) !important;
+}
+
+.light-theme [class*="gradesPage"] h1,
+.light-theme [class*="gradesPage"] h2,
+.light-theme [class*="gradesPage"] h3,
+.light-theme [class*="gradesPage"] strong,
+.light-theme [class*="gradesPage"] [class*="studentName"] {
+    color: var(--app-text) !important;
+}
+
+.light-theme [class*="aiPage"] h1,
+.light-theme [class*="aiPage"] h2,
+.light-theme [class*="aiPage"] h3,
+.light-theme [class*="aiPage"] strong,
+.light-theme [class*="teacherAiPage"] h1,
+.light-theme [class*="teacherAiPage"] h2,
+.light-theme [class*="teacherAiPage"] h3,
+.light-theme [class*="teacherAiPage"] strong,
+.light-theme [class*="reportTopline"] h2,
+.light-theme [class*="answerHeader"] h2,
+.light-theme [class*="answerDetails"] strong {
+    color: var(--app-text) !important;
+}
+
+.light-theme [class*="reportsPage"] h1,
+.light-theme [class*="reportsPage"] h2,
+.light-theme [class*="reportsPage"] h3,
+.light-theme [class*="reportsPage"] strong {
+    color: var(--app-text) !important;
+}
+
+.light-theme [class*="primaryButton"],
+.light-theme [class*="primaryAction"],
+.light-theme [class*="analyzeButton"],
+.light-theme [class*="questionForm"] button,
+.light-theme [class*="selectedPage"],
+.light-theme [class*="selectedChild"] {
+    color: var(--app-text-inverse) !important;
 }
