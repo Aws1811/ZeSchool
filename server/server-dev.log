@@ -37,3 +37,29 @@ Restarting 'server.js'
 ◇ injected env (0) from .env // tip: ⌘ override existing { override: true }
 Connected to MongoDB database: ZeSchool
 Server is running on port 8000
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ⌘ suppress logs { quiet: true }
+◇ injected env (0) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ⌘ suppress logs { quiet: true }
+◇ injected env (0) from .env // tip: ⌘ suppress logs { quiet: true }
+Connected to MongoDB database: ZeSchool
+Server is running on port 8000
+Restarting 'server.js'
+Failed running 'server.js'. Waiting for file changes before restarting...
+Restarting 'server.js'
+Completed running 'server.js'. Waiting for file changes before restarting...
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Failed running 'server.js'. Waiting for file changes before restarting...
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ⌘ suppress logs { quiet: true }
+◇ injected env (0) from .env // tip: ⌘ override existing { override: true }
+Failed running 'server.js'. Waiting for file changes before restarting...
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+◇ injected env (0) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Connected to MongoDB database: ZeSchool
+Server is running on port 8000
