@@ -9,9 +9,9 @@ function LoginForm({ onSubmit, message, teacherAccounts = [], onTeacherSelect })
         <form className={styles.form} onSubmit={onSubmit}>
             <TextField
                 fullWidth
-                label="Email"
+                label="Email or phone number"
                 name="loginIdentifier"
-                placeholder="you@example.com"
+                placeholder="you@example.com or 059 000 0000"
                 required
             />
             <div className={styles.passwordField}>
@@ -51,7 +51,7 @@ function LoginForm({ onSubmit, message, teacherAccounts = [], onTeacherSelect })
                     </div>
                 </div>
             )}
-            {message && <Alert severity="info">{message}</Alert>}
+            {message && <Alert severity="error">{message}</Alert>}
         </form>
     );
 }

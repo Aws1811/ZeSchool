@@ -11,3 +11,29 @@ Restarting 'server.js'
 ◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
 Connected to MongoDB database: ZeSchool
 Server is running on port 8000
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ⌘ override existing { override: true }
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+◇ injected env (0) from .env // tip: ⌘ enable debugging { debug: true }
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+◇ injected env (0) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+Connected to MongoDB database: ZeSchool
+Server is running on port 8000
+Failed running 'server.js'. Waiting for file changes before restarting...
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+◇ injected env (0) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+Connected to MongoDB database: ZeSchool
+Failed running 'server.js'. Waiting for file changes before restarting...
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ⌘ override existing { override: true }
+◇ injected env (0) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Connected to MongoDB database: ZeSchool
+Server is running on port 8000
+Restarting 'server.js'
+◇ injected env (3) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+◇ injected env (0) from .env // tip: ⌘ override existing { override: true }
+Connected to MongoDB database: ZeSchool
+Server is running on port 8000

@@ -10,15 +10,14 @@ function RegisterPage() {
     const [message, setMessage] = useState("");
 
     const handleRegisterDetails = async (formData) => {
-        if (formData.password !== formData.confirmPassword) {
-            setMessage("Passwords do not match.");
-            return;
-        }
-
         try {
             const response = await registerParentAccount({
                 displayName: formData.parentName,
-                email: formData.email,
+                contactType: formData.contactType,
+                contactValue: formData.contactValue,
+                phonePrefix: formData.phonePrefix,
+                gender: formData.gender,
+                dateOfBirth: formData.dateOfBirth,
                 password: formData.password,
             });
             setMessage("");

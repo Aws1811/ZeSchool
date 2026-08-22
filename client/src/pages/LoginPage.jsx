@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Alert } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import AuthLayout from "../components/AuthLayout";
 import LoginForm from "../components/LoginForm";
@@ -43,7 +42,6 @@ function LoginPage() {
             activeView="login"
             title="Welcome back"
             description="Log in as a parent or choose one of the predefined teacher accounts."
-            message={message && <Alert severity="error">{message}</Alert>}
         >
             <LoginForm
                 onSubmit={handleLogin}

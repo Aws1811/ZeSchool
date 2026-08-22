@@ -13,6 +13,26 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true,
+            minlength: 2,
+        },
+        contactType: {
+            type: String,
+            enum: ["email", "phone"],
+        },
+        contactValue: {
+            type: String,
+            trim: true,
+        },
+        phonePrefix: {
+            type: String,
+            trim: true,
+        },
+        gender: {
+            type: String,
+            enum: ["male", "female", "prefer-not-to-say"],
+        },
+        dateOfBirth: {
+            type: Date,
         },
         passwordHash: {
             type: String,
