@@ -21,7 +21,7 @@
     overflow: hidden; border: 1px solid var(--line); border-radius: 26px; background: white;
     box-shadow: 0 24px 70px rgba(20,42,54,.11); transform: rotate(1deg);
 }
-.previewTop { display: flex; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid var(--line); color: var(--navy); font-weight: 700; font-size: 13px; }
+.previewTop { display: flex; justify-content: space-between; padding: 18px 20px; border-bottom: 1px solid var(--line); color: var(--navy); font-weight: 701; font-size: 13px; }
 .previewBody { min-height: 390px; display: grid; grid-template-columns: 150px 1fr; }
 .previewSidebar { padding: 20px 16px; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: 16px; color: #6b7b84; font-size: 13px; }
 .previewSidebar strong { color: var(--navy); background: var(--soft); padding: 9px 10px; margin: -9px -10px 0; border-radius: 10px; }
