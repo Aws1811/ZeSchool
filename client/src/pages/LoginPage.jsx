@@ -4,7 +4,7 @@ import { useState } from "react";
 import AuthLayout from "../components/AuthLayout";
 import LoginForm from "../components/LoginForm";
 import styles from "../styles/form.module.css";
-//for login
+
 function LoginPage() {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
