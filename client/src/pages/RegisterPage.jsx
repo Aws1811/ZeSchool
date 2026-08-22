@@ -21,7 +21,7 @@ function RegisterPage() {
 
         navigate("/register/children", { state: { registrationData: formData } });
     };
-//reg
+//register
     return (
         <AuthLayout
             activeView="register"
