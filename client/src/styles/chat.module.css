@@ -206,7 +206,7 @@
     flex: 0 0 auto;
     color: #949ba4;
     font-size: 11px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .selectedTeacher .teacherButtonName,
@@ -230,7 +230,7 @@
     color: #ffffff;
     background: #5865f2;
     font-size: 14px;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .noTeachers {
@@ -268,7 +268,7 @@
     overflow: hidden;
     color: #ffffff;
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 700;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
