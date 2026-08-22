@@ -15,7 +15,7 @@ function LoginPage() {
       "Backend authentication is not connected yet. Use a preview button below.",
     );
   };
-  // the  alert for the massege
+  
   return (
     <AuthLayout
       activeView="login"
