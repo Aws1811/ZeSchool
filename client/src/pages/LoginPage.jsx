@@ -13,13 +13,14 @@ function LoginPage() {
         event.preventDefault();
         setMessage("Backend authentication is not connected yet. Use a preview button below.");
     };
-
+// the  alert for the massege
     return (
         <AuthLayout
             activeView="login"
             title="Welcome back"
             description="Enter your account information to continue."
         >
+            
             <LoginForm onSubmit={handleLogin} />
             {message && <Alert severity="info">{message}</Alert>}
             <div className={styles.previewButtons}>
@@ -29,5 +30,6 @@ function LoginPage() {
         </AuthLayout>
     );
 }
+
 
 export default LoginPage;
